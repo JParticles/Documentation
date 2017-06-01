@@ -1,25 +1,15 @@
 import React, {Component} from 'react';
-import {language, isMobile} from 'store';
-import {createEffect, throttle, clearThrottle} from 'js/create_effect';
+import {isMobile} from 'store';
+import {createEffect} from 'js/create_effect';
+import Base from './base';
 
-export default class Particle extends Component {
-    constructor() {
-        super();
-        const content = require(`language/${language.language}/md/examples/particle.md`);
-        if (this.content = remarkable.render(content)) {
-            this.content = this.content
-                .replace(/(<a href=".*?")>/g, '$1 target="_blank">')
-                .replace(/(<pre)>/g, '$1 class="prettyprint">');
-        }
-    }
-
-    componentDidMount() {
-        prettyPrint();
-
+export default class Particle extends Base {
+    beforeComponentDidMount() {
         let settings = {
             proximity: 90,
             range: 100
         };
+
         if (isMobile()) {
             settings.proximity = 30;
         }
@@ -47,21 +37,5 @@ export default class Particle extends Component {
                 maxSpeed: 3
             });
         });
-
-        throttle();
-    }
-
-    componentWillUnmount() {
-        clearThrottle();
-    }
-
-    render() {
-        return (
-            <div className="particle"
-                 dangerouslySetInnerHTML={{
-                    __html: this.content
-                 }}>
-            </div>
-        )
     }
 }

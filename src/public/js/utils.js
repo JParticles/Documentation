@@ -4,7 +4,7 @@ const $ = {
     checkInView(elem) {
         const $ = jQuery;
         const elemTop = $(elem).offset().top;
-        const elemHeight = $(elem).outerHeight() / 2;
+        const elemHeight = $(elem).outerHeight();
         const winTop = $(window).scrollTop();
         const winHeight = $(window).height();
 
