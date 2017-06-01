@@ -1,0 +1,77 @@
+.page-examples {
+    .main {
+        padding-left: rem(300);
+        > .content {
+            a {
+                @extend .dotted-line;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+            [class^="instance"]:not(.instance-ctrl) {
+                margin-bottom: rem(20);
+                position: relative;
+                overflow: hidden;
+                &:not(:first-child) {
+                    margin-top: rem(30);
+                }
+                &:hover {
+                    .ctrl {
+                        display: block;
+                        animation: slideInLeft .4s cubic-bezier(0.11, 0.34, 0.38, 1.24);
+                    }
+                }
+                .demo {
+                    height: rem(440);
+                    border: 1px solid $gray-border;
+                }
+                .ctrl {
+                    display: none;
+                    position: absolute;
+                    left: rem(20);
+                    top: rem(20);
+                    .btn {
+                        padding: rem(8) rem(12);
+                        line-height: 1;
+                        &:not(:last-child) {
+                            margin-right: rem(10);
+                        }
+                    }
+                }
+            }
+            .instance-ctrl {
+                padding: rem(20) 0;
+                .btn {
+                    padding: rem(8) rem(12);
+                    &:not(:last-child) {
+                        margin-right: rem(10);
+                    }
+                }
+            }
+            .quick-start {
+                .instance {
+                    .demo {
+                        max-width: rem(400);
+                        height: rem(250);
+                    }
+                }
+                .instance-ctrl {
+                    padding-top: rem(4);
+                    .btn {
+                        padding: rem(6) rem(8);
+                        font-size: rem(10);
+                    }
+                }
+            }
+            .snow {
+                &.instance {
+                    height: rem(550);
+                    background: url("../img/merry_christmas.jpg") 0 0 no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
+}

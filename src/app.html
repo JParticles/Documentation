@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="keywords" content="JParticles,particle effects,canvas特效,粒子运动特效">
+    <meta name="description" content="JParticles（JavaScript particles的缩写）是一款基于 Canvas 的不依赖于其他库的轻量级 JavaScript 粒子运动特效插件库。">
+    <title>JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效插件库。</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        #loading-layer {
+            background-color: #fff;
+            position: absolute;
+            z-index: 999;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        #loading-container {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ececec;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <div id="app"></div>
+    <div id="loading-layer">
+        <div id="loading-container"></div>
+    </div>
+</body>
+</html>

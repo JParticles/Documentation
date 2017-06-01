@@ -1,0 +1,21 @@
+// root elements
+#app,
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+// common body
+.com-body {
+    padding: rem(40) $page-left-right;
+}
+
+// page loading
+#loading-layer {
+    &.zoomout {
+        transition: .6s;
+        transform: scale(2);
+        opacity: 0;
+        display: none;
+    }
+}

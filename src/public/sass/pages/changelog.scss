@@ -1,0 +1,10 @@
+.page-changelog {
+    > .com-body {
+        text-align: center;
+        > .inner {
+            display: inline-block;
+            max-width: rem(720);
+            text-align: justify;
+        }
+    }
+}
