@@ -40,17 +40,17 @@ export default class Header extends Component {
                 if (router.hasLanguage || language.language != 'cn') {
                     item.href = item.href.replace(/(\/)(.*)/i, `$1${language.language}/$2`);
                 }
-            }
 
-            // active navigation
-            if (/\/examples\/?/.test(router.path) && /\/examples\/?/.test(item.href)) {
-                item.className = 'active';
-            } else {
-                item.className = item.href == router.fullPath ? 'active' : '';
-            }
+                // active navigation
+                if (/\/examples\/?/.test(router.path) && /\/examples\/?/.test(item.href)) {
+                    item.className = 'active';
+                } else {
+                    item.className = item.href == router.fullPath ? 'active' : '';
+                }
 
-            // assign "#" to href
-            item.href = '#' + item.href;
+                // assign "#" to href
+                item.href = '#' + item.href;
+            }
 
             // showing text
             const lang = language.header[i];
