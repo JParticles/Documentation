@@ -66,10 +66,14 @@
                 }
             }
             .snow {
-                &.instance {
-                    height: rem(550);
-                    background: url("../img/merry_christmas.jpg") 0 0 no-repeat;
-                    background-size: 100% 100%;
+                .instance {
+                    .demo {
+                        height: rem(550);
+                        //background: url("/../src/public/img/merry_christmas.jpg") 0 0 no-repeat;
+                        //background: url("../../img/merry_christmas.jpg") 0 0 no-repeat;
+                        background: #333;
+                        background-size: 100% 100%;
+                    }
                 }
             }
         }

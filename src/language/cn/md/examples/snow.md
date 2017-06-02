@@ -1,55 +1,56 @@
-<div class="instance-1">
+<div class="instance">
     <div class="demo"></div>
 	<div class="ctrl">
-		<div class="btn btn-success open">开启</div>
-		<div class="btn btn-success pause">暂停</div>
+		<div class="btn open">开启</div>
+		<div class="btn pause">暂停</div>
 	</div>
 </div>
 
 查看源代码：
 
-	new JParticles.wave('#demo', {
-	    num: 3,
-	    // 三条线依次的颜色
-	    lineColor: ['rgba(0, 190, 112, .5)', 'rgba(0, 190, 112, .7)', 'rgba(0, 190, 112, .9)'],
-	    // 三条线依次的宽度
-	    lineWidth: [.5, .7, .9],
-	    // 三条线依次的向左偏移值
-	    offsetLeft: [2, 1, 0],
-	    // 三条线都向上偏移容器高度的0.75倍
-	    offsetTop: .75,
-	    // 三条线依次的波峰高度
-	    crestHeight: [10, 14, 18],
-	    // 三条线都只有两个波峰（波纹）
-	    rippleNum: 2,
-	    speed: .1,
-	    // 隐藏填充，默认false
-	    fill: false,
-	    // 显示边框，即线条效果，默认true
-	    stroke: true
-	});
+	new JParticles.snow('#demo');
 
-### 水切面：
-<div class="instance-2">
-    <div class="demo"></div>
-	<div class="ctrl">
-		<div class="btn btn-success open">开启</div>
-		<div class="btn btn-success pause">暂停</div>
-	</div>
-</div>
+### 默认参数及描述
 
-查看源代码：
-
-	new JParticles.wave('#demo-2', {
-	    num: 1,
-	    // 波纹填充的颜色
-	    fillColor: '#27C9E5',
-	    crestHeight: 8,
-	    offsetTop: .75,
-	    rippleNum: 3,
-	    speed: .07,
-	    // 显示填充，即波纹效果
-	    fill: true,
-	    // 隐藏边框
-	    stroke: false
-	});
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">名称</th>
+	        <th width="100">默认值</th>
+	        <th width="150">类型</th>
+	        <th width="450">描述</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>color</td>
+	        <td>#fff</td>
+	        <td>string 或 array</td>
+	        <td>雪花的颜色</td>
+	    </tr>
+	    <tr>
+	        <td>maxR</td>
+	        <td>6.5</td>
+	        <td>number</td>
+	        <td>雪花最大半径</td>
+	    </tr>
+	    <tr>
+	        <td>minR</td>
+	        <td>0.4</td>
+	        <td>number</td>
+	        <td>雪花最小半径</td>
+	    </tr>
+	    <tr>
+	        <td>maxSpeed</td>
+	        <td>0.6</td>
+	        <td>number</td>
+	        <td>雪花飘落最大运动速度</td>
+	    </tr>
+	    <tr>
+	        <td>minSpeed</td>
+	        <td>0.1</td>
+	        <td>number</td>
+	        <td>雪花飘落最小运动速度</td>
+	    </tr>
+    </tbody>
+</table>

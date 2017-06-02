@@ -7,7 +7,10 @@ const distPath = path.resolve('./docs');
 
 console.log('\x1b[33m%s\x1b[0m', `\n distPath: ${distPath} \n`);
 
-const extractStyles = new ExtractTextPlugin('styles/[name].[contenthash:8].css');
+const extractStyles = new ExtractTextPlugin({
+    filename: 'styles/[name].[contenthash:8].css',
+    allChunks: true
+});
 
 const chunks = [
     'pageLoading', 'react', 'react_router_dom',

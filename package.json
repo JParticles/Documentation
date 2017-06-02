@@ -49,5 +49,8 @@
   "bugs": {
     "url": "https://github.com/Barrior/JParticles/issues"
   },
-  "homepage": "https://jparticles.github.io/Documentation/index.html"
+  "homepage": [
+    "https://jparticles.github.io/Documentation",
+    "https://jparticles.js.org"
+  ]
 }
