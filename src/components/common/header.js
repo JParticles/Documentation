@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {language, dispatch, isMobile} from 'store';
+import {language, setLanguage, isMobile} from 'store';
 import languageList from 'language/list';
 import {parseRouter, createHash, splitPath} from 'js/parse_router';
 
@@ -129,10 +129,7 @@ export default class Header extends Component {
         if (language.language != lang.field) {
             const router = parseRouter();
             const LANGUAGE = require(`language/${lang.field}/${lang.field}`);
-            dispatch({
-                type: 'language',
-                value: LANGUAGE
-            });
+            setLanguage(LANGUAGE, lang.field);
             location.hash = createHash(lang.field, router.path);
         }
     }

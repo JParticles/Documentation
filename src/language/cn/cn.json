@@ -1,6 +1,7 @@
 {
     "language": "cn",
     "progressText": "正在加载...",
+    "title": "JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效插件库。",
     "header": ["首页", "实例及API", "GitHub", "QQ群", {
         "name": "更新日志",
         "title": "路漫漫其修远兮吾将上下而求索"

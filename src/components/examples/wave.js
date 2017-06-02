@@ -20,7 +20,7 @@ export default class Wave extends Base {
 
         // voice search
         createEffect('.instance-2', demoElem => {
-            return new JParticles.wave(demoElem, {
+            const effect = new JParticles.wave(demoElem, {
                 num: 3,
                 lineColor: ['rgba(0, 0, 0, .5)', 'rgba(0, 0, 0, .7)', 'rgba(0, 0, 0, .9)'],
                 lineWidth: [.7, .9, 1],
@@ -29,6 +29,7 @@ export default class Wave extends Base {
                 rippleNum: isMobile() ? 1 : 2,
                 speed: .1
             });
+            return effect;
         });
 
         // water wave

@@ -20,6 +20,14 @@ export default {
     isMobile() {
         return document.documentElement.clientWidth < 1024;
     },
+    setLanguage(language, languageField) {
+        dispatch({
+            type: 'language',
+            value: language
+        });
+        document.title = language.title;
+        document.getElementsByTagName('html')[0].lang = languageField == 'cn' ? 'zh-cn' : languageField;
+    },
     get languageList() {
         return languageList;
     },

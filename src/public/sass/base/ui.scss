@@ -312,3 +312,8 @@ $btn-type:  (primary, $btn-primary, $btn-primary-hover, $btn-primary-active),
     top: rem(-2);
     border-radius: rem(30);
 }
+
+// remove cnzz
+a[href*="www.cnzz.com/stat"] {
+    display: none;
+}

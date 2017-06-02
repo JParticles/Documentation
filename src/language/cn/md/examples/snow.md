@@ -1,8 +1,8 @@
 <div class="instance">
     <div class="demo"></div>
 	<div class="ctrl">
-		<div class="btn open">开启</div>
-		<div class="btn pause">暂停</div>
+		<div class="btn btn-default open">开启</div>
+		<div class="btn btn-default pause">暂停</div>
 	</div>
 </div>
 

@@ -1,6 +1,6 @@
 import JParticles from 'jparticles/production/jparticles';
 import 'jparticles/production/wave_loading';
-import {dispatch, themeColor, languageList} from 'store';
+import {setLanguage, themeColor, languageList} from 'store';
 
 // multiple language
 function getLanguage() {
@@ -21,13 +21,8 @@ function getLanguage() {
 // and assign to store.js file.
 const userLanguage = getLanguage();
 const LANGUAGE = require(`language/${userLanguage}/${userLanguage}`);
-dispatch({
-    type: 'language',
-    value: LANGUAGE
-});
+setLanguage(LANGUAGE, userLanguage);
 
-// Set language for HTML content.
-document.getElementsByTagName('html')[0].lang = userLanguage == 'cn' ? 'zh-cn' : userLanguage;
 const progressText = LANGUAGE['progressText'];
 
 const layer = document.getElementById('loading-layer');
@@ -63,4 +58,5 @@ function loadingDone() {
     loading.done();
     window.removeEventListener('load', loadingDone);
 }
+
 window.addEventListener('load', loadingDone);
