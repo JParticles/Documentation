@@ -19,7 +19,7 @@
     "examples": {
         "required": "Required",
         "menu": [
-            "Into", "Quick Start", "Particles Moving",
+            "Into", "Quick Start", "Particles movement",
             "Wave", "Wave Loading", "Snow"
         ]
     }
