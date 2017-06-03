@@ -70,21 +70,21 @@
 
     var effect = new JParticles.particle('#demo');
 
-    document.getElementById('open').onclick = function() {
+    document.getElementById('open').onclick = function () {
         // 开启运动
         effect.open();
     };
 
-    document.getElementById('pause').onclick = function() {
+    document.getElementById('pause').onclick = function () {
         // 暂停运动
         effect.pause();
     };
 
 
 ### 6、事件
-- 每个用实例化的对象都包含 `onDestroy()` 事件， 当 `Canvas` 元素从 `DOM` 树中被移除触发此事件。<br/>
+- 每个实例化的对象都包含 `onDestroy()` 事件， 当 `Canvas` 元素从 `DOM` 树中被移除触发此事件。<br/>
 - 所有特效的事件都支持链式操作。
-- 如无特别说明，每个事件方法都支持任意多个函数类型的参数，也支持任意多次调用，按顺序被执行，如下。
+- 如无特别说明，每个事件都支持任意多个函数类型的参数，也支持任意多次调用，按顺序被执行，如下。
 > 一般情况 `onDestroy()` 不会被用到，但它是生命周期的一部分，或许哪时需要用到。
 
 	effect
@@ -190,6 +190,55 @@
 	    resize: true
 	}
 
+### 8、easing 函数
+#### 1. 通过暴露的全局接口 `JParticles.easing` 可增加不同运动类型的效果，以下为示例。
+> 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的函数。<br>
+> 增加函数请参考：http://easings.net
+
+	// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
+	JParticles.utils.extend(JParticles.easing, {
+        easeOutBounce: function (x, t, b, c, d) {
+            if ((t/=d) < (1/2.75)) {
+                return c*(7.5625*t*t) + b;
+            } else if (t < (2/2.75)) {
+                return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+            } else if (t < (2.5/2.75)) {
+                return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+            } else {
+                return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+            }
+        }
+    });
+
+	// 或者
+	JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
+		return -c *(t/=d)*(t-2) + b;
+	};
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+        <tr>
+            <th width="300">当前已有的函数名称</th>
+            <th width="700">描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>linear</td>
+            <td>匀速运动</td>
+        </tr>
+        <tr>
+            <td>swing</td>
+            <td>等于 easeInOutQuad </td>
+        </tr>
+        <tr>
+            <td>easeInOutQuad</td>
+            <td>先慢慢加速再慢慢减速</td>
+        </tr>
+    </tbody>
+</table>
+
 #### 5、小提示：
 1. 修改默认配置应放在 `new` 之前。
 1. 每个 `JParticles` 插件的默认配置及示例请查看左侧的菜单。
+1. 更丰富但可能描述不详的演示，您还可以克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，在 `samples` 目录下看看。

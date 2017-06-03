@@ -33,12 +33,57 @@
 
 <div class="instance-2">
     <div class="demo"></div>
-	<div class="btn btn-default btn-block open">按住模拟语音搜索</div>
+	<div class="btn btn-default voice">按住模拟语音搜索</div>
 </div>
 
 查看源代码：
 
+	var settings = {
+        crestHeight: [10, 14, 18],
+        speed: .1
+    };
 
+	// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
+	var effect = new JParticles.wave('#demo-2', JParticles.utils.extend({
+        num: 3,
+        lineColor: ['#e53d27', '#42e527', '#27C9E5'],
+        lineWidth: [.7, .9, 1],
+        offsetTop: .65,
+        rippleNum: 2
+    }, settings));
+
+	// 波动效果
+	document.querySelector('.voice').onmousedown = function () {
+		clearInterval(this.timer);
+        this.timer = setInterval(function () {
+            var crestHeight = settings.crestHeight.map(function (item) {
+
+                // 获取随机波动值
+                item += JParticles.utils.limitRandom(20, -20);
+
+                // 处理 (0, 1) 之间的值为整数
+                if (item < 1 && item > 0) {
+                    item = Math.ceil(item);
+                }
+
+                return item;
+            });
+
+			// 通过 setOptions() 来控制线条的波动
+            effect.setOptions({
+                crestHeight: crestHeight,
+                speed: [.2, .14, .1]
+            });
+        }, 100);
+
+		// 复原
+		var self = this;
+		document.onmouseup = function () {
+			document.onmouseup = null;
+		    clearInterval(self.timer);
+		    effect.setOptions(settings);
+		};
+	};
 
 ### 水切面：
 
@@ -97,8 +142,8 @@
 	        <td>
 	            填充的背景色，当 fill 设置为 true 时生效。<br>
 				使用方法与
-	            <a class="dotted-line" href="/examples/quick_start#默认配置" target="_blank">
-	                color规则相同
+	            <a class="dotted-line" href="#/examples/quick_start#默认配置" target="_blank">
+	                color 规则相同
 	            </a>。
 				以下有雷同的属性，同理。
 	        </td>
@@ -166,3 +211,24 @@
 </table>
 
 ### 方法及描述
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">名称</th>
+	        <th width="110">参数类型</th>
+	        <th width="450">描述</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>setOptions(newOptions)</td>
+	        <td>newOptions: object</td>
+	        <td>
+				动态设置属性值。当前能设置的属性有: <br>
+				opacity, fill, fillColor, line, lineColor, lineWidth, 
+				offsetLeft, offsetTop, crestHeight, speed
+			</td>
+	    </tr>
+    </tbody>
+</table>

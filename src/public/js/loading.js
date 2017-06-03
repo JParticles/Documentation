@@ -1,6 +1,7 @@
 import JParticles from 'jparticles/production/jparticles';
 import 'jparticles/production/wave_loading';
 import {setLanguage, themeColor, languageList} from 'store';
+import statisticsAnalysis from './analysis';
 
 // multiple language
 function getLanguage() {
@@ -48,6 +49,7 @@ loading
         return progressText + Math.ceil(progress) + '%';
     })
     .onFinished(() => {
+        statisticsAnalysis();
         $('body').removeClass('overflow-hidden');
         $(container).empty();
         $(layer).addClass('zoomout');

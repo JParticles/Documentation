@@ -20,15 +20,50 @@ export default class Wave extends Base {
 
         // voice search
         createEffect('.instance-2', demoElem => {
-            const effect = new JParticles.wave(demoElem, {
-                num: 3,
-                lineColor: ['rgba(0, 0, 0, .5)', 'rgba(0, 0, 0, .7)', 'rgba(0, 0, 0, .9)'],
-                lineWidth: [.7, .9, 1],
-                offsetTop: .75,
+            const settings = {
                 crestHeight: [10, 14, 18],
-                rippleNum: isMobile() ? 1 : 2,
                 speed: .1
-            });
+            };
+
+            const effect = new JParticles.wave(demoElem, JParticles.utils.extend({
+                num: 3,
+                lineColor: ['#e53d27', '#42e527', '#27C9E5'],
+                lineWidth: [.7, .9, 1],
+                offsetTop: .65,
+                rippleNum: isMobile() ? 1 : 2
+            }, settings));
+
+            $('.instance-2 .voice')
+                .on('mousedown', function () {
+                    clearInterval(this.timer);
+                    this.timer = setInterval(() => {
+                        const crestHeight = [10, 14, 18].map(item => {
+
+                            // 获取随机波动值
+                            item += JParticles.utils.limitRandom(20, -20);
+
+                            // 处理 (0, 1) 之间的值为整数
+                            if (item < 1 && item > 0) {
+                                item = Math.ceil(item);
+                            }
+
+                            return item;
+                        });
+
+                        // 控制线条波动
+                        effect.setOptions({
+                            crestHeight,
+                            speed: [.2, .14, .1]
+                        });
+                    }, 100);
+
+                    $(document).on('mouseup.voice', () => {
+                        $(document).off('mouseup.voice');
+                        clearInterval(this.timer);
+                        effect.setOptions(settings);
+                    });
+                });
+
             return effect;
         });
 

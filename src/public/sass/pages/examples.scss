@@ -10,10 +10,23 @@
                     margin-top: 0;
                 }
             }
+
+            > *:not(.intro):not(.quick_start) {
+                h3 {
+                    margin: rem(50) 0 rem(10);
+                    &+[class^="instance"] {
+                        margin-top: 0;
+                    }
+                }
+            }
+
             [class^="instance"]:not(.instance-ctrl) {
                 margin-bottom: rem(20);
                 position: relative;
                 overflow: hidden;
+                *::selection {
+                    background: none;
+                }
                 &:not(:first-child) {
                     margin-top: rem(30);
                 }
@@ -30,6 +43,7 @@
                 .ctrl {
                     display: none;
                     position: absolute;
+                    z-index: 9;
                     left: rem(20);
                     top: rem(20);
                     .btn {
@@ -50,6 +64,8 @@
                     }
                 }
             }
+
+            // quick start
             .quick_start {
                 .instance {
                     .demo {
@@ -65,14 +81,83 @@
                     }
                 }
             }
+
+            // wave
+            .wave {
+                .instance-2 {
+                    position: relative;
+                    .voice {
+                        background-color: $lightgray-bg;
+                        position: absolute;
+                        left: 30%;
+                        right: 30%;
+                        bottom: rem(20);
+                        &:hover {
+                            background-color: $btn-default-hover;
+                        }
+                    }
+                }
+            }
+
+            // wave loading
+            .wave_loading {
+                [class^="instance"] {
+                    height: rem(440);
+                    border: 1px solid $gray-border;
+                    .demo {
+                        width: 140px;
+                        height: 140px;
+                        margin: -70px 0 0 -70px;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                    }
+                }
+                .instance-2 {
+                    .mask,
+                    .container {
+                        padding: 0 rem(20);
+                        text-align: center;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        overflow: auto;
+                        .frame {
+                            display: inline-block;
+                            padding: rem(20);
+                            border: 1px solid $md-border-color;
+                            box-shadow: 0 0 rem(13) 0 $md-border-color;
+                        }
+                        img {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+                    .mask {
+                        background-color: #fff;
+                        z-index: 2;
+                    }
+                    .demo {
+                        line-height: 140px;
+                        text-align: center;
+                        z-index: 8;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            // snow
             .snow {
                 .instance {
                     .demo {
+                        width: 100%;
                         height: rem(550);
-                        //background: url("/../src/public/img/merry_christmas.jpg") 0 0 no-repeat;
-                        //background: url("../../img/merry_christmas.jpg") 0 0 no-repeat;
-                        background: #333;
+                        background: url(~img/merry_christmas.jpg) 0 0 no-repeat;
                         background-size: 100% 100%;
+                        border: none;
                     }
                 }
             }
