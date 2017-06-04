@@ -42,7 +42,7 @@ pre {
 
 // common markdown syntax
 .md-syntax-highlight {
-    word-wrap: break-word;
+    word-break: break-all;
     @extend .cf;
     > *:first-child {
         margin-top: 0 !important

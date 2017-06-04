@@ -5,7 +5,7 @@
  - All effects: chaining operation support for events.
  - particle: add new `lineShape` parameter to define the line shape of the particles.
  - particle: add new `parallax` parameter to create parallax effect.
- - particle: increase the characteristics of the gyroscope, for the positioning point and parallax effect.
+ - particle: increase the feature of the gyroscope, for the positioning point and parallax effect.
  - particle: enhance `range` and `proximity` parameters support the value of `(0, 1)`.
  - particle: adjust the `distance` parameter to `proximity` to get closer to it's functional meaning.
  - wave: add new `setOptions()` method.

@@ -20,6 +20,17 @@
                 }
             }
 
+            .loading-wrap {
+                position: relative;
+                .loading {
+                    width: 100px;
+                    height: 100px;
+                    margin-left: -50px;
+                    position: absolute;
+                    left: 50%;
+                }
+            }
+
             [class^="instance"]:not(.instance-ctrl) {
                 margin-bottom: rem(20);
                 position: relative;
@@ -152,6 +163,7 @@
             // snow
             .snow {
                 .instance {
+                    background-color: #333;
                     .demo {
                         width: 100%;
                         height: rem(550);

@@ -11,6 +11,7 @@ export default class Comment extends Component {
     }
 
     render() {
+        return null;
         return (
             <div className="comment">
                 Comment

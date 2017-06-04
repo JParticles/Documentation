@@ -57,7 +57,7 @@
 </div>
 
 ### 5、进阶 · 方法（多加几分钟）
-> 每个用实例化的对象都包含以下两个方法，为了减少重复劳动，后面的示例就省略不写了。<br/>
+> 每个实例化的对象都包含以下两个方法，为了减少重复劳动，后面的示例就省略不写了。<br/>
 > `.pause()` 暂停粒子运动 <br/>
 > `.open()`  &nbsp;开启粒子运动
 
@@ -82,7 +82,7 @@
 
 
 ### 6、事件
-- 每个实例化的对象都包含 `onDestroy()` 事件， 当 `Canvas` 元素从 `DOM` 树中被移除触发此事件。<br/>
+- 每个实例化的对象都包含 `onDestroy()` 事件， 当 `Canvas` 元素从 `DOM` 树中被移除触发此事件。
 - 所有特效的事件都支持链式操作。
 - 如无特别说明，每个事件都支持任意多个函数类型的参数，也支持任意多次调用，按顺序被执行，如下。
 > 一般情况 `onDestroy()` 不会被用到，但它是生命周期的一部分，或许哪时需要用到。
@@ -123,7 +123,7 @@
     </tbody>
 </table>
 
-#### 2、如无特别说明，每个插件的默认配置都包含以下三个参数。
+#### 2、如无特别说明，每个插件的默认选项（options）都包含以下三个参数。
 
 <table class="table table-bordered-inner table-striped">
     <thead>
@@ -139,7 +139,7 @@
             <td>opacity</td>
             <td>1</td>
             <td>number</td>
-            <td>画布全局透明度，取值范围：[0-1]</td>
+            <td>画布全局透明度，取值范围：`[0-1]`</td>
         </tr>
         <tr>
             <td>color</td>
@@ -152,10 +152,10 @@
                         空数组表示随机取色。
                     </li>
                     <li>
-                        特定颜色的数组，如：['red', 'blue', 'green']，则表示粒子颜色在这三种色值之间随机获取。
+                        如果提供特定颜色的数组，如：`['red', 'blue', 'green']`，则表示粒子颜色在这三种色值之间随机获取。
                     </li>
                     <li>
-                        当为string类型时，如：'red'，则表示粒子都填充为红色。
+                        如果为 `string` 类型，如：`'red'`，则表示粒子都填充为红色。
                     </li>
                 </ul>
             </td>
@@ -164,12 +164,15 @@
             <td>resize</td>
             <td>true</td>
             <td>boolean</td>
-            <td>自适应窗口尺寸变化，如不需要自适应，请设置为 false，提高性能。</td>
+            <td>
+				自适应窗口尺寸变化。<br>
+				如不需要自适应，请设置为 `false`，以提高性能。
+			</td>
         </tr>
     </tbody>
 </table>
 
-#### 3、通过暴露的全局接口 `JParticles.name.defaultConfig` 可方便地修改某个特效的默认配置，示例如下：
+#### 3、通过暴露的全局接口 `JParticles.name.defaultConfig` 可方便地修改某个特效的默认选项，示例如下：
 
 	JParticles.particle.defaultConfig = {
 	    opacity: 1,
@@ -179,7 +182,7 @@
 	    // ...其他属性
 	};
 
-#### 4、通过暴露的全局接口 `JParticles.commonConfig` 可方便地修改所有特效的公共默认配置，当前公共默认配置如下：
+#### 4、通过暴露的全局接口 `JParticles.commonConfig` 可方便地修改所有特效的公共选项，当前公共选项默认值如下：
 
 	JParticles.commonConfig = {
 	    // 画布全局透明度
@@ -191,7 +194,7 @@
 	}
 
 ### 8、easing 函数
-#### 1. 通过暴露的全局接口 `JParticles.easing` 可增加不同运动类型的效果，以下为示例。
+#### 通过暴露的全局接口 `JParticles.easing` 可增加不同运动类型的效果，以下为示例。
 > 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的函数。<br>
 > 增加函数请参考：http://easings.net
 
@@ -238,7 +241,7 @@
     </tbody>
 </table>
 
-#### 5、小提示：
+#### 9、小提示：
 1. 修改默认配置应放在 `new` 之前。
 1. 每个 `JParticles` 插件的默认配置及示例请查看左侧的菜单。
 1. 更丰富但可能描述不详的演示，您还可以克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，在 `samples` 目录下看看。

@@ -12,7 +12,10 @@ export default class Base extends Component {
         if (this.content = remarkable.render(content)) {
             this.content = this.content
                 .replace(/(<a href=".*?")>/g, '$1 target="_blank">')
-                .replace(/(<pre)>/g, '$1 class="prettyprint">');
+                .replace(/(<pre)>/g, '$1 class="prettyprint">')
+                .replace(/(<table.*?>)((.|\s)*?)(?=<\/table>)/g, ($0, $1, $2) => {
+                    return $1 + $2.replace(/`(.*?)`/g, '<code>$1</code>')
+                });
         }
     }
 
