@@ -24,7 +24,7 @@ const config = {
         jquery: 'jquery/dist/jquery.min.js',
         jparticles: 'jparticles/production/jparticles.all.js',
         pageLoading: './src/public/js/loading.js',
-        app: './src/app.js'
+        app: ['babel-polyfill', './src/app.js']
     },
     output: {
         path: distPath,
