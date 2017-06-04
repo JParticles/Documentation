@@ -45,7 +45,7 @@ export default class Index extends Component {
                         </div>
                         <div className="quick-start">
                             <Link className="btn btn-success pr"
-                                  to="/examples/quick-start">
+                                  to="/examples/quick_start">
                                 <span className="pa">{quickStart}</span>
                             </Link>
                         </div>

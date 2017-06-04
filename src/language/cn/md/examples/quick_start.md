@@ -193,10 +193,10 @@
 	    resize: true
 	}
 
-### 8、easing 函数
-#### 通过暴露的全局接口 `JParticles.easing` 可增加不同运动类型的效果，以下为示例。
-> 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的函数。<br>
-> 增加函数请参考：http://easings.net
+### 8、Easing 函数
+#### 通过暴露的全局接口 `JParticles.easing` 可增加其他动画效果，以下为示例。
+> 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的动画函数。<br>
+> 增加新的动画请参考：[http://easings.net](http://easings.net)
 
 	// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
 	JParticles.utils.extend(JParticles.easing, {
@@ -241,7 +241,7 @@
     </tbody>
 </table>
 
-#### 9、小提示：
-1. 修改默认配置应放在 `new` 之前。
-1. 每个 `JParticles` 插件的默认配置及示例请查看左侧的菜单。
-1. 更丰富但可能描述不详的演示，您还可以克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，在 `samples` 目录下看看。
+#### 9、小提示
+1. 修改默认选项应放在 `new` 之前。
+1. 每个 `JParticles` 插件的默认选项及示例请查看左侧的菜单。
+1. 更丰富但可能描述不详的演示，还请克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，去 `samples` 目录下看看。

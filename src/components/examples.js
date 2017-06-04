@@ -15,32 +15,64 @@ window.remarkable = new Remarkable({
     html: true
 });
 
+const Components = [];
+
 export default class Examples extends Component {
     constructor(props) {
         super(props);
-        this.Component = null;
+        this.state = {
+            Component: null
+        };
     }
 
     componentDidMount() {
+        const {instance} = this.props.params;
+        let exist = null;
+        Components.some(item => {
+            if (item.instance === instance) {
+                return exist = item;
+            }
+        });
+
+        if (exist) {
+            return this.setState({
+                Component: exist.Component
+            });
+        }
+
         const $loading = $('.page-examples .loading');
         const wrapHeight = $(window).height() - $('.com-header').outerHeight();
-
-        $loading.css('top', (wrapHeight - $loading.outerHeight()) / 2);
+        const top = (wrapHeight - $loading.outerHeight()) / 2 - parseInt($('.com-body').css('paddingTop'));
+        $loading.css('top', top);
 
         const loading = new JParticles.waveLoading($loading[0], {
             font: 'normal 900 12px Arial',
+            smallFont: 'normal 900 12px Arial',
+            smallFontOffsetTop: 0,
             duration: 2000
         });
 
         loading
+            .onProgress(progress => {
+                if (progress >= 60) {
+                    loading.setOptions({
+                        color: '#fff'
+                    });
+                }
+                return {
+                    text: Math.ceil(progress),
+                    smallText: '%'
+                };
+            })
             .onFinished(() => {
                 setTimeout(() => {
-                    this.setState({Component});
+                    this.setState({});
                 }, 50);
             });
 
-        import(`./examples/${this.props.params.instance}`).then((Component) => {
-            this.Component = Component;
+        import(`./examples/${instance}`).then((Component) => {
+            Components.push({instance, Component});
+            this.state.Component = Component;
             loading.done();
         });
     }
@@ -54,8 +86,8 @@ export default class Examples extends Component {
                     <div className="main md-syntax-highlight">
                         <div className="content text-justify">
                             {
-                                this.Component
-                                    ? <this.Component/>
+                                this.state.Component
+                                    ? <this.state.Component/>
                                     : <div className="loading-wrap">
                                         <div className="loading"></div>
                                       </div>

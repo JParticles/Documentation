@@ -5,7 +5,7 @@
 1. Use `npm install jparticles --save`, [link to NPM](https://www.npmjs.com/package/jparticles) 。
 
 ### 2. Import JParticles
-> You can use `script` tag to import JParticles in a page, or you can use AMD or CMD to load. However, `JParticles` is still register an object of the same name in the `window` for plug-in extensions.
+> You can use `script` tag to import JParticles in a page, or you can use AMD or CMD to load. However, `JParticles` is still register an object of the same name in the `window` for plugin extensions.
 
 	<!DOCTYPE html>
 	<html>
@@ -126,7 +126,7 @@ The code is as follows:
     </tbody>
 </table>
 
-#### 2. Unless otherwise specified, each plug-in has contains three options as the follows.
+#### 2. Unless otherwise specified, each plugin has contains three options as the follows.
 
 <table class="table table-bordered-inner table-striped">
     <thead>
@@ -197,12 +197,11 @@ The code is as follows:
 	}
 
 ### 8. Easing
-#### 通过暴露的全局接口 `JParticles.easing` 可增加不同运动类型的效果，以下为示例。
-#### 
-> 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的函数。<br>
-> 增加函数请参考：http://easings.net
+#### Add other animations you can use the exposed global interface `JParticles.easing`, an example as follows.
+> Note: `JParticles.easing` only allows you to add, do not to change or delete existing functions.<br>
+> Add other new animations please reference to [http://easings.net](http://easings.net)
 
-	// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
+	// JParticles.utils.extend equal to jQuery.extend, you can also instead with Object.assign
 	JParticles.utils.extend(JParticles.easing, {
         easeOutBounce: function (x, t, b, c, d) {
             if ((t/=d) < (1/2.75)) {
@@ -217,7 +216,7 @@ The code is as follows:
         }
     });
 
-	// 或者
+	// or
 	JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
 		return -c *(t/=d)*(t-2) + b;
 	};
@@ -225,27 +224,27 @@ The code is as follows:
 <table class="table table-bordered-inner table-striped">
     <thead>
         <tr>
-            <th width="300">当前已有的函数名称</th>
-            <th width="700">描述</th>
+            <th width="500">The name of the existing function</th>
+            <th width="500">Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>linear</td>
-            <td>匀速运动</td>
+            <td>Uniform motion.</td>
         </tr>
         <tr>
             <td>swing</td>
-            <td>等于 easeInOutQuad </td>
+            <td>Equal to easeInOutQuad </td>
         </tr>
         <tr>
             <td>easeInOutQuad</td>
-            <td>先慢慢加速再慢慢减速</td>
+            <td>First slowly accelerated and then slowly slow down.</td>
         </tr>
     </tbody>
 </table>
 
-#### 9. 小提示：
-1. 修改默认配置应放在 `new` 之前。
-1. 每个 `JParticles` 插件的默认配置及示例请查看左侧的菜单。
-1. 更丰富但可能描述不详的演示，您还可以克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，在 `samples` 目录下看看。
+#### 9. Tips
+1. Change the default options should be place before `new`.
+1. Please check the menu on the left to know the default config and examples of each `JParticles` plugin.
+1. You can also clone the [JParticles](https://github.com/Barrior/JParticles) project and look at the `samples` directory, which is a richer but potentially unexplained demos.
