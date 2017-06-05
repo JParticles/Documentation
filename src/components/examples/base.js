@@ -14,7 +14,7 @@ export default class Base extends Component {
                 .replace(/(<a href=".*?")>/g, '$1 target="_blank">')
                 .replace(/(<pre)>/g, '$1 class="prettyprint">')
                 .replace(/(<table.*?>)((.|\s)*?)(?=<\/table>)/g, ($0, $1, $2) => {
-                    return $1 + $2.replace(/`(.*?)`/g, '<code>$1</code>')
+                    return $1 + $2.replace(/`((.|\s)*?)`/g, '<code>$1</code>')
                 });
         }
     }

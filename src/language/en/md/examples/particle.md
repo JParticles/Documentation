@@ -73,7 +73,7 @@ View Source:
 	        <td>number</td>
 	        <td>
 	            Number of particles.<br>
-	            (0, 1) is display as the number of corresponding multiples of the container width, 0 & [1, + ∞) display the specific number.<br>
+	            `(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` display the specific number.<br>
 	            Pass 0 is meaningless, other similar parameters with the same.
 	        </td>
 	    </tr>
@@ -81,25 +81,25 @@ View Source:
 	        <td>maxR</td>
 	        <td>2.4</td>
 	        <td>number</td>
-	        <td>Particle maximum radius (0, +∞) </td>
+	        <td>Particle maximum radius `(0, +∞)` </td>
 	    </tr>
 	    <tr>
 	        <td>minR</td>
 	        <td>0.6</td>
 	        <td>number</td>
-	        <td>Particle minimum radius (0, +∞) </td>
+	        <td>Particle minimum radius `(0, +∞)` </td>
 	    </tr>
 	    <tr>
 	        <td>maxSpeed</td>
 	        <td>1</td>
 	        <td>number</td>
-	        <td>Particle maximum speed (0, +∞) </td>
+	        <td>Particle maximum speed `(0, +∞)` </td>
 	    </tr>
 	    <tr>
 	        <td>minSpeed</td>
 	        <td>0.1</td>
 	        <td>number</td>
-	        <td>Particle minimum speed (0, +∞) </td>
+	        <td>Particle minimum speed `(0, +∞)` </td>
 	    </tr>
 	    <tr>
 	        <td>proximity</td>
@@ -108,7 +108,7 @@ View Source:
 	        <td>
 	            The distance between the two points of the center of the circle.<br>
 	            All points are within the `range` for the positioning point radius, the distance between the center points is less than or equal to the `proximity` value, then the connection.<br>
-				(0, 1) is display as the number of corresponding multiples of the container width, 0 & [1, + ∞) display the specific number.
+				`(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` display the specific number.
 	        </td>
 	    </tr>
 	    <tr>
@@ -117,7 +117,7 @@ View Source:
 	        <td>number</td>
 	        <td>
 	            Positioning point range - The larger the range, the more connection, when equal to 0, it is not connected and the relevant value is invalid.<br>
-				(0, 1) is display as the number of corresponding multiples of the container width, 0 & [1, + ∞) display the specific number.<br>
+				`(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` display the specific number.<br>
 	            (Positioning point: the mouse to move to the Canvas when the mouse point, the beginning of the default generation)
 	        </td>
 	    </tr>
@@ -133,8 +133,8 @@ View Source:
 	        <td>string</td>
 	        <td>
 				Currently supports the following two types:<br>
-				spider: spread like spider.<br>
-        		cube: closing like cube.
+				`spider`: spread like spider.<br>
+        		`cube`: closing like cube.
 			</td>
 	    </tr>
 	    <tr>
@@ -158,15 +158,15 @@ View Source:
 	        <td>array</td>
 	        <td>
 	            Define the number of layers in the parallax layer and the size of each layer, similar to z-index in CSS.<br>
-        		Value range: [0, +∞), the smaller the value, the strength the effect, equal to 0 does not move.<br>
-        		Example of defining four layers of particles: [1, 3, 5, 10]
+        		Value range: `[0, +∞)`, the smaller the value, the strength the effect, equal to 0 does not move.<br>
+        		Example of defining four layers of particles: `[1, 3, 5, 10]`
 	        </td>
 	    </tr>
 	    <tr>
 	        <td>parallaxStrength</td>
 	        <td>5</td>
 	        <td>number</td>
-	        <td>The smaller the value, the strength the effect (0, +∞) </td>
+	        <td>The smaller the value, the strength the effect `(0, +∞)` </td>
 	    </tr>
     </tbody>
 </table>

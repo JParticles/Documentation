@@ -28,6 +28,8 @@ export default class WaveLoading extends Base {
                 // 文本样式，同css一样，必须包含 [font size] 和 [font family]
                 font: 'normal 900 16px Arial',
 
+                smallFont: 'normal 900 14px Arial',
+                
                 // 对于不需要自适应的，应该设置为 false，
                 // 减少计算，提高性能
                 resize: false

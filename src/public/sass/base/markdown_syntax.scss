@@ -13,6 +13,7 @@ $md-gray-comment: #999;
 $md-gray-bg: $gray-bg;
 $md-lightgray-bg: $lightgray-bg;
 $md-white-bg: #fff;
+$md-code-bg-in-odd-table: #f1f1f1;
 
 // border color
 $md-border-color: $gray-border;
@@ -178,6 +179,9 @@ pre {
         tbody {
             tr:nth-of-type(odd) {
                 background-color: $md-lightgray-bg;
+                code {
+                    background-color: $md-code-bg-in-odd-table;
+                }
             }
         }
     }

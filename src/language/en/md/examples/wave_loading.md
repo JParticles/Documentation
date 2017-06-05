@@ -1,68 +1,69 @@
 <div class="instance-1">
     <div class="demo"></div>
 	<div class="ctrl">
-		<div class="btn btn-default done">点击·完成加载</div>
-		<div class="btn btn-default reload">重新演示</div>
+		<div class="btn btn-default done">Click me to finish loading</div>
+		<div class="btn btn-default reload">Re-demo</div>
 	</div>
 </div>
 
-查看源代码：
+View Source:
 
 	var loading = new JParticles.waveLoading('#demo-1', {
 
 	    // [font style][font weight][font size][font family]
-	    // 文本样式，同css一样，必须包含 [font size] 和 [font family]
+	    // The text style, like css, must contain [font size] and [font family]
 	    font: 'normal 900 16px Arial',
 
-		// 对于不需要自适应的，应该设置为 false，
-        // 减少计算，提高性能
+		smallFont: 'normal 900 14px Arial',
+
+		// Set to `false` to improve performance 
+		// because here is no need to self-adaption
         resize: false
 	});
 	
 	loading
 	    .onProgress(progress => {
 	
-			// 当进度大于等于 60 时，设置进度文本颜色为白色。
+			// Set text color to white if the progress more than 60%
 	        if (progress >= 60) {
 	            loading.setOptions({
 	                color: '#fff'
 	            });
 	        }
 
-			// 返回字符串，都为 font 样式，不应用 smallFont 相关样式。
-	        return '加载中...' + Math.ceil(progress) + '%';
+			// Return a string mean the loading text is apply `font` style,
+			// do not apply `smallFont` related styles
+	        return 'loading...' + Math.ceil(progress) + '%';
 
-			/*
-			// 如果返回对象，text 对应 font 样式，
-            // smallText 对应 smallFont，smallFontOffsetTop 样式。
-            return {
-                text: '加载中...' + Math.ceil(progress),
-                smallText: '%'
-            }
-			*/
+			// Return an object mean the `text` is apply `font` style,
+			// the `smallText` apply `smallFont` related styles
+            // return {
+            //     text: 'loading...' + Math.ceil(progress),
+            //     smallText: '%'
+            // }
 	    });
 
-	// 调用加载完成。
+	// Call `done()` method to finish loading
 	document.querySelector('.done').onclick = function () {
         loading.done();
     };
 	
-### 加载图片，加载页面同理
+### Load Image · In the same way you can load WEB page
 
 <div class="instance-2">
 	<div class="container">
 		<div class="frame text-center-vertical"></div>
 	</div>
     <div class="mask"></div>
-	<div class="demo">点击·加载</div>
+	<div class="demo">Click me to load</div>
 	<div class="ctrl">
-		<div class="btn btn-default reload">重新加载</div>
+		<div class="btn btn-default reload">Reload</div>
 	</div>
 </div>
 
-查看源代码：
+View Source:
 
-	// 扩展 easing 函数
+	// Extend `easing` function
 	JParticles.utils.extend(JParticles.easing, {
         easeOutBounce: function (x, t, b, c, d) {
             if ((t/=d) < (1/2.75)) {
@@ -81,7 +82,7 @@
 	    font: 'normal 900 16px Arial',
         resize: false,
 
-		// 换一种 easing 动画效果
+		// Change an easing animation effect
         easing: 'easeOutBounce'
 	});
 	
@@ -92,12 +93,12 @@
 	                color: '#fff'
 	            });
 	        }
-	        return '加载中...' + Math.ceil(progress) + '%';
+	        return 'loading...' + Math.ceil(progress) + '%';
 	    })
 	    .onFinished(() => {
 
-			// 加载完成后，隐藏遮罩及 loading 动画。
-	        // 开一个 50ms 的定时器，为了让 100% 这几个字能被看见。
+			// Hide the mask and loading animation after loading done.
+			// Open a 50ms timer in order to the `100%` can be seen.
 			setTimeout(() => {
                 document.querySelector('.mask').style.display = 'none';
 				document.querySelector('#demo-2').style.display = 'none';
@@ -111,7 +112,7 @@
 	};
 	document.querySelector('#demo-2').parentNode.appendChild(img);
 
-### 默认参数及描述
+### Default parameters and description
 
 <table class="table table-bordered-inner table-striped">
     <thead>
@@ -129,35 +130,35 @@
 	        <td>string</td>
 	        <td>
 				[font style][font weight][font size][font family] <br>
-        		文本样式，同 css 一样，必须包含 [font size] 和 [font family]
+        		The text style, like css, must contain [font size] and [font family]
 			</td>
 	    </tr>
 	    <tr>
 	        <td>smallFont</td>
 	        <td>'normal 900 14px Arial'</td>
 	        <td>string</td>
-	        <td>小字体样式，如：“%”</td>
+	        <td>Small font style apply to the "%".</td>
 	    </tr>
 	    <tr>
 	        <td>smallFontOffsetTop</td>
 	        <td>1</td>
 	        <td>number</td>
 	        <td>
-				小字体相对于中点向下的偏移值，<br>
-        		细节的处理，为了让显示更好看。
+				The offset value of the small font relative to the midpoint.<br>
+        		This is the adjustment of the detail to make the show look better.
 			</td>
 	    </tr>
 	    <tr>
 	        <td>color</td>
 	        <td>#333</td>
 	        <td>string</td>
-	        <td>文本颜色。</td>
+	        <td>Progress text color.</td>
 	    </tr>
 	    <tr>
 	        <td>fillColor</td>
 	        <td>#27C9E5</td>
 	        <td>string</td>
-	        <td>填充的背景色。</td>
+	        <td>Fill the background color.</td>
 	    </tr>
 	    <tr>
 	        <td>offsetLeft</td>

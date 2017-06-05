@@ -14,6 +14,8 @@
 	    // 文本样式，同css一样，必须包含 [font size] 和 [font family]
 	    font: 'normal 900 16px Arial',
 
+		smallFont: 'normal 900 14px Arial',
+
 		// 对于不需要自适应的，应该设置为 false，
         // 减少计算，提高性能
         resize: false
@@ -29,20 +31,18 @@
 	            });
 	        }
 
-			// 返回字符串，都为 font 样式，不应用 smallFont 相关样式。
+			// 返回字符串，文本都应用为 font 样式，不应用 smallFont 相关样式。
 	        return '加载中...' + Math.ceil(progress) + '%';
 
-			/*
-			// 如果返回对象，text 对应 font 样式，
-            // smallText 对应 smallFont，smallFontOffsetTop 样式。
-            return {
-                text: '加载中...' + Math.ceil(progress),
-                smallText: '%'
-            }
-			*/
+			// 如果返回对象，text 应用为 font 样式，
+            // smallText 应用为 smallFont，smallFontOffsetTop 样式。
+            // return {
+            //     text: '加载中...' + Math.ceil(progress),
+            //     smallText: '%'
+            // }
 	    });
 
-	// 调用加载完成。
+	// 调用 `done()` 方法来完成加载。
 	document.querySelector('.done').onclick = function () {
         loading.done();
     };
@@ -136,7 +136,7 @@
 	        <td>smallFont</td>
 	        <td>'normal 900 14px Arial'</td>
 	        <td>string</td>
-	        <td>小字体样式，如：“%”</td>
+	        <td>小字体样式，应用于 `%`。</td>
 	    </tr>
 	    <tr>
 	        <td>smallFontOffsetTop</td>
@@ -151,7 +151,7 @@
 	        <td>color</td>
 	        <td>#333</td>
 	        <td>string</td>
-	        <td>文本颜色。</td>
+	        <td>进度文本的颜色。</td>
 	    </tr>
 	    <tr>
 	        <td>fillColor</td>

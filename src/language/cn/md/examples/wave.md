@@ -127,7 +127,7 @@
 	        <td>num</td>
 	        <td>3</td>
 	        <td>number</td>
-	        <td>线条(波纹)个数。</td>
+	        <td>线条的个数。</td>
 	    </tr>
 	    <tr>
 	        <td>fill</td>
@@ -140,12 +140,13 @@
 	        <td>[]</td>
 	        <td>string 或 array</td>
 	        <td>
-	            填充的背景色，当 fill 设置为 true 时生效。<br>
+	            填充的背景色。<br>
 				使用方法与
 	            <a class="dotted-line" href="#/examples/quick_start#默认配置" target="_blank">
 	                color 规则相同
 	            </a>。
-				以下有雷同的属性，同理。
+				<br>
+				其他雷同属性同理。
 	        </td>
 	    </tr>
 	    <tr>
@@ -158,7 +159,7 @@
 	        <td>lineColor</td>
 	        <td>[]</td>
 	        <td>string 或 array</td>
-	        <td>边框颜色，当 line 设置为 true 时生效，下同。</td>
+	        <td>边框颜色。</td>
 	    </tr>
 	    <tr>
 	        <td>lineWidth</td>
@@ -225,9 +226,9 @@
 	        <td>setOptions(newOptions)</td>
 	        <td>newOptions: object</td>
 	        <td>
-				动态设置属性值。当前能设置的属性有: <br>
-				opacity, fill, fillColor, line, lineColor, lineWidth, 
-				offsetLeft, offsetTop, crestHeight, speed
+				动态设置选项值。当前能设置的选项有: <br>
+				`opacity, fill, fillColor, line, lineColor, lineWidth, 
+				offsetLeft, offsetTop, crestHeight, speed`
 			</td>
 	    </tr>
     </tbody>
