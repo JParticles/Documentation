@@ -31,11 +31,11 @@ View Source:
 	            });
 	        }
 
-			// Return a string mean the loading text is apply `font` style,
+			// Return a string means the loading text is apply `font` style,
 			// do not apply `smallFont` related styles
 	        return 'loading...' + Math.ceil(progress) + '%';
 
-			// Return an object mean the `text` is apply `font` style,
+			// Return an object means the `text` is apply `font` style,
 			// the `smallText` apply `smallFont` related styles
             // return {
             //     text: 'loading...' + Math.ceil(progress),
@@ -117,10 +117,10 @@ View Source:
 <table class="table table-bordered-inner table-striped">
     <thead>
 	    <tr>
-	        <th width="100">名称</th>
-	        <th width="200">默认值</th>
-	        <th width="100">类型</th>
-	        <th width="450">描述</th>
+	        <th width="100">Name</th>
+	        <th width="200">Default</th>
+	        <th width="100">Type</th>
+	        <th width="450">Description</th>
 	    </tr>
     </thead>
     <tbody>
@@ -216,14 +216,14 @@ View Source:
     </tbody>
 </table>
 
-### 方法及描述
+### Methods and Description
 
 <table class="table table-bordered-inner table-striped">
     <thead>
 	    <tr>
-	        <th width="100">名称</th>
-	        <th width="160">参数类型</th>
-	        <th width="450">描述</th>
+	        <th width="100">Name</th>
+	        <th width="160">Params Type</th>
+	        <th width="450">Description</th>
 	    </tr>
     </thead>
     <tbody>
@@ -231,27 +231,27 @@ View Source:
 	        <td>setOptions(newOptions)</td>
 	        <td>newOptions: object</td>
 	        <td>
-				动态设置属性值。当前能设置的属性有: <br>
-				opacity, color, font, smallFont, smallFontOffsetTop,
-				fillColor, offsetLeft, crestHeight, speed
+				Dynamically set option values. Currently available options: <br>
+				`opacity, color, font, smallFont, smallFontOffsetTop,
+				fillColor, offsetLeft, crestHeight, speed`
 			</td>
 	    </tr>
 	    <tr>
 	        <td>done()</td>
-	        <td>无参数</td>
-	        <td>让加载进度立即完成。</td>
+	        <td>no arguments</td>
+	        <td>Let the loading progress be finish immediately.</td>
 	    </tr>
     </tbody>
 </table>
 
-### 事件及描述
+### Events and Description
 
 <table class="table table-bordered-inner table-striped">
     <thead>
 	    <tr>
-	        <th width="100">名称</th>
-	        <th width="110">参数类型</th>
-	        <th width="450">描述</th>
+	        <th width="150">Name</th>
+	        <th width="150">Argument Type</th>
+	        <th width="400">Description</th>
 	    </tr>
     </thead>
     <tbody>
@@ -259,13 +259,14 @@ View Source:
 	        <td>onProgress()</td>
 	        <td>function</td>
 	        <td>
-				进度每次改变的时候触发此事件，接受一个返回值，返回值类型为：{string | object}。
+				This event is trigger each time the progress is change, and a return value is accepted.<br>
+				The return value type is `{string | object}`.
 			</td>
 	    </tr>
 	    <tr>
 	        <td>onFinished()</td>
 	        <td>function</td>
-	        <td>进度加载到 100% 后触发此事件。</td>
+	        <td>This event is trigger when the progress is loaded to `100%`.</td>
 	    </tr>
     </tbody>
 </table>
