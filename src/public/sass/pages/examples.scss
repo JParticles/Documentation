@@ -118,8 +118,8 @@
                     height: rem(440);
                     border: 1px solid $gray-border;
                     .demo {
-                        width: 140px;
-                        height: 140px;
+                        width: 140px !important;
+                        height: 140px !important;
                         margin: -70px 0 0 -70px;
                         border-radius: 50%;
                         position: absolute;

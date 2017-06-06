@@ -1,4 +1,4 @@
-// ipad 横向
+// ipad horizontal
 @media all and (max-width: 1025px) {
     $page-left-right: rem(40);
     .com-header {
@@ -9,20 +9,21 @@
         padding: rem(40) $page-left-right;
     }
 
-    #page-example {
-        > .com-body {
-            > .main {
-                padding-left: rem(264);
+    .page-examples {
+        .main {
+            padding-left: rem(264);
+            > .content {
+                [class^="instance"]:not(.instance-ctrl) {
+                    .demo {
+                        height: rem(400);
+                    }
+                }
             }
         }
     }
-
-    .instance {
-        height: rem(400) !important;
-    }
 }
 
-// ipad 竖向
+// ipad vertical
 @media all and (max-width: 768px) {
     .com-header {
         width: 100%;
@@ -30,45 +31,6 @@
         line-height: rem(60);
         background-color: #fff;
         position: fixed;
-        .mobile-menu {
-            display: inline-block;
-            font-size: rem(14);
-        }
-        .logo {
-            float: right;
-            height: auto;
-            a {
-                font-size: rem(16);
-            }
-        }
-        .nav {
-            float: none;
-            width: rem(220);
-            margin-right: 0;
-            background-color: rgba(255, 255, 255, .9);
-            box-shadow: 0 rem(2) rem(4) 0 #E8E8E8;
-            transition: .4s ease-out;
-            position: fixed;
-            z-index: 10;
-            left: rem(-220);
-            top: rem(60);
-            bottom: 0;
-            overflow: auto;
-            &.menu-show {
-                transform: translate(rem(220), 0);
-            }
-            a {
-                display: block;
-                padding: 0 rem(20);
-                line-height: 3;
-            }
-            .slideblock {
-                display: none;
-            }
-            > .example-menu {
-                display: block;
-            }
-        }
     }
 
     .com-body {
@@ -83,51 +45,26 @@
             padding-right: 0;
             text-align: center;
         }
-        .intro {
-            > .title {
-                font-size: rem(30);
-            }
-            > .describe {
-                font-size: rem(14);
-            }
-            > .usage {
-                margin-top: rem(16);
-                .btn {
-                    width: rem(84);
-                    height: rem(36);
-                    font-size: rem(14);
-                    &:after {
-                        top: rem(17);
-                    }
-                    .pa {
-                        line-height: rem(36);
+    }
+
+    .page-examples {
+        .menu {
+            display: none;
+        }
+        .main {
+            padding-left: 0;
+            > .content {
+                [class^="instance"]:not(.instance-ctrl) {
+                    .demo {
+                        height: rem(400);
                     }
                 }
             }
         }
     }
-
-    #page-example {
-        .com-body {
-            > .menu {
-                display: none;
-            }
-            > .main {
-                padding-left: 0;
-            }
-        }
-    }
-
-    #page-download {
-        > .com-body {
-            h3 {
-                font-size: rem(14);
-            }
-        }
-    }
 }
 
-// iPhone 6 plus 竖向
+// iPhone 6 plus vertical
 @media all and (max-width: 415px) {
     $page-left-right: rem(20);
     .com-header {
@@ -149,19 +86,32 @@
         }
     }
 
-    .instance {
-        height: rem(180) !important;
+    .page-examples {
+        .main {
+            > .content {
+                [class^="instance"]:not(.instance-ctrl) {
+                    .demo {
+                        height: rem(200);
+                    }
+                }
+                .wave_loading {
+                    [class^="instance"] {
+                        height: rem(300);
+                    }
+                }
+            }
+        }
     }
 
     // 404 page
     .not-found {
-        #wrap {
+        .wrap {
             width: 250px;
             > img {
                 width: 100%;
             }
         }
-        #text {
+        .text {
             strong {
                 padding-top: 15px;
             }

@@ -42,7 +42,8 @@ pre {
 }
 
 // common markdown syntax
-.md-syntax-highlight {
+.markdown-syntax {
+    font-size: rem(14);
     word-wrap: break-word;
     @extend .cf;
     > *:first-child {
@@ -244,8 +245,7 @@ pre {
 }
 
 // custom markdown syntax
-.md-syntax-highlight {
-    font-size: rem(14);
+.markdown-syntax {
     h1, h2, h3 {
         color: $green;
     }

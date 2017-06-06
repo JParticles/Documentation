@@ -34,7 +34,7 @@ export default class Wave extends Base {
             }, settings));
 
             $('.instance-2 .voice')
-                .on('mousedown', function () {
+                .on('mousedown.voice, touchstart.voice', function () {
                     clearInterval(this.timer);
                     this.timer = setInterval(() => {
                         const crestHeight = [10, 14, 18].map(item => {
@@ -57,8 +57,8 @@ export default class Wave extends Base {
                         });
                     }, 100);
 
-                    $(document).on('mouseup.voice', () => {
-                        $(document).off('mouseup.voice');
+                    $(document).on('mouseup.voice, touchend.voice', () => {
+                        $(document).off('mouseup.voice, touchend.voice');
                         clearInterval(this.timer);
                         effect.setOptions(settings);
                     });

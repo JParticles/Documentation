@@ -83,7 +83,7 @@ export default class Examples extends Component {
                 <Header/>
                 <Body>
                     <Menu/>
-                    <div className="main md-syntax-highlight">
+                    <div className="main markdown-syntax">
                         <div className="content text-justify">
                             {
                                 this.state.Component

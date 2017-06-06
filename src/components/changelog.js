@@ -18,7 +18,7 @@ export default class Changelog extends Component {
             <div id="container" className="page-changelog">
                 <Header/>
                 <Body>
-                    <div className="inner md-syntax-highlight"
+                    <div className="inner markdown-syntax"
                          dangerouslySetInnerHTML={{
                             __html: this.content
                          }}>
