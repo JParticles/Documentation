@@ -191,7 +191,9 @@ View Source:
 	        <td>crestHeight</td>
 	        <td>[]</td>
 	        <td>number or array</td>
-	        <td>Crest height. `(0, 1)` is display as the number of corresponding multiples of the container height, `0 & [1, + ∞)` display the specific number.</td>
+	        <td>
+				Crest height. `(0, 1)` is display as the number of corresponding multiples of the container height, `0 & [1, + ∞)` display the specific number.
+			</td>
 	    </tr>
 	    <tr>
 	        <td>rippleNum</td>

@@ -191,8 +191,8 @@
 	        <td>5000</td>
 	        <td>number</td>
 	        <td>
-				加载到 99% 的时长，单位毫秒(ms)，<br>
-        		用时越久，越慢加载到 99%。
+				加载到 `99%` 的时长，单位毫秒(ms)，<br>
+        		用时越久，越慢加载到 `99%`。
 			</td>
 	    </tr>
 	    <tr>
@@ -200,12 +200,14 @@
 	        <td>swing</td>
 	        <td>string</td>
 	        <td>
-				加载过程的运动效果。<br>
-				默认支持两种：匀速(linear)，先慢慢加速再慢慢减速(swing)。<br>
+				加载过程的动画。<br>
+				默认支持两种：<br>
+				`linear`: 匀速。<br>
+				`swing`: 先慢慢加速再慢慢减速。<br>
 				更多请阅读
 				<a class="dotted-line" href="#/examples/quick_start#easing" target="_blank">
-					easing 函数
-				</a>
+					Easing 函数
+				</a>。
 			</td>
 	    </tr>
     </tbody>
@@ -227,8 +229,8 @@
 	        <td>newOptions: object</td>
 	        <td>
 				动态设置属性值。当前能设置的属性有: <br>
-				opacity, color, font, smallFont, smallFontOffsetTop,
-				fillColor, offsetLeft, crestHeight, speed
+				`opacity, color, font, smallFont, smallFontOffsetTop,
+				fillColor, offsetLeft, crestHeight, speed`
 			</td>
 	    </tr>
 	    <tr>
@@ -254,13 +256,13 @@
 	        <td>onProgress()</td>
 	        <td>function</td>
 	        <td>
-				进度每次改变的时候触发此事件，接受一个返回值，返回值类型为：{string | object}。
+				进度每次改变的时候触发此事件，接受一个返回值，返回值类型为：`{string | object}`。
 			</td>
 	    </tr>
 	    <tr>
 	        <td>onFinished()</td>
 	        <td>function</td>
-	        <td>进度加载到 100% 后触发此事件。</td>
+	        <td>进度加载到 `100%` 后触发此事件。</td>
 	    </tr>
     </tbody>
 </table>

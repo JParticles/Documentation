@@ -165,35 +165,37 @@ View Source:
 	        <td>0</td>
 	        <td>number</td>
 	        <td>
-				线条的横向偏移值，距离 Canvas 画布左边的偏移值。<br>
-				(0, 1) 表示容器宽度的倍数，0 & [1, +∞) 表示具体数值。
+				The horizontal offset of the line, offset from the left of the Canvas.<br>
+				`(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` display the specific number.
 			</td>
 	    </tr>
 	    <tr>
 	        <td>crestHeight</td>
 	        <td>4</td>
 	        <td>number</td>
-	        <td>波峰高度，(0, 1) 表示容器高度的倍数，0 & [1, +∞) 表示具体数值。</td>
+	        <td>
+				Crest height. `(0, 1)` is display as the number of corresponding multiples of the container height, `0 & [1, + ∞)` display the specific number.
+			</td>
 	    </tr>
 	    <tr>
 	        <td>rippleNum</td>
 	        <td>1</td>
 	        <td>number</td>
-	        <td>波纹个数，即正弦周期个数。</td>
+	        <td>Ripple number, that is the number of sine cycles.</td>
 	    </tr>
 	    <tr>
 	        <td>speed</td>
 	        <td>0.3</td>
 	        <td>number</td>
-	        <td>波浪的运动速度。</td>
+	        <td>The wave movement speed.</td>
 	    </tr>
 	    <tr>
 	        <td>duration</td>
 	        <td>5000</td>
 	        <td>number</td>
 	        <td>
-				加载到 99% 的时长，单位毫秒(ms)，<br>
-        		用时越久，越慢加载到 99%。
+				Load to `99%` of the length of time (ms), <br>
+				with the longer, the slowly load to `99%`.
 			</td>
 	    </tr>
 	    <tr>
@@ -201,12 +203,14 @@ View Source:
 	        <td>swing</td>
 	        <td>string</td>
 	        <td>
-				加载过程的运动效果。<br>
-				默认支持两种：匀速(linear)，先慢慢加速再慢慢减速(swing)。<br>
-				更多请阅读
+				Load the animation of the process.<br>
+				By default support two types as follows:<br>
+				`linear`: Uniform motion.<br>
+				`swing`: First slowly accelerated and then slowly slow down.<br>
+				Add other new animations please reference to 
 				<a class="dotted-line" href="#/examples/quick_start#easing" target="_blank">
-					easing 函数
-				</a>
+					Easing function
+				</a>.
 			</td>
 	    </tr>
     </tbody>

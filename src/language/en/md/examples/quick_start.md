@@ -196,7 +196,7 @@ The code is as follows:
 	    resize: true
 	}
 
-### 8. Easing
+### 8. Easing function
 #### Add other animations you can use the exposed global interface `JParticles.easing`, an example as follows.
 > Note: `JParticles.easing` only allows you to add, do not to change or delete existing functions.<br>
 > Add other new animations please reference to [http://easings.net](http://easings.net)
