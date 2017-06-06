@@ -18,7 +18,7 @@ function dispatch(options) {
 export default {
     dispatch,
     isMobile() {
-        return document.documentElement.clientWidth < 1024;
+        return document.documentElement.clientWidth <= 768;
     },
     setLanguage(language, languageField) {
         dispatch({

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {language} from 'store';
+import {language, isMobile} from 'store';
 import {parseRouter, splitPath} from 'js/parse_router';
 
 const menu = [
@@ -27,7 +27,7 @@ const menu = [
 const quickStartKey = 'read_quick_start';
 const quickStartPath = '/examples/quick_start';
 
-export default class Menu extends Component {
+class Menu extends Component {
     constructor() {
         super();
         const curRouter = parseRouter();
@@ -84,5 +84,21 @@ export default class Menu extends Component {
                 </ul>
             </aside>
         )
+    }
+}
+
+export default class MenuAgency extends Component {
+    componentDidMount() {
+        $(window).on('resize.MenuAgency', () => {
+            this.setState({});
+        });
+    }
+
+    componentWillUnmount() {
+        $(window).off('resize.MenuAgency');
+    }
+
+    render() {
+        return isMobile() ? null : <Menu/>
     }
 }

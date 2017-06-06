@@ -53,7 +53,7 @@ export default class Header extends Component {
             }
 
             // showing text
-            const lang = language.header[i];
+            const lang = language.header.common[i];
             if (JParticles.utils.isPlainObject(lang)) {
                 Object.assign(item, lang);
             } else {
@@ -71,6 +71,129 @@ export default class Header extends Component {
         this.languageList.unshift(this.curLanguage);
     }
 
+    componentDidMount() {
+        $(window).on('resize.switchMenu', () => {
+            this.setState({});
+        });
+    }
+
+    componentWillUnmount() {
+        $(window).off('resize.switchMenu');
+    }
+
+    render() {
+        const {languageList, navigation, curLanguage} = this;
+        const props = {
+            rootRouter: this.router.hasLanguage ? `/${this.router.language}/` : '/',
+            languageList,
+            curLanguage,
+            navigation
+        };
+        return (
+            <header className="com-header pr">
+                {
+                    isMobile()
+                        ? <SmallScreen {...props}/>
+                        : <LargeScreen {...props}/>
+                }
+            </header>
+        )
+    }
+}
+
+class SmallScreen extends Component {
+    componentDidMount() {
+        const showingClass = 'show';
+        this.$menu = $('.small-screen .mobile-menu');
+        this.$nav = $('.small-screen .nav');
+        this.$menu.on('click', () => {
+            this.$nav[this.$nav.hasClass(showingClass) ? 'removeClass' : 'addClass'](showingClass);
+        });
+        $(document).on('click.smallScreen', (e) => {
+            if (
+                e.target !== this.$menu[0]
+                && e.target !== this.$nav[0]
+                && !$.contains(this.$menu[0], e.target)
+                && !$.contains(this.$nav[0], e.target)
+            ) {
+                this.$nav.removeClass(showingClass);
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        this.$menu.off('click');
+        $(document).off('click.smallScreen');
+    }
+
+    onSwitchLang(lang) {
+        if (language.language != lang.field) {
+            const router = parseRouter();
+            const LANGUAGE = require(`language/${lang.field}/${lang.field}`);
+            setLanguage(LANGUAGE, lang.field);
+            location.hash = createHash(lang.field, router.path);
+        }
+    }
+
+    render() {
+        const {rootRouter, navigation, languageList, curLanguage} = this.props;
+        return (
+            <div className="small-screen">
+                <div className="mobile-menu">
+                    <i className="icon icon-menu"></i>
+                    {language.header.smallScreen.menu}
+                </div>
+                <figure className="switch-language pr">
+                    <div className="display">
+                        <span>{curLanguage.name}</span>
+                        <img
+                            src={require(`language/${splitPath(curLanguage.flag)}`)}
+                            alt="Flag"
+                        />
+                    </div>
+                    <ul className="list list-unstyled">
+                        {
+                            languageList.map((lang, i) => {
+                                return <li key={i}
+                                    className="display"
+                                    onClick={this.onSwitchLang.bind(this, lang)}>
+                                    <span>{lang.name}</span>
+                                    <img
+                                        src={require(`language/${splitPath(lang.flag)}`)}
+                                        alt="Flag"
+                                    />
+                                </li>
+                            })
+                        }
+                    </ul>
+                </figure>
+                <nav className="nav">
+                    {
+                        navigation.map((item, i) => {
+                            return <a
+                                key={i}
+                                {...item}>
+                                {item.name}
+                            </a>
+                        })
+                    }
+                    <div className="divider"></div>
+                    {
+                        navigation.map((item, i) => {
+                            return <a
+                                key={i}
+                                {...item}>
+                                {item.name}
+                            </a>
+                        })
+                    }
+                </nav>
+            </div>
+        )
+    }
+}
+
+class LargeScreen extends Component {
     setBlockPosition() {
         if (!isMobile()) {
             const $screen = $('.com-header .large-screen');
@@ -105,7 +228,7 @@ export default class Header extends Component {
 
     resize() {
         $(window)
-            .on('resize.header', () => {
+            .on('resize.LargeScreen', () => {
                 setTimeout(() => {
                     this.setState({}, () => {
                         this.setBlockPosition();
@@ -122,7 +245,7 @@ export default class Header extends Component {
     }
 
     componentWillUnmount() {
-        $(window).off('resize.header');
+        $(window).off('resize.LargeScreen');
     }
 
     onSwitchLang(lang) {
@@ -135,62 +258,49 @@ export default class Header extends Component {
     }
 
     render() {
-        const rootRouter = this.router.hasLanguage ? `/${this.router.language}/` : '/';
+        const {rootRouter, navigation, languageList, curLanguage} = this.props;
         return (
-            <header className="com-header pr">
-                {
-                    isMobile()
-                        ?
-                        <div className="small-screen">
-                            <div className="mobile-menu">
-                                <i className="icon icon-menu"></i>
-                                菜单
-                            </div>
+            <div className="large-screen cf">
+                <div className="logo fl">
+                    <Link to={rootRouter}>JParticles</Link>
+                </div>
+                <nav className="nav fr pr">
+                    {
+                        navigation.map((item, i) => {
+                            return <a
+                                key={i}
+                                {...item}>
+                                {item.name}
+                            </a>
+                        })
+                    }
+                    <figure className="switch-language pr">
+                        <div className="display">
+                            <span>{curLanguage.name}</span>
+                            <img
+                                src={require(`language/${splitPath(curLanguage.flag)}`)}
+                                alt="Flag"
+                            />
                         </div>
-                        :
-                        <div className="large-screen cf">
-                            <div className="logo fl">
-                                <Link to={rootRouter}>JParticles</Link>
-                            </div>
-                            <nav className="nav fr pr">
-                                {
-                                    this.navigation.map((item, i) => {
-                                        return <a
-                                            key={i}
-                                            {...item}>
-                                            {item.name}
-                                        </a>
-                                    })
-                                }
-                                <figure className="switch-language pr">
-                                    <div className="display">
-                                        <span>{this.curLanguage.name}</span>
+                        <ul className="list list-unstyled">
+                            {
+                                languageList.map((lang, i) => {
+                                    return <li key={i}
+                                               className="display"
+                                               onClick={this.onSwitchLang.bind(this, lang)}>
+                                        <span>{lang.name}</span>
                                         <img
-                                            src={require(`language/${splitPath(this.curLanguage.flag)}`)}
+                                            src={require(`language/${splitPath(lang.flag)}`)}
                                             alt="Flag"
                                         />
-                                    </div>
-                                    <ul className="list list-unstyled">
-                                        {
-                                            this.languageList.map((lang, i) => {
-                                                return <li key={i}
-                                                    className="display"
-                                                    onClick={this.onSwitchLang.bind(this, lang)}>
-                                                    <span>{lang.name}</span>
-                                                    <img
-                                                        src={require(`language/${splitPath(lang.flag)}`)}
-                                                        alt="Flag"
-                                                    />
-                                                </li>
-                                            })
-                                        }
-                                    </ul>
-                                </figure>
-                                <div className="slide-block pa hidden"></div>
-                            </nav>
-                        </div>
-                }
-            </header>
+                                    </li>
+                                })
+                            }
+                        </ul>
+                    </figure>
+                    <div className="slide-block pa hidden"></div>
+                </nav>
+            </div>
         )
     }
 }

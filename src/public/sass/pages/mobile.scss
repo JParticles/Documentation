@@ -27,10 +27,11 @@
 @media all and (max-width: 768px) {
     .com-header {
         width: 100%;
-        height: rem(60);
+        height: rem($header-height-mobile);
         line-height: rem(60);
         background-color: #fff;
         position: fixed;
+        z-index: 999;
     }
 
     .com-body {

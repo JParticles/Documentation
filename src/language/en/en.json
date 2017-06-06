@@ -2,10 +2,15 @@
     "language": "en",
     "progressText": "loading...",
     "title": "JParticles - succinct, efficient and lightweight Canvas plugin library for building some cool particle effects.",
-    "header": ["Home", "Examples & API", "GitHub", "QQ Group", {
-        "name": "Change Log",
-        "title": "The way ahead is long, I see no ending, yet high and low I will search with my will unbending."
-    }],
+    "header": {
+        "smallScreen": {
+            "menu": "Menu"
+        },
+        "common": ["Home", "Examples & API", "GitHub", "QQ Group", {
+            "name": "Change Log",
+            "title": "The way ahead is long, I see no ending, yet high and low I will search with my will unbending."
+        }]
+    },
     "footer": ["Support author - Star on GitHub"],
     "home": {
         "description": "A succinct, efficient and lightweight Canvas plugin library for building some cool particle effects.",
