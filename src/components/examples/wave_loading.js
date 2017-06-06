@@ -23,27 +23,17 @@ export default class WaveLoading extends Base {
         function createLoading() {
             loading = null;
             loading = new JParticles.waveLoading('.instance-1 .demo', {
-
-                // [font style][font weight][font size][font family]
-                // 文本样式，同css一样，必须包含 [font size] 和 [font family]
                 font: 'normal 900 16px Arial',
-
                 smallFont: 'normal 900 14px Arial',
-
-                // 对于不需要自适应的，应该设置为 false，
-                // 减少计算，提高性能
                 resize: false
             });
 
             loading
                 .onProgress(progress => {
 
-                    // set text color to white if the progress more than 60%
-                    if (progress >= 60) {
-                        loading.setOptions({
-                            color: '#fff'
-                        });
-                    }
+                    loading.setOptions({
+                        color: progress >= 60 ? '#fff' : '#333'
+                    });
 
                     return language.progressText + Math.ceil(progress) + '%';
                 });
