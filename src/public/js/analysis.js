@@ -1,5 +1,7 @@
 export default function analysis() {
 
+    if (/localhost|127\.0\.0\.1/i.test(location.hostname)) return;
+
     // cnzz
     (function () {
         var cnzz = document.createElement('script');

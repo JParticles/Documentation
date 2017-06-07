@@ -12,10 +12,12 @@ const extractStyles = new ExtractTextPlugin({
     allChunks: true
 });
 
-const chunks = [
+/*const chunks = [
     'pageLoading', 'react', 'react_router_dom',
     'jquery', 'jparticles', 'app'
-];
+];*/
+
+const chunks = ['pageLoading', 'jparticles', 'app'];
 
 const config = {
     entry: {
@@ -121,11 +123,6 @@ const config = {
                     return 0;
                 }
             }
-        }),
-
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
         })
     ],
     resolve: {

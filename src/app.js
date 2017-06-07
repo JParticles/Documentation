@@ -2,34 +2,42 @@ import React, {Component, createElement} from 'react';
 import {render} from 'react-dom';
 import {HashRouter, Switch, Route, Redirect} from 'react-router-dom';
 import AsyncComponent from './components/common/async_component';
+import SyncComponent from './components/common/sync_component';
+import $ from 'jquery';
+
+window.$ = $;
 
 import 'sass/build.scss';
 
 render(
     <HashRouter>
         <Switch>
-            <Route exact path="/" component={AsyncComponent(()=>import('./components/index'))}/>
-            <Route path="/changelog" component={AsyncComponent(()=>import('./components/changelog'))}/>
-            <Route path="/examples/:instance" component={({match}) => (
-                createElement(AsyncComponent(()=>import('./components/examples'), match))
+            <Route exact path="/404" component={AsyncComponent(()=>import('./components/not_found'))}/>
+
+            <Route exact path="/" component={({match}) => (
+                createElement(SyncComponent(require('./components/index'), match))
+            )}/>
+            <Route exact path="/changelog" component={({match}) => (
+                createElement(SyncComponent(require('./components/changelog'), match))
+            )}/>
+            <Route exact path="/examples/:instance" component={({match}) => (
+                createElement(SyncComponent(require('./components/examples'), match))
             )}/>
             <Redirect from="/examples" to="/examples/intro"/>
 
-            <Route exact path="/en/" component={AsyncComponent(()=>import('./components/index'))}/>
-            <Route path="/en/changelog" component={AsyncComponent(()=>import('./components/changelog'))}/>
-            <Route path="/en/examples/:instance" component={({match}) => (
-                createElement(AsyncComponent(()=>import('./components/examples'), match))
+            {/* language */}
+            <Route exact path="/:lang/" component={({match}) => (
+                createElement(SyncComponent(require('./components/index'), match))
             )}/>
-            <Redirect from="/en/examples" to="/en/examples/intro"/>
-
-            <Route exact path="/cn/" component={AsyncComponent(()=>import('./components/index'))}/>
-            <Route path="/cn/changelog" component={AsyncComponent(()=>import('./components/changelog'))}/>
-            <Route path="/cn/examples/:instance" component={({match}) => (
-                createElement(AsyncComponent(()=>import('./components/examples'), match))
+            <Route exact path="/:lang/changelog" component={({match}) => (
+                createElement(SyncComponent(require('./components/changelog'), match))
             )}/>
-            <Redirect from="/cn/examples" to="/cn/examples/intro"/>
+            <Route exact path="/:lang/examples/:instance" component={({match}) => (
+                createElement(SyncComponent(require('./components/examples'), match))
+            )}/>
+            <Redirect from="/:lang/examples" to="/:lang/examples/intro"/>
 
-            <Route path="/404" component={AsyncComponent(()=>import('./components/not_found'))}/>
+            {/* 404 */}
             <Redirect to="/404"/>
         </Switch>
     </HashRouter>,
