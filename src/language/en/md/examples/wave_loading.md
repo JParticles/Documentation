@@ -208,7 +208,7 @@ View Source:
 				`linear`: Uniform motion.<br>
 				`swing`: First slowly accelerated and then slowly slow down.<br>
 				Add other new animations please reference to 
-				<a class="dotted-line" href="#/examples/quick_start#easing" target="_blank">
+				<a class="dotted-line" href="#/en/examples/quick_start#8_Easing_function" target="_blank">
 					Easing function
 				</a>.
 			</td>

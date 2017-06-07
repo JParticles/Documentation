@@ -19,12 +19,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-$iconfont: (
-    menu: 600,
-
-);
-@each $key, $val in $iconfont {
-    .icon-#{ $key }:before{
-        content: '"'+\e+ '#{$val}' +'"';
-    }
+.icon-menu:before {
+    content: "\e600";
 }

@@ -205,7 +205,7 @@
 				`linear`: 匀速。<br>
 				`swing`: 先慢慢加速再慢慢减速。<br>
 				更多请阅读
-				<a class="dotted-line" href="#/examples/quick_start#easing" target="_blank">
+				<a class="dotted-line" href="#/examples/quick_start#8、Easing_函数" target="_blank">
 					Easing 函数
 				</a>。
 			</td>

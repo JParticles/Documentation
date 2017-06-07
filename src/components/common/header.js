@@ -1,29 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import {language, setLanguage, isMobile} from 'store';
 import languageList from 'language/list';
 import {parseRouter, createHash, splitPath} from 'js/parse_router';
-
-const navigation = [
-    {
-        href: "/"
-    },
-    {
-        href: "/examples/particle"
-    },
-    {
-        href: "https://github.com/Barrior/JParticles",
-        target: "_blank"
-    },
-    {
-        href: "http://shang.qq.com/wpa/qunwpa?idkey=f548e3f94e0040a2ac5adfe4fec6915ef67c8c1b6ba5784ff6d5049c6135a759",
-        title: "172839150",
-        target: "_blank"
-    },
-    {
-        href: "/changelog"
-    }
-];
+import menus from 'js/menus_config';
 
 export default class Header extends Component {
     constructor(props) {
@@ -33,7 +13,7 @@ export default class Header extends Component {
 
     init() {
         const router = this.router = parseRouter();
-        this.navigation = JParticles.utils.extend(true, [], navigation).map((item, i) => {
+        this.navigation = JParticles.utils.extend(true, [], menus.navigation).map((item, i) => {
 
             // add language at route of link
             if (!/^https?/i.test(item.href)) {
@@ -61,6 +41,14 @@ export default class Header extends Component {
             }
             return item;
         });
+        this.menu = JParticles.utils.extend(true, [], menus.sideMenu);
+        this.menu.forEach((item, i) => {
+            item.name = language.examples.menu[i];
+            if (router.hasLanguage) {
+                item.to = `/${router.language}/${splitPath(item.to)}`;
+            }
+        });
+
         this.languageList = JParticles.utils.extend(true, [], languageList);
         this.languageList.some((item, i, array) => {
             if (item.field == language.language) {
@@ -82,12 +70,13 @@ export default class Header extends Component {
     }
 
     render() {
-        const {languageList, navigation, curLanguage} = this;
+        const {languageList, curLanguage, navigation, menu} = this;
         const props = {
             rootRouter: this.router.hasLanguage ? `/${this.router.language}/` : '/',
             languageList,
             curLanguage,
-            navigation
+            navigation,
+            menu
         };
         return (
             <header className="com-header pr">
@@ -102,6 +91,21 @@ export default class Header extends Component {
 }
 
 class SmallScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.quickStartKey = 'read_quick_start';
+        this.quickStartPath = '/examples/quick_start';
+
+        // require flag
+        const router = parseRouter();
+        if (router.path != this.quickStartPath && !localStorage.getItem(this.quickStartKey)) {
+            this.required = true;
+        } else {
+            this.required = false;
+            localStorage.setItem(this.quickStartKey, true);
+        }
+    }
+
     componentDidMount() {
         const showingClass = 'show';
         this.$menu = $('.small-screen .mobile-menu');
@@ -136,14 +140,15 @@ class SmallScreen extends Component {
     }
 
     render() {
-        const {rootRouter, navigation, languageList, curLanguage} = this.props;
+        const {quickStartPath} = this;
+        const {rootRouter, navigation, menu, languageList, curLanguage} = this.props;
         return (
-            <div className="small-screen">
-                <div className="mobile-menu">
+            <div className="small-screen cf">
+                <div className="mobile-menu fl">
                     <i className="icon icon-menu"></i>
                     {language.header.smallScreen.menu}
                 </div>
-                <figure className="switch-language pr">
+                <figure className="switch-language fr pr">
                     <div className="display">
                         <span>{curLanguage.name}</span>
                         <img
@@ -179,12 +184,17 @@ class SmallScreen extends Component {
                     }
                     <div className="divider"></div>
                     {
-                        navigation.map((item, i) => {
-                            return <a
+                        menu.map((item, i) => {
+                            return <NavLink
                                 key={i}
-                                {...item}>
+                                activeClassName="active"
+                                to={item.to}>
                                 {item.name}
-                            </a>
+                                {
+                                    this.required && item.to.indexOf(quickStartPath) != -1 &&
+                                    <i className="emulate-icon-required">{language.examples.required}</i>
+                                }
+                            </NavLink>
                         })
                     }
                 </nav>

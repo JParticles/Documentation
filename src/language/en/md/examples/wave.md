@@ -142,7 +142,7 @@ View Source:
 	        <td>
 	            fill the background color.<br>
 				Use the same rules as the
-	            <a class="dotted-line" href="#/examples/quick_start#默认配置" target="_blank">
+	            <a class="dotted-line" href="#/en/examples/quick_start#2_Unless_otherwise_specified_each_plugin_has_contains_three_options_as_the_follows_" target="_blank">
 	                color
 	            </a>.
 				<br>

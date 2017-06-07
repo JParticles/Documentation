@@ -5,25 +5,29 @@ export const splitPath = (path) => {
 };
 
 export const parseRouter = () => {
-    const hash = location.hash.split('/');
-    let path = '/' + hash[1];
+    const realHash = location.hash.split('/');
+    let path = '/' + realHash[1];
     let hasLanguage = false;
     let language = '';
 
-    if (hash.length > 2) {
-        if (languageList.indexOf(hash[1]) == -1) {
-            hash.splice(0, 1);
+    if (realHash.length > 2) {
+        if (languageList.indexOf(realHash[1]) == -1) {
+            realHash.splice(0, 1);
         } else {
             hasLanguage = true;
-            language = hash[1];
-            hash.splice(0, 2);
+            language = realHash[1];
+            realHash.splice(0, 2);
         }
-        path = '/' + hash.join('/');
+        path = '/' + realHash.join('/');
     }
+
+    const split = path.split('#');
+    path = split[0];
 
     return {
         hasLanguage,
         language,
+        hash: split[1],
         path,
         fullPath: hasLanguage ? `/${language}/${splitPath(path)}` : path
     }

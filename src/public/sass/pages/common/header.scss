@@ -13,6 +13,61 @@
             color: $green;
         }
     }
+    .switch-language {
+        display: inline-block;
+        margin: 0 0 0 rem(8);
+        padding-left: rem(16);
+        line-height: 1;
+        border-left: rem(1) dotted $gray;
+        top: rem(-3);
+        cursor: pointer;
+        *::selection {
+            background: none;
+        }
+        &:hover {
+            > .list {
+                display: block;
+            }
+        }
+        .display {
+            > * {
+                vertical-align: middle;
+            }
+            img {
+                width: rem(18);
+                margin-left: rem(10);
+            }
+            span {
+                font-size: rem(14);
+            }
+        }
+        > .list {
+            display: none;
+            min-width: rem(116);
+            margin-bottom: 0;
+            border: rem(1) solid $gray-border;
+            border-radius: rem(10);
+            background-color: #fff;
+            position: absolute;
+            top: rem(-13);
+            left: rem(-2);
+            right: rem(-12);
+            box-shadow: 0 rem(2) rem(8) 0 $header-shadow;
+            animation: .3s fadeIn;
+            overflow: hidden;
+            li {
+                padding: rem(12);
+                text-align: right;
+                border-bottom: rem(1) solid $gray-border;
+                &:last-child {
+                    border-bottom: none;
+                }
+                &:hover {
+                    background-color: $lightgray-bg-hover;
+                }
+            }
+        }
+    }
     .large-screen {
         .logo {
             height: rem(94);
@@ -38,69 +93,30 @@
                 top: rem(62);
                 transition: .4s ease-out;
             }
-            .switch-language {
-                display: inline-block;
-                margin: 0 0 0 rem(8);
-                padding-left: rem(16);
-                line-height: 1;
-                border-left: rem(1) dotted $gray;
-                top: rem(-3);
-                cursor: pointer;
-                *::selection {
-                    background: none;
-                }
-                &:hover {
-                    > .list {
-                        display: block;
-                    }
-                }
-                .display {
-                    > * {
-                        vertical-align: middle;
-                    }
-                    img {
-                        width: rem(18);
-                        margin-left: rem(10);
-                    }
-                    span {
-                        font-size: rem(14);
-                    }
-                }
-                > .list {
-                    display: none;
-                    min-width: rem(116);
-                    margin-bottom: 0;
-                    border: rem(1) solid $gray-border;
-                    border-radius: rem(10);
-                    background-color: #fff;
-                    position: absolute;
-                    top: rem(-13);
-                    left: rem(-2);
-                    right: rem(-12);
-                    box-shadow: 0 rem(2) rem(8) 0 $header-shadow;
-                    animation: .3s fadeIn;
-                    overflow: hidden;
-                    li {
-                        padding: rem(12);
-                        text-align: right;
-                        border-bottom: rem(1) solid $gray-border;
-                        &:last-child {
-                            border-bottom: none;
-                        }
-                        &:hover {
-                            background-color: $lightgray-bg-hover;
-                        }
-                    }
-                }
-            }
         }
     }
     .small-screen {
         .mobile-menu {
             cursor: pointer;
+            .icon {
+                font-size: rem(14);
+                margin-right: rem(4);
+            }
         }
         .switch-language {
-            display: none;
+            top: rem(21);
+            border-left: none;
+            .display {
+                img {
+                    margin-left: rem(8);
+                }
+            }
+            > .list {
+                min-width: auto;
+                li {
+                    padding: rem(10);
+                }
+            }
         }
         .nav {
             $nav-width: 220px;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Remarkable from 'remarkable';
-import {language} from 'store';
+import {language, themeColor} from 'store';
 import Header from './common/header';
 import Body from './common/body';
 import Footer from './common/footer';
@@ -49,6 +49,7 @@ export default class Examples extends Component {
             font: 'normal 900 12px Arial',
             smallFont: 'normal 900 12px Arial',
             smallFontOffsetTop: 0,
+            fillColor: themeColor,
             duration: 2000
         });
 

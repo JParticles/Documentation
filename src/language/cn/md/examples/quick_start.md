@@ -241,7 +241,7 @@
     </tbody>
 </table>
 
-#### 9、小提示
+### 9、小提示
 1. 修改默认选项应放在 `new` 之前。
 1. 每个 `JParticles` 插件的默认选项及示例请查看左侧的菜单。
 1. 更丰富但可能描述不详的演示，还请克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，去 `samples` 目录下看看。

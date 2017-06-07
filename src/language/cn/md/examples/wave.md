@@ -142,7 +142,7 @@
 	        <td>
 	            填充的背景色。<br>
 				使用方法与
-	            <a class="dotted-line" href="#/examples/quick_start#默认配置" target="_blank">
+	            <a class="dotted-line" href="#/examples/quick_start#2、如无特别说明，每个插件的默认选项（options）都包含以下三个参数。" target="_blank">
 	                color 规则相同
 	            </a>。
 				<br>

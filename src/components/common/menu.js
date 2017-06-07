@@ -2,27 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {language, isMobile} from 'store';
 import {parseRouter, splitPath} from 'js/parse_router';
-
-const menu = [
-    {
-        "to": "/examples/intro"
-    },
-    {
-        "to": "/examples/quick_start"
-    },
-    {
-        "to": "/examples/particle"
-    },
-    {
-        "to": "/examples/wave"
-    },
-    {
-        "to": "/examples/wave_loading"
-    },
-    {
-        "to": "/examples/snow"
-    }
-];
+import menus from 'js/menus_config';
 
 const quickStartKey = 'read_quick_start';
 const quickStartPath = '/examples/quick_start';
@@ -31,7 +11,7 @@ class Menu extends Component {
     constructor() {
         super();
         const curRouter = parseRouter();
-        this.menu = JParticles.utils.extend(true, [], menu);
+        this.menu = JParticles.utils.extend(true, [], menus.sideMenu);
         this.menu.forEach((item, i) => {
             item.title = language.examples.menu[i];
             if (curRouter.hasLanguage) {

@@ -244,7 +244,7 @@ The code is as follows:
     </tbody>
 </table>
 
-#### 9. Tips
+### 9. Tips
 1. Change the default options should be place before `new`.
 1. Please check the menu on the left to know the default config and examples of each `JParticles` plugin.
 1. You can also clone the [JParticles](https://github.com/Barrior/JParticles) project and look at the `samples` directory, which is a richer but potentially unexplained demos.
