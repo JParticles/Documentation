@@ -181,6 +181,7 @@ pre {
             tr:nth-of-type(odd) {
                 background-color: $md-lightgray-bg;
                 code {
+                    word-break: break-word;
                     background-color: $md-code-bg-in-odd-table;
                 }
             }

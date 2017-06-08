@@ -13,8 +13,11 @@ export default class Base extends Component {
             this.content = this.content
                 .replace(/(<a href=".*?")>/g, '$1 target="_blank">')
                 .replace(/(<pre)>/g, '$1 class="prettyprint">')
-                .replace(/(<table.*?>)((.|\s)*?)(?=<\/table>)/g, ($0, $1, $2) => {
-                    return $1 + $2.replace(/`((.|\s)*?)`/g, '<code>$1</code>');
+                .replace(/(<table.*?>)((.|\s)*?)<\/table>/g, ($0, $1, $2) => {
+                    const content = $2.replace(/`((.|\s)*?)`/g, '<code>$1</code>');
+
+                    // add .table-scroll element for scroll own table on mobile end.
+                    return `<div class="table-scroll">${$1 + content}</table></div>`;
                 })
                 .replace(/<h3>((.|s)*?)(?=<\/h3>)/g, ($0, $1) => {
                     const id = $1.replace(/[.,\s]+/g, '_');

@@ -94,10 +94,10 @@ export default class Examples extends Component {
                                       </div>
                             }
                         </div>
-                        <Comment/>
+                        {this.state.Component && <Comment/>}
                     </div>
                 </Body>
-                <Footer/>
+                {this.state.Component && <Footer/>}
             </div>
         )
     }

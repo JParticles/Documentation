@@ -60,6 +60,12 @@
                         height: rem(400);
                     }
                 }
+                .table-scroll {
+                    overflow: auto;
+                }
+                table {
+                    white-space: nowrap;
+                }
             }
         }
     }

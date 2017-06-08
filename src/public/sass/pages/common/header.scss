@@ -112,7 +112,9 @@
                 }
             }
             > .list {
-                min-width: auto;
+                min-width: rem(110);
+                left: auto;
+                right: 0;
                 li {
                     padding: rem(10);
                 }
