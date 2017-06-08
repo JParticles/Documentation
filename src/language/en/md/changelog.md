@@ -1,4 +1,4 @@
-### 2.0.0 *(2017.xx.xx)*
+### 2.0.0 *(2017.06.08)*
  - **Upgrade to `2.0.0` and rename it to `JParticles`.**
  - **Add new effect: `waveLoading` - simulation progress bar to load.**
  - All effects: add `onDestroy()` event.
