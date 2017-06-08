@@ -22,7 +22,7 @@ View Source:
 	});
 	
 	loading
-	    .onProgress(progress => {
+	    .onProgress(function (progress) {
 	
 			// Set text color to white if the progress more than 60%
 	        if (progress >= 60) {
@@ -87,7 +87,7 @@ View Source:
 	});
 	
 	loading
-	    .onProgress(progress => {
+	    .onProgress(function (progress) {
 	        if (progress >= 60) {
 	            loading.setOptions({
 	                color: '#fff'
@@ -95,7 +95,7 @@ View Source:
 	        }
 	        return 'loading...' + Math.ceil(progress) + '%';
 	    })
-	    .onFinished(() => {
+	    .onFinished(function () {
 
 			// Hide the mask and loading animation after loading done.
 			// Open a 50ms timer in order to the `100%` can be seen.
@@ -250,7 +250,7 @@ View Source:
     <thead>
 	    <tr>
 	        <th width="150">Name</th>
-	        <th width="150">Argument Type</th>
+	        <th width="200">Arguments Type</th>
 	        <th width="400">Description</th>
 	    </tr>
     </thead>

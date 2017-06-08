@@ -22,7 +22,7 @@
 	});
 	
 	loading
-	    .onProgress(progress => {
+	    .onProgress(function (progress) {
 	
 			// 当进度大于等于 60 时，设置进度文本颜色为白色。
 	        if (progress >= 60) {
@@ -86,7 +86,7 @@
 	});
 	
 	loading
-	    .onProgress(progress => {
+	    .onProgress(function (progress) {
 	        if (progress >= 60) {
 	            loading.setOptions({
 	                color: '#fff'
@@ -94,11 +94,11 @@
 	        }
 	        return '加载中...' + Math.ceil(progress) + '%';
 	    })
-	    .onFinished(() => {
+	    .onFinished(function () {
 
 			// 加载完成后，隐藏遮罩及 loading 动画。
 	        // 开一个 50ms 的定时器，为了让 100% 这几个字能被看见。
-			setTimeout(() => {
+			setTimeout(function () {
                 document.querySelector('.mask').style.display = 'none';
 				document.querySelector('#demo-2').style.display = 'none';
             }, 50);
