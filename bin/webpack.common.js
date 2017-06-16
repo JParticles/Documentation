@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
 const distPath = path.resolve('./docs');
 
 console.log('\x1b[33m%s\x1b[0m', `\n distPath: ${distPath} \n`);
@@ -21,9 +22,10 @@ const chunks = ['pageLoading', 'jparticles', 'app'];
 
 const config = {
     entry: {
-        react: ['react', 'react-dom'],
+        vendor: ["react", "react-dom", "react-router-dom"],
+        /*react: ['react', 'react-dom'],
         react_router_dom: 'react-router-dom',
-        jquery: 'jquery/dist/jquery.min.js',
+        jquery: 'jquery/dist/jquery.min.js',*/
         jparticles: 'jparticles/production/jparticles.all.js',
         pageLoading: './src/public/js/loading.js',
         app: ['babel-polyfill', './src/app.js']
@@ -98,6 +100,18 @@ const config = {
     },
     plugins: [
         extractStyles,
+
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ["vendor", "manifest"],
+            filename: "commons.js",
+            children: true,
+            minChunks: Infinity
+        }),
+
+        new ChunkManifestPlugin({
+            filename: "chunk-manifest.json",
+            manifestVariable: "webpackManifest"
+        }),
 
         new HtmlWebpackPlugin({
             filename: 'index.html',
