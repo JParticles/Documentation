@@ -3,7 +3,9 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+const ReasonableHTMLPlugin = require('./reasonable-html-webpack-plugin');
 const distPath = path.resolve('./docs');
 
 console.log('\x1b[33m%s\x1b[0m', `\n distPath: ${distPath} \n`);
@@ -13,20 +15,11 @@ const extractStyles = new ExtractTextPlugin({
     allChunks: true
 });
 
-/*const chunks = [
-    'pageLoading', 'react', 'react_router_dom',
-    'jquery', 'jparticles', 'app'
-];*/
-
-const chunks = ['pageLoading', 'jparticles', 'app'];
+const chunks = ['pageLoading', 'vendor', 'app'];
 
 const config = {
     entry: {
-        vendor: ["react", "react-dom", "react-router-dom"],
-        /*react: ['react', 'react-dom'],
-        react_router_dom: 'react-router-dom',
-        jquery: 'jquery/dist/jquery.min.js',*/
-        jparticles: 'jparticles/production/jparticles.all.js',
+        vendor: ['react', 'react-dom', 'react-router-dom'],
         pageLoading: './src/public/js/loading.js',
         app: ['babel-polyfill', './src/app.js']
     },
@@ -102,16 +95,18 @@ const config = {
         extractStyles,
 
         new webpack.optimize.CommonsChunkPlugin({
-            names: ["vendor", "manifest"],
-            filename: "commons.js",
+            names: ['vendor', 'manifest'],
+            filename: 'vendor.[chunkhash:8].js',
             children: true,
             minChunks: Infinity
         }),
 
         new ChunkManifestPlugin({
-            filename: "chunk-manifest.json",
-            manifestVariable: "webpackManifest"
+            filename: 'chunk-manifest.json',
+            manifestVariable: 'webpackManifest'
         }),
+
+        new ReasonableHTMLPlugin(),
 
         new HtmlWebpackPlugin({
             filename: 'index.html',
