@@ -4,13 +4,18 @@ import {parseRouter} from 'js/parse_router';
 export default class Comment extends Component {
     componentDidMount() {
         const router = parseRouter();
+
         window.disqus_config = function () {
+
             // Replace PAGE_URL with your page's canonical URL variable
             this.page.url = 'https://jparticles.js.org' + router.fullPath;
+
             // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             this.page.identifier = router.fullPath;
         };
-        (function() { // DON'T EDIT BELOW THIS LINE
+
+        // DON'T EDIT BELOW THIS LINE
+        (function() {
             var d = document, s = d.createElement('script');
             s.src = 'https://jparticles.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());

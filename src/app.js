@@ -3,9 +3,6 @@ import {render} from 'react-dom';
 import {HashRouter, Switch, Route, Redirect} from 'react-router-dom';
 import AsyncComponent from './components/common/async_component';
 import SyncComponent from './components/common/sync_component';
-import $ from 'jquery';
-
-window.$ = window.jQuery = $;
 
 import 'sass/build.scss';
 
