@@ -1,9 +1,9 @@
 const crypto = require('crypto');
 const fs = require('fs');
 
-function generateMD5(filename) {
+function generateMD5(filePath) {
     return new Promise((resolve, reject) => {
-        const stream = fs.createReadStream(filename);
+        const stream = fs.createReadStream(filePath);
         const hash = crypto.createHash('md5');
         const content = [];
 
