@@ -37,7 +37,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "jparticles": "^2.0.0",
+    "jparticles": "^2.0.1",
     "jquery": "^3.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
