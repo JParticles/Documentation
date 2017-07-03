@@ -39,7 +39,7 @@
 	    <script src="particle.js"></script>
 	</header>
 	<body>
-	    <!-- 准备一个具有一定宽高的 DOM 元素，不然生成的 Canvas 默认宽高为：485，300 -->
+	    <!-- 准备一个空的 DOM 元素，设置一定宽高，不然生成的 Canvas 默认宽高为：485，300 -->
 	    <div id="demo" style="width: 400px; height: 250px;"></div>
 	
 	    <script>

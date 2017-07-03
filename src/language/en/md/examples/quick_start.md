@@ -40,7 +40,7 @@
 	</header>
 	<body>
 	    <!-- 
-			Prepare a `DOM` element with a certain width and height, 
+			Prepare an empty `DOM` element with a certain width and height, 
 			otherwise the Canvas width and height defaults to 485 and 300.
 		-->
 	    <div id="demo" style="width: 400px; height: 250px;"></div>
