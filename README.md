@@ -7,7 +7,7 @@
 
 ### Translation
 
-You are welcome to translate this site into other languages accordance with the `src/language/cn` directory files structure and content.
+You are welcome to translate this site into other languages accordance with the `src/language/cn` directory file structure and content.
 
 
 ### :cn: 这里是 `JParticles 2.x` 的 `API` 文档。
