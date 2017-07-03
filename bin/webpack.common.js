@@ -3,7 +3,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const ReasonableHTMLPlugin = require('./reasonable-html-webpack-plugin');
 const distPath = path.resolve('./docs');
@@ -19,7 +18,7 @@ const chunks = ['pageLoading', 'vendor', 'app'];
 
 const config = {
     entry: {
-        vendor: ['react', 'react-dom', 'react-router-dom'],
+//        vendor: ['react', 'react-dom', 'react-router-dom'],
         pageLoading: './src/public/js/loading.js',
         app: ['babel-polyfill', './src/app.js']
     },
@@ -94,7 +93,7 @@ const config = {
     plugins: [
         extractStyles,
 
-        new webpack.optimize.CommonsChunkPlugin({
+        /*new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest'],
             filename: 'vendor.[chunkhash:8].js',
             children: true,
@@ -104,7 +103,7 @@ const config = {
         new ChunkManifestPlugin({
             filename: 'chunk-manifest.json',
             manifestVariable: 'webpackManifest'
-        }),
+        }),*/
 
         new ReasonableHTMLPlugin(),
 
