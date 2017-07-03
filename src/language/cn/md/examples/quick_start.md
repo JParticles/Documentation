@@ -3,6 +3,7 @@
 
 1. [GitHub Releases](https://github.com/Barrior/JParticles/releases) 下载最新或各个版本。 
 1. 通过 `npm install jparticles --save` 安装，[链接去 NPM](https://www.npmjs.com/package/jparticles) 。
+1. 使用 CDN：[UNPKG](https://unpkg.com/jparticles/production/) 。
 
 ### 2、引入 JParticles
 > 在页面内使用 `script` 标签引入即可，当然也支持模块化的加载方式，不过 `JParticles` 仍然在 `window` 对象上注册了一个同名的对象，用于插件拓展。
@@ -26,7 +27,7 @@
 	</html>
 
 ### 3、创建特效
-> 准备一个具有一定宽高的 `DOM` 元素，用于显示粒子特效。<br/>
+> 准备一个空的 `DOM` 元素，设置一定宽高，用于显示粒子特效。<br/>
 > 使用 `new JParticles.特效名` 创建特效。
 
 	<!DOCTYPE html>

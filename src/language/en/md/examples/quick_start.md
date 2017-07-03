@@ -2,7 +2,8 @@
 > Download `JParticles` in the following ways:
 
 1. Download the latest or every version from [GitHub Releases](https://github.com/Barrior/JParticles/releases).
-1. Use `npm install jparticles --save`, [link to NPM](https://www.npmjs.com/package/jparticles) 。
+1. Use `npm install jparticles --save`, [link to NPM](https://www.npmjs.com/package/jparticles).
+2. Use CDN : [UNPKG](https://unpkg.com/jparticles/production/).
 
 ### 2. Import JParticles
 > You can use `script` tag to import JParticles in a page, or you can use AMD or CMD to load. However, `JParticles` is still register an object of the same name in the `window` for plugin extensions.
@@ -26,7 +27,7 @@
 	</html>
 
 ### 3. Create effect
-> Prepare a `DOM` element with a certain width and height to show particle effect.<br/>
+> Prepare an empty `DOM` element with a certain width and height to show particle effect.<br/>
 > Use `new JParticles.name` to create effect.
 
 	<!DOCTYPE html>
