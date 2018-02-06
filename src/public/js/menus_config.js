@@ -7,6 +7,9 @@ export default {
             href: "/examples/particle"
         },
         {
+            href: "/download"
+        },
+        {
             href: "https://github.com/Barrior/JParticles",
             target: "_blank"
         },

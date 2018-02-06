@@ -21,6 +21,7 @@ render(
                 createElement(SyncComponent(require('./components/examples'), match))
             )}/>
             <Redirect from="/examples" to="/examples/intro"/>
+            <Redirect from="/download" to="/examples/quick_start"/>
 
             {/* language */}
             <Route exact path="/:lang/" component={({match}) => (
@@ -33,6 +34,7 @@ render(
                 createElement(SyncComponent(require('./components/examples'), match))
             )}/>
             <Redirect from="/:lang/examples" to="/:lang/examples/intro"/>
+            <Redirect from="/:lang/download" to="/:lang/examples/quick_start"/>
 
             {/* 404 */}
             <Redirect to="/404"/>

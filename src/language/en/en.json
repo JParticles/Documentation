@@ -6,7 +6,7 @@
         "smallScreen": {
             "menu": "Menu"
         },
-        "common": ["Home", "Examples & API", "GitHub", "QQ Group", {
+        "common": ["Home", "Examples & API", "Download", "GitHub", "QQ Group", {
             "name": "Change Log",
             "title": "The way ahead is long, I see no ending, yet high and low I will search with my will unbending."
         }]
