@@ -1,13 +1,13 @@
 ### :us: Here is the JParticles 2.x API documentation.
 
-> You can clone this repository to your computer, and then go to the root directory:
+> You can clone this repository to your computer then go to the root directory do as below to view the doc website.
 
 1. run command: `npm start`。
 1. open broswer: `http://localhost:8000/`。
 
 ### Translation
 
-You are welcome to translate this site into other languages accordance with the `src/language/cn` directory file structure and content.
+You are welcome to translate this site to another languages in accordance with the `src/language/cn` directory files structure and content.
 
 
 ### :cn: 这里是 `JParticles 2.x` 的 `API` 文档。
