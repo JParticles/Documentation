@@ -1,6 +1,6 @@
 {
   "name": "Documentation",
-  "description": "The JParticles 2.x documentation.",
+  "description": "The JParticles documentation site.",
   "version": "1.0.0",
   "scripts": {
     "start": "npm i && webpack-dev-server --profile --config bin/webpack.dev.config.js",
