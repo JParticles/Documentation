@@ -1,0 +1,319 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font: 10px/1.5 $font-family;
+    color: $root-text-color;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+$root-font: (
+    1025: 11,   //1025 - 1280
+    1281: 12,   //1281 - 1600
+    1601: 14    //1601 -
+);
+@each $key, $val in $root-font {
+    @media all and (min-width: #{ $key }px) {
+        html, body {
+            font-size: #{ $val }px;
+        }
+    }
+}
+
+/*
+ * h1-h6
+ */
+$tagH: (h1: 36, h2: 30, h3: 24, h4: 18, h5: 14, h6: 12);
+@each $key, $val in $tagH {
+    #{ $key } {
+        font-size: rem($val);
+        margin: 0;
+    }
+}
+
+/**
+ * classes layout
+ */
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.cf {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center-vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-indent {
+    text-indent: 2em;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+// table component
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+caption {
+    padding: rem(8) 0;
+    color: $gray;
+    text-align: left;
+}
+th {
+    text-align: left;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    padding: rem(10) rem(14);
+    vertical-align: top;
+    border-top: 1px solid $lightgray;
+}
+.table>thead>tr>th {
+    vertical-align: bottom;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: $table-striped-bgcolor;
+}
+.table-bordered{
+    border: 1px solid $table-border-color;
+}
+.table-bordered-inner{
+    >tbody>tr>td,
+    >tbody>tr>th,
+    >tfoot>tr>td,
+    >tfoot>tr>th,
+    >thead>tr>td,
+    >thead>tr>th{
+        border: 1px solid $table-border-color;
+    }
+}
+.table-hover>tbody>tr:hover {
+    background-color: $table-hover-bgcolor;
+}
+
+// form component
+.form-group{
+    margin-bottom: rem( 16 );
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: rem( 6 ) rem( 12 );
+    font-size: rem( 14 );
+    color: $form-text-color;
+    background-color: $white-bg;
+    border: 1px solid $lightgray-border;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    &.input{
+        height: rem( 34 );
+    }
+    &:focus{
+        border-color: $input-border-highlight;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),0 0 8px rgba(102, 175, 233, .6);
+    }
+    &[disabled]{
+        background-color: $lightgray-bg;
+    }
+}
+.label-radio,
+.label-checkbox{
+    margin-left: rem(10);
+    padding-left: 1.4em;
+    position: relative;
+    &:first-of-type{
+        margin-left: 0;
+    }
+    input{
+        transform: translate(0, -50%);
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        cursor: pointer;
+    }
+}
+
+// btn component
+.btn{
+    display: inline-block;
+    padding: $btn-padding-vertical $btn-padding-level;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: $btn-radius;
+    transition: background-color .3s ease-out,border-color .3s ease-out;
+}
+$btn-type:  (primary, $btn-primary, $btn-primary-hover, $btn-primary-active),
+    (secondary, $btn-secondary, $btn-secondary-hover, $btn-secondary-active),
+    (success, $btn-success, $btn-success-hover, $btn-success-active),
+    (warning, $btn-warning, $btn-warning-hover, $btn-warning-active),
+    (danger, $btn-danger, $btn-danger-hover, $btn-danger-active);
+@each $key, $color, $hover, $active in $btn-type {
+    .btn-#{$key} {
+        color: $white;
+        border-color: $color;
+        background-color: $color;
+        &:hover{
+            border-color: $hover;
+            background-color: $hover;
+        }
+        &.active,
+        &:focus,
+        &:active{
+            border-color: $active !important;
+            background-color: $active;
+            box-shadow: inset 0 rem(3) rem(5) rgba(0, 0, 0, .1);
+        }
+    }
+}
+.btn-default{
+    border-color: $btn-default-border-color;
+    background-color: $white-bg;
+    &:hover{
+        background-color: $btn-default-hover;
+    }
+    &.active,
+    &:focus,
+    &:active{
+        border-color: #999;
+        background-color: $btn-default-active;
+        box-shadow: inset 0 rem(2) rem(4) rgba(0, 0, 0, .1);
+    }
+}
+.btn-sm{
+    padding: $btn-sm-padding-vertical $btn-sm-padding-level;
+}
+.btn-lg{
+    padding: $btn-lg-padding-vertical $btn-lg-padding-level;
+}
+.btn-block{
+    display: block;
+    width: 100%;
+}
+
+// dotted line
+.dotted-line {
+    color: $root-text-color;
+    text-decoration: none;
+    border-bottom: 1px dotted #777;
+    &:hover {
+        color: $green;
+        border-color: $gray;
+    }
+}
+
+// emulate icon: required
+.emulate-icon-required {
+    margin-left: rem(15);
+    padding: rem(4) rem(8);
+    line-height: 1;
+    background-color: $green;
+    color: #fff;
+    font-size: rem(10);
+    position: relative;
+    top: rem(-2);
+    border-radius: rem(30);
+}
+
+// remove cnzz
+a[href*="www.cnzz.com/stat"] {
+    display: none;
+}

@@ -6,6 +6,11 @@ module.exports = {
   css: {
     extract: true,
     sourceMap: process.env.NODE_ENV !== 'production',
+    loaderOptions: {
+      sass: {
+        data: `@import "@/styles/var_func.scss";`
+      }
+    }
   },
   devServer: {
     port: 8000,
