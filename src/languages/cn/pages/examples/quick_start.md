@@ -1,7 +1,7 @@
 ### 1、获取 JParticles
 > 通过以下几种方式获取 `JParticles`：
 
-1. [GitHub Releases](https://github.com/Barrior/JParticles/releases) 下载最新或各个版本。 
+1. [GitHub Releases](https://github.com/Barrior/JParticles/releases) 下载最新或各个历史版本。
 1. 通过 `npm install jparticles --save` 安装，[链接去 NPM](https://www.npmjs.com/package/jparticles) 。
 1. 使用 CDN：[UNPKG](https://unpkg.com/jparticles/production/) 。
 
@@ -13,12 +13,12 @@
 	<header>
 	    <meta charset="utf-8">
 
-	    <!-- 引入所有特效 -->
+	    <!-- 方式一，一次性引入所有特效 -->
 	    <!-- <script src="jparticles.all.js"></script> -->
 
-	    <!-- 推荐：根据需要加载，引入基础框架 -->
+	    <!-- 方式二（推荐），按需加载方式，先引入基础框架 -->
 	    <script src="jparticles.js"></script>
-	    <!-- 引入粒子特效 -->
+	    <!-- 再引入特定的特效，如下面的粒子特效 -->
 	    <script src="particle.js"></script>
 
 	</header>
