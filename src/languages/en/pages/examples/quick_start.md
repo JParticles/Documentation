@@ -1,12 +1,12 @@
 ### 1. Download JParticles
-> Download `JParticles` in the following ways:
+> You can use the following ways to Download the `JParticles`:
 
-1. Download the latest or every version from [GitHub Releases](https://github.com/Barrior/JParticles/releases).
+1. Download the latest version or all of the history versions from [GitHub Releases](https://github.com/Barrior/JParticles/releases).
 1. Use `npm install jparticles --save`, [link to NPM](https://www.npmjs.com/package/jparticles).
 2. Use CDN : [UNPKG](https://unpkg.com/jparticles/production/).
 
-### 2. Import JParticles
-> You can use `script` tag to import JParticles in a page, or you can use AMD or CMD to load. However, `JParticles` is still register an object of the same name in the `window` for plugin extensions.
+### 2. Loading
+> You can use `script` tag to loading JParticles in the web page or AMD/CMD is also supported. Whatever, the `JParticles` has been registered a global variable of the same name in the `window` object for extend plugins.
 
 	<!DOCTYPE html>
 	<html>
@@ -16,9 +16,10 @@
 	    <!-- Import all effects -->
 	    <!-- <script src="jparticles.all.js"></script> -->
 
-	    <!-- Recommend: on-demand loading. Import basic dependence -->
+	    <!-- Recommend on-demand ways -->
+	    <!-- At the first you need import the basic dependence -->
 	    <script src="jparticles.js"></script>
-	    <!-- Import particle effect -->
+	    <!-- then import you favorite effect like the one below -->
 	    <script src="particle.js"></script>
 
 	</header>
@@ -27,34 +28,34 @@
 	</html>
 
 ### 3. Create effect
-> Prepare an empty `DOM` element with a certain width and height to show particle effect.<br/>
-> Use `new JParticles.name` to create effect.
+> Prepare an empty `DOM` element with certain width and height to show the particle effect.<br/>
+> Use `new JParticles.effectName` to create effect.
 
 	<!DOCTYPE html>
 	<html>
 	<header>
 	    <meta charset="utf-8">
-	    <!-- Recommend: on-demand loading. Import basic dependence -->
+	    <!-- import the basic dependence -->
 	    <script src="jparticles.js"></script>
-	    <!-- Import particle effect -->
+	    <!-- import the particle effect -->
 	    <script src="particle.js"></script>
 	</header>
 	<body>
 	    <!-- 
-			Prepare an empty `DOM` element with a certain width and height, 
-			otherwise the Canvas width and height defaults to 485 and 300.
+			Prepare an empty `DOM` element with certain width and height, 
+			otherwise the Canvas width and height will be defined as 485 and 300 by default.
 		-->
 	    <div id="demo" style="width: 400px; height: 250px;"></div>
 	
 	    <script>
-	        // Use `new JParticles.name` to create effect.
+	        // Use `new JParticles.effectName` to create effect.
 	        new JParticles.particle('#demo');
 	    </script>
 	</body>
 	</html>
 
 ### 4. Completed
-> So that our particle movement effect is complete!
+> So that our particle motion effect is completed!
 
 <div class="instance">
     <div class="demo"></div>
