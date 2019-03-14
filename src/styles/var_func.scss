@@ -3,9 +3,12 @@
 }
 
 // default font family
-$font-family: "proxima-nova-soft", "Helvetica Neue", "Helvetica",
-  "Lucida Grande", "Arial", "sans-serif",
-  "Microsoft JhengHei", "Microsoft YaHei";
+$font-family: "PingFang SC",
+  "Helvetica Neue", "Helvetica",
+  "Microsoft JhengHei", "Microsoft YaHei",
+  "Arial", "sans-serif";
+
+$code-font-family: Menlo, Monaco, Monospace, Consolas;
 
 // default text color
 $root-text-color: #333;
