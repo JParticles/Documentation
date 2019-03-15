@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   outputDir: 'docs',
   productionSourceMap: false,
+  lintOnSave: true,
   css: {
     extract: true,
     sourceMap: process.env.NODE_ENV !== 'production',

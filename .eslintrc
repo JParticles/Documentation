@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "plugin:vue/essential",
+    "eslint:recommended",
+    "@vue/prettier"
+  ],
+  "rules": {
+    "no-console": 1,
+    "new-cap": 2,
+    "no-var": 2,
+    "prettier/prettier": [
+      "error",
+      {
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    ]
+  }
+}

@@ -1,3 +1,2 @@
-*
-!/public
-!/src
+/docs
+/*.js
