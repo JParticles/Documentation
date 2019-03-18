@@ -2,7 +2,7 @@
   "language": "English",
   "language_code": "en",
   "language_name_in_html": "en",
-  "progressText": "loading...",
+  "progressText": "Loading...",
   "title": "JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.",
   "header": {
     "smallScreen": {
