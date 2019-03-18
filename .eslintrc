@@ -13,7 +13,6 @@
   ],
   "rules": {
     "no-console": 1,
-    "new-cap": 2,
     "no-var": 2,
     "prettier.eslintIntegration": true,
     "prettier/prettier": [
