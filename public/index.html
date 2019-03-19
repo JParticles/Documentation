@@ -1,17 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="keywords" content="JParticles, particle effects, Canvas effects">
+    <meta name="description" content="JParticles is a lightweight JavaScript library for build user interfaces base on the Canvas. That provide some cool particle effects to bring a surprise for user.">
+    <title>JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.</title>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>hello-world</title>
+    <style>
+      @keyframes loadingFadeOut {
+        0% {
+          opacity: 1;
+        }
+        100%{
+          opacity: 0;
+        }
+      }
+      .zoom-out {
+        -webkit-animation: loadingFadeOut 0.6s forwards;
+        -moz-animation: loadingFadeOut 0.6s forwards;
+        animation: loadingFadeOut 0.6s forwards;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+      #loading-layer {
+        background-color: #fff;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      #loading-container {
+        width: 120px;
+        height: 120px;
+        border: 1px solid #ececec;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+    </style>
+    <link href="https://unpkg.com/jparticles@2.0.1/production/jparticles.js" rel="preload" as="script">
+    <link href="https://unpkg.com/jparticles@2.0.1/production/wave_loading.js" rel="preload" as="script">
+    <link href="/loading.js" rel="preload" as="script">
   </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but hello-world doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+  <body class="overflow-hidden">
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="loading-layer">
+      <div id="loading-container"></div>
+    </div>
+    <script src="https://unpkg.com/jparticles@2.0.1/production/jparticles.js"></script>
+    <script src="https://unpkg.com/jparticles@2.0.1/production/wave_loading.js"></script>
+    <script src="/loading.js"></script>
+    <script>
+      (function () {
+        if (/localhost|127\.0\.0\.1/i.test(location.hostname)) return;
+        window._hmt = window._hmt || [];
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8e8c9172687affd39edbb31c89ebbf97";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        window.addEventListener('hashchange', () => {
+          window._hmt.push(['_trackPageview', location.hash.substring(1)]);
+        });
+      })();
+    </script>
   </body>
 </html>
