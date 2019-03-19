@@ -1,7 +1,7 @@
 {
   "language": "中文简体",
-  "language_code": "cn",
-  "language_name_in_html": "zh-cn",
+  "languageCode": "cn",
+  "languageCodeOnHtml": "zh-cn",
   "progressText": "正在加载...",
   "title": "JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效库。",
   "header": {
