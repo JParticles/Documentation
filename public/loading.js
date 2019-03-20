@@ -1,3 +1,21 @@
+const languages = {
+  cn: {
+    language: '中文简体',
+    languageCode: 'cn',
+    languageCodeOnHtml: 'zh-cn',
+    progressText: '正在加载...',
+    title: 'JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效库。',
+  },
+  en: {
+    language: 'English',
+    languageCode: 'en',
+    languageCodeOnHtml: 'en',
+    progressText: 'Loading...',
+    title:
+      'JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.',
+  },
+}
+
 ;(function() {
   const globalConfig = (window.globalConfig = {
     themeColor: '#00be70',
