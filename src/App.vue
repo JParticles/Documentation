@@ -1,29 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home55</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" :class="activePageClass">
+    <Header />
+    <div class="site-container">
+      <router-view />
     </div>
-    <router-view />
+    <Footer />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import Header from '@/views/common/header'
+import Footer from '@/views/common/footer'
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Footer,
+  },
+  data() {
+    return {
+      activePageClass: this.getPageClass(),
     }
-  }
+  },
+  watch: {
+    $route() {
+      this.getPageClass()
+    },
+  },
+  methods: {
+    getPageClass() {
+      const prefix = 'site-root'
+      let className = this.$route.path.replace(/\//g, '-')
+      if (className === '-') {
+        className = 'index'
+      }
+      this.activePageClass = `${prefix}${className}`
+      return this.activePageClass
+    },
+  },
 }
-</style>
+</script>
+
+<style scoped lang="scss"></style>

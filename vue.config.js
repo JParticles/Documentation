@@ -9,7 +9,7 @@ module.exports = {
     sourceMap: process.env.NODE_ENV !== 'production',
     loaderOptions: {
       sass: {
-        data: `@import "@/styles/var_func.scss";`
+        data: `@import "@/styles/_mixins.scss";`
       }
     }
   },

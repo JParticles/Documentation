@@ -1,0 +1,13 @@
+#app {
+  height: 100%;
+}
+
+.site-container {
+  min-height: calc(100vh - #{$site-header-height} - #{$site-footer-height});
+}
+
+.site-com-width {
+  max-width: $site-container-width-max;
+  padding: 0 $site-side-space;
+  margin: 0 auto;
+}

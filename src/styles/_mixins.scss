@@ -1,0 +1,33 @@
+@import "_variables";
+
+@mixin absolute-full {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($num) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+@mixin scroll-bar($color: #c1c1c1, $width: 9) {
+  &::-webkit-scrollbar {
+    width: rem($width);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: rem(10);
+    background-color: $color;
+  }
+}

@@ -1,8 +1,6 @@
-@function rem($num) {
-    @return ($num / 12) + rem;
-}
+@import "_functions";
 
-// default font family
+// font family
 $font-family: "PingFang SC",
   "Helvetica Neue", "Helvetica",
   "Microsoft JhengHei", "Microsoft YaHei",
@@ -10,7 +8,7 @@ $font-family: "PingFang SC",
 
 $code-font-family: Menlo, Monaco, Monospace, Consolas;
 
-// default text color
+// text color
 $root-text-color: #333;
 $white: #fff;
 $lightgray: #ccc;
@@ -20,10 +18,10 @@ $red: #ff505c;
 $green: #00be70;
 $blue: #148fcc;
 
-// default text hover color
+// color for text hover
 $green-hover: #01A260;
 
-// default backgound color
+// background color
 $root-bg: #fff;
 $white-bg: #fff;
 $lightgray-bg: #F7F7F7;
@@ -33,18 +31,18 @@ $red-bg: #ff505c;
 $green-bg: #00be70;
 $blue-bg: #148fcc;
 
-// default backgound hover color
+// color for background hover
 $green-bg-hover: #01A260;
 $lightgray-bg-hover: #f1f1f1;
 
-// default border color
+// border color
 $gray-border: #EAEAEA;
 $lightgray-border: #ccc;
 
-// default radius
+// radius
 $radius: rem(2);
 
-// default animate
+// animation easing
 $bezier: cubic-bezier(.175, .885, .32, 1);
 
 // badge component
@@ -81,10 +79,10 @@ $btn-danger-hover: #d7342e;
 $btn-danger-active: #d7342e;
 $btn-danger-border-color: #d7342e;
 
-// btn component radius
+// btn radius
 $btn-radius: $radius;
 
-// btn component padding
+// btn padding
 $btn-padding-vertical: .5em;
 $btn-padding-level: 1em;
 $btn-sm-padding-vertical: .2em;
@@ -100,3 +98,11 @@ $input-radius: rem(3);
 
 // header component
 $header-height-mobile: 60;
+
+// site size
+$site-header-height: rem(94);
+$site-footer-height: rem(68);
+$site-side-space: rem(120);
+$site-container-width-max: 2000px;
+
+$mobile-site-header-height: rem(60);
