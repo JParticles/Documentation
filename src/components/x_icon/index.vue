@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     getIcon() {
-      return window.require(`@/svgicons/${this.name}.svg`)
+      return require(`@/svgicons/${this.name}.svg`)
     },
   },
 }
