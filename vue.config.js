@@ -1,6 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const AddLoadingScript = require('./bin/add-loading-script')
 
-module.exports = {
+const config = {
   outputDir: 'docs',
   productionSourceMap: false,
   lintOnSave: true,
@@ -18,9 +19,17 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [
-      new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME']
-      })
+      new AddLoadingScript(),
     ]
   }
 }
+
+if (process.env.NODE_ENV === 'production') {
+  config.configureWebpack.plugins.push(
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME']
+    })
+  )
+}
+
+module.exports = config
