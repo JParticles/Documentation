@@ -4,6 +4,7 @@ import router from './router'
 import store from './store/index'
 import '@/styles/build.scss'
 import 'jparticles'
+import '@/utils/statistics'
 
 import Icon from '@/components/x_icon'
 import Link from '@/components/x_link'
