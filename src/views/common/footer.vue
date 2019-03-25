@@ -18,7 +18,7 @@
       </div>
       <div>
         <a href="https://github.com/Barrior/JParticles" target="_blank">
-          {{ supportAuthor }}
+          {{ footerInfo.support }}
         </a>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       currentYear: new Date().getFullYear(),
-      supportAuthor: window.globalConfig.language.footer,
+      footerInfo: window.globalConfig.language.footer,
     }
   },
 }

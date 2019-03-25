@@ -20,9 +20,9 @@
       }
     ]
   },
-  "footer": [
-    "Star on GitHub"
-  ],
+  "footer": {
+    "support": "Support author - Star on GitHub"
+  },
   "home": {
     "description": "A succinct, efficient and lightweight Canvas library for building some cool particle effects.",
     "seeMore": "see more",
