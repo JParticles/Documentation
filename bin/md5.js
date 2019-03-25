@@ -24,15 +24,8 @@ function md5ByFilePath(filePath) {
 }
 
 function md5(content) {
-  return new Promise((resolve, reject) => {
-    const hash = crypto.createHash('md5')
-    try {
-      hash.update(content, 'utf8')
-      resolve(hash.digest('hex'))
-    } catch (e) {
-      reject(e)
-    }
-  })
+  const MD5 = crypto.createHash('md5')
+  return MD5.update(content, 'utf8').digest('hex')
 }
 
 module.exports = {

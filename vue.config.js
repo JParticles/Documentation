@@ -1,5 +1,9 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const AddLoadingScript = require('./bin/add-loading-script')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
+const generateLoadingScript = require('./bin/generate-loading-script')
+
+const info = generateLoadingScript()
 
 const config = {
   outputDir: 'docs',
@@ -10,24 +14,31 @@ const config = {
     sourceMap: process.env.NODE_ENV !== 'production',
     loaderOptions: {
       sass: {
-        data: `@import "@/styles/_mixins.scss";`
-      }
-    }
+        data: `@import "@/styles/_mixins.scss";`,
+      },
+    },
   },
   devServer: {
     port: 8000,
   },
   configureWebpack: {
     plugins: [
-      new AddLoadingScript(),
-    ]
-  }
+      new CopyWebpackPlugin([{ from: info.filePath }]),
+      new HtmlWebpackIncludeAssetsPlugin({
+        assets: [info.basename],
+        append: false,
+      }),
+    ],
+  },
+  chainWebpack: config => {
+    config.plugins.delete('preload')
+  },
 }
 
 if (process.env.NODE_ENV === 'production') {
   config.configureWebpack.plugins.push(
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME']
+      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME'],
     })
   )
 }
