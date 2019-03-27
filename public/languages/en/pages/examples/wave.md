@@ -13,7 +13,7 @@ View Source:
 	    // No fill
 	    fill: false,
 	    // Draw line
-	    line: true
+	    line: true,
 	    // The three lines color in turn
 	    lineColor: ['rgba(0, 190, 112, .5)', 'rgba(0, 190, 112, .7)', 'rgba(0, 190, 112, .9)'],
 	    // The three lines width in turn
