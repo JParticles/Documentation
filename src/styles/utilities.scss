@@ -27,3 +27,25 @@
       45deg, $gray-color 25%, #fff 25%, #fff 75%, $gray-color 75%
   );
 }
+
+.dotted-line {
+  color: $root-text-color;
+  text-decoration: none;
+  border-bottom: 1px dotted #777;
+  &:hover {
+    color: $green;
+    border-color: $gray;
+  }
+}
+
+.icon-required {
+  margin-left: rem(15);
+  padding: rem(4) rem(8);
+  line-height: 1;
+  background-color: $green;
+  color: #fff;
+  font-size: rem(12);
+  position: relative;
+  top: rem(-2);
+  border-radius: rem(30);
+}
