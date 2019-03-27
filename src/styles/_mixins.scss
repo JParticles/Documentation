@@ -31,3 +31,21 @@
     background-color: $color;
   }
 }
+
+@mixin screen-xs {
+  @media all and (max-width: $screen-xs) {
+    @content
+  }
+}
+
+@mixin screen-sm {
+  @media all and (max-width: $screen-sm) {
+    @content
+  }
+}
+
+@mixin screen-md {
+  @media all and (max-width: $screen-md) {
+    @content
+  }
+}
