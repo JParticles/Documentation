@@ -14,7 +14,7 @@
   white-space: nowrap;
 }
 
-@mixin line-clamp($num) {
+@mixin text-ellipsis-multiple($num) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $num;
