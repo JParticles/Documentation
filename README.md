@@ -2,8 +2,8 @@
 
 You can clone this repository to your computer then go to the root directory do as below to view the documentation site.
 
-1. run command: `npm start`。
-1. open browser: `http://localhost:8000/`。
+1. run command: `npm start`
+1. open browser: `http://localhost:8000/`
 
 ### Translation
 
