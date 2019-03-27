@@ -1,6 +1,6 @@
 {
   "name": "Documentation",
-  "description": "The JParticles documentation site.",
+  "description": "The documentation site of the JParticles.",
   "version": "2.0.0",
   "scripts": {
     "start": "yarn install && yarn run serve",
