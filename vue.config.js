@@ -38,7 +38,7 @@ const config = {
 if (process.env.NODE_ENV === 'production') {
   config.configureWebpack.plugins.push(
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME'],
+      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME', `!${info.basename}`],
     })
   )
 }
