@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="activePageClass">
+  <div id="app">
     <Header />
     <div class="site-container">
       <router-view />
@@ -19,24 +19,32 @@ export default {
     Footer,
   },
   data() {
-    return {
-      activePageClass: this.getPageClass(),
-    }
+    return {}
   },
   watch: {
     $route() {
-      this.getPageClass()
+      this.setBodyClass()
     },
   },
   methods: {
-    getPageClass() {
-      const prefix = 'site-root'
+    setBodyClass() {
+      const prefix = 'site-body'
+      const classList = document.body.classList
+      const unwantedClass = []
+
       let className = this.$route.path.replace(/\//g, '-')
       if (className === '-') {
-        className = 'index'
+        className = '-index'
       }
-      this.activePageClass = `${prefix}${className}`
-      return this.activePageClass
+
+      classList.forEach(item => {
+        if (item.indexOf(prefix) > -1) {
+          unwantedClass.push(item)
+        }
+      })
+
+      classList.remove(...unwantedClass)
+      classList.add(`${prefix}${className}`)
     },
   },
 }
