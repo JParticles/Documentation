@@ -1,10 +1,40 @@
 <template>
-  <div class="site-header"></div>
+  <div class="site-header">
+    <SmallScreen v-if="isSmallScreen" />
+    <NormalScreen />
+  </div>
 </template>
 
 <script>
+import NormalScreen from './header_normal_screen'
+import SmallScreen from './header_small_screen'
+import { isMobile } from '@/utils/detect'
+
 export default {
   name: 'SiteHeader',
+  components: { NormalScreen, SmallScreen },
+  data() {
+    return {
+      isSmallScreen: false,
+    }
+  },
+  methods: {
+    addResizeEvent() {
+      this.resizeHandler = () => {
+        this.isSmallScreen = isMobile()
+      }
+      window.addEventListener('resize', this.resizeHandler)
+    },
+    removeResizeEvent() {
+      window.removeEventListener('resize', this.resizeHandler)
+    },
+  },
+  mounted() {
+    this.addResizeEvent()
+  },
+  destroyed() {
+    this.removeResizeEvent()
+  },
 }
 </script>
 
