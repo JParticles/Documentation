@@ -1,18 +1,27 @@
+// eslint-disable-next-line
+for (const key in languages) {
+  // eslint-disable-next-line
+  const lang = languages[key]
+  lang.languageFlag = `/languages/${lang.languageCode}/images/flag.png`
+}
+
 const globalConfig = (window.globalConfig = {
   themeColor: '#00be70',
   // eslint-disable-next-line
   languages,
   language: {},
-  isMobile() {
-    return document.documentElement.clientWidth <= 768
-  },
-  getLanguageConfig() {
-    let userLanguage = location.hash.replace(/#\/([\w-]*?)\/.*/i, '$1')
+  routeHasLanguage: false,
+  routeLanguage: '',
+  setCurrentLanguage() {
+    let userLanguage = location.hash.substring(2).split('/')[0]
     if (userLanguage === 'zh-cn') {
       userLanguage = 'cn'
     }
 
-    if (!globalConfig.languages[userLanguage]) {
+    if (globalConfig.languages[userLanguage]) {
+      globalConfig.routeHasLanguage = true
+      globalConfig.routeLanguage = userLanguage
+    } else {
       userLanguage = navigator.language && navigator.language.toLowerCase()
       if (userLanguage === 'zh-cn') userLanguage = 'cn'
     }
@@ -21,7 +30,7 @@ const globalConfig = (window.globalConfig = {
       userLanguage = 'en'
     }
 
-    return (globalConfig.language = globalConfig.languages[userLanguage])
+    globalConfig.language = globalConfig.languages[userLanguage]
   },
   setDocumentLanguage() {
     const language = globalConfig.language
@@ -30,7 +39,7 @@ const globalConfig = (window.globalConfig = {
   },
 })
 
-globalConfig.getLanguageConfig()
+globalConfig.setCurrentLanguage()
 globalConfig.setDocumentLanguage()
 
 const $body = document.getElementsByTagName('body')[0]

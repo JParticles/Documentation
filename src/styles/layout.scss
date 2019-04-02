@@ -2,12 +2,16 @@
   height: 100%;
 }
 
-.site-container {
-  min-height: calc(100vh - #{$site-header-height} - #{$site-footer-height});
+.site-sticky-footer {
+  display: flex;
+  flex-direction: column;
+  > .site-container {
+    flex-grow: 1;
+  }
 }
 
-.site-com-width {
-  max-width: $max-site-container-width;
+.site-container-width {
+  max-width: $site-container-max-width;
   padding: 0 $site-side-space;
   margin: 0 auto;
 }

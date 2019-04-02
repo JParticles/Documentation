@@ -1,4 +1,3 @@
-export const isMobile = () => {
-  const doc = document.documentElement || document.body
-  return doc.clientWidth <= 768
+export const isSmallScreen = () => {
+  return document.documentElement.clientWidth <= 768
 }

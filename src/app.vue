@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="appClass">
     <Header />
     <div class="site-container">
       <router-view />
@@ -19,12 +19,30 @@ export default {
     Footer,
   },
   data() {
-    return {}
+    return {
+      stickyFooter: true,
+    }
   },
   watch: {
     $route() {
       this.setBodyClass()
     },
+  },
+  computed: {
+    appClass() {
+      return {
+        'site-sticky-footer': this.stickyFooter,
+      }
+    },
+  },
+  beforeCreate() {
+    console.log('this.$route: ', this.$route)
+    console.log('window.globalConfig: ', window.globalConfig)
+    /* const isRootPath = this.$route.path === '/'
+    if (isRootPath) {
+      const lang = window.globalConfig.language
+      this.$router.replace(`/${lang.languageCode}`)
+    } */
   },
   methods: {
     setBodyClass() {

@@ -2,7 +2,7 @@
   <footer class="site-footer">
     <div class="container">
       <div>
-        Copyright 2016-{{ currentYear }} Barrior &lt;
+        Copyright © 2016-{{ currentYear }} Barrior &lt;
         <a href="mailto:Barrior@qq.com">Barrior@qq.com</a>
         &gt;&nbsp;
       </div>
@@ -42,25 +42,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $site-footer-height;
+  padding: rem(20);
   border-top: 1px solid $gray-border;
   .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 rem(20);
     > div {
       display: flex;
       & + div {
         margin-left: rem(4);
-      }
-    }
-    @include screen-xs {
-      transform: scale(0.86);
-      > div {
-        width: 100%;
-        justify-content: center;
-        margin-left: 0 !important;
       }
     }
   }
@@ -68,6 +59,17 @@ export default {
     &:hover {
       color: $green;
       text-decoration: underline;
+    }
+  }
+  @include screen-xs {
+    padding: rem(10);
+    .container {
+      transform: scale(0.86);
+      > div {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0 !important;
+      }
     }
   }
 }
