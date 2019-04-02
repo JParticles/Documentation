@@ -3,8 +3,8 @@
   "description": "The documentation site of the JParticles.",
   "version": "2.0.0",
   "scripts": {
-    "start": "yarn install && npm run serve",
-    "serve": "vue-cli-service serve",
+    "start": "yarn install && npm run dev",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
