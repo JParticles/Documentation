@@ -5,6 +5,8 @@ const generateLoadingScript = require('./bin/generate-loading-script')
 
 const info = generateLoadingScript()
 
+process.env.VUE_APP_LOADING_SCRIPT_URL = `/${info.basename}`
+
 const config = {
   outputDir: 'docs',
   productionSourceMap: false,
@@ -29,9 +31,6 @@ const config = {
         append: false,
       }),
     ],
-  },
-  chainWebpack: config => {
-    config.plugins.delete('preload')
   },
 }
 

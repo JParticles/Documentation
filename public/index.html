@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#00be70">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="keywords" content="JParticles, particle effects, Canvas effects">
-    <meta name="description" content="JParticles is a lightweight JavaScript library for build user interfaces base on the Canvas. That provide some cool particle effects to bring a surprise for user.">
-    <title>JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.</title>
+    <meta name="keywords" content="JParticles, Particle effects, Canvas effects, 粒子特效，javascript 粒子特效, Canvas 粒子特效">
+    <meta name="description" content="JParticles is a lightweight JavaScript library for build user interfaces base on the Canvas. That provide some cool particle effects to bring a surprise for the users.">
+    <title>
+      JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.
+      简洁，高效，轻量级的 Canvas 粒子运动特效库。
+    </title>
+
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//barrior.github.io">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+
     <style>
       @keyframes loadingFadeOut {
         0% {
@@ -52,8 +62,10 @@
         overflow: hidden;
       }
     </style>
+
     <link href="https://unpkg.com/jparticles@2.0.1/production/jparticles.js" rel="preload" as="script">
     <link href="https://unpkg.com/jparticles@2.0.1/production/wave_loading.js" rel="preload" as="script">
+    <link href="<%= VUE_APP_LOADING_SCRIPT_URL %>" rel="preload" as="script">
   </head>
   <body class="overflow-hidden">
     <div id="app"></div>

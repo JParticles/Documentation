@@ -35,15 +35,6 @@ export default {
       }
     },
   },
-  beforeCreate() {
-    console.log('this.$route: ', this.$route)
-    console.log('window.globalConfig: ', window.globalConfig)
-    /* const isRootPath = this.$route.path === '/'
-    if (isRootPath) {
-      const lang = window.globalConfig.language
-      this.$router.replace(`/${lang.languageCode}`)
-    } */
-  },
   methods: {
     setBodyClass() {
       const prefix = 'site-body'

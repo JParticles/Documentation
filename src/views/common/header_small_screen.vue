@@ -12,6 +12,5 @@ export default {
 $header-shadow: #e8e8e8;
 
 .site-header-mobile {
-
 }
 </style>
