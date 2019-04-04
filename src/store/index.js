@@ -10,9 +10,20 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const topState = {
-  state: {},
+  state: {
+    ...window.globalConfig,
+  },
   actions: {},
-  mutations: {},
+  mutations: {
+    switchLanguage(state, langCode) {
+      console.log('state: ', state)
+      console.log('langCode: ', langCode)
+      state.routeHasLanguage = true
+      state.routeLanguage = langCode
+      window.globalConfig.language = state.language = state.languages[langCode]
+      state.setDocumentLanguage()
+    },
+  },
 }
 
 export default new Vuex.Store({

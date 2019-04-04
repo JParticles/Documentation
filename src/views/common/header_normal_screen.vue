@@ -5,37 +5,24 @@
     </div>
     <div class="right">
       <nav class="nav">
-        <!--<x-link>{{}}</x-link>-->
+        <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.link">
+          {{ nav.name }}
+        </x-link>
+        <div class="sliding-block"></div>
       </nav>
-      <figure class="languages">
-        <div class="current">
-          <div class="language-wrapper">
-            <span>{{ language.languageName }}</span>
-            <img :src="language.languageFlag" alt="flag" />
-          </div>
-        </div>
-        <ul>
-          <li
-            class="language-wrapper"
-            v-for="language in languages"
-            :key="language.languageName"
-          >
-            <span>{{ language.languageName }}</span>
-            <img :src="language.languageFlag" alt="flag" />
-          </li>
-        </ul>
-      </figure>
+      <Language />
     </div>
   </div>
 </template>
 
 <script>
+import Language from './language'
 export default {
   name: 'SiteHeaderNormal',
+  components: { Language },
   props: {
     rootRoute: { type: String },
-    languages: { type: Array },
-    language: { type: Object },
+    navBars: { type: Array },
   },
   data() {
     return {}

@@ -18,27 +18,24 @@ export default {
       isSmallScreen: false,
       options: {
         rootRoute: '',
-        languages: [],
-        language: window.globalConfig.language,
         navBars: [],
         menus: [],
       },
     }
   },
-  methods: {
-    setRootRoute() {
-      // this.options.rootRoute = `/${this.$store.language.languageCode}`
+  computed: {
+    rootRoute() {
+      return `/${this.$store.state.language.languageCode}`
     },
-    setLanguages() {
-      const currentLang = this.options.language
-      const languages = (this.options.languages = [])
-      for (const key in window.globalConfig.languages) {
-        const lang = window.globalConfig.languages[key]
-        if (lang.languageCode !== currentLang.languageCode) {
-          languages.push(lang)
-        }
-      }
-      languages.unshift(this.options.language)
+  },
+  watch: {
+    $route() {
+      this.setOptions()
+    },
+  },
+  methods: {
+    setOptions() {
+      this.options.rootRoute = this.rootRoute
     },
     addResizeEvent() {
       this.resizeHandler = () => {
@@ -51,7 +48,7 @@ export default {
     },
   },
   mounted() {
-    this.setLanguages()
+    this.setOptions()
     this.addResizeEvent()
   },
   destroyed() {
