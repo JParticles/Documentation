@@ -25,21 +25,21 @@ export const navs = [
 
 export const menus = [
   {
-    to: '/examples/intro',
+    href: '/examples/intro',
   },
   {
-    to: '/examples/quick_start',
+    href: '/examples/quick_start',
   },
   {
-    to: '/examples/particle',
+    href: '/examples/particle',
   },
   {
-    to: '/examples/wave',
+    href: '/examples/wave',
   },
   {
-    to: '/examples/wave_loading',
+    href: '/examples/wave_loading',
   },
   {
-    to: '/examples/snow',
+    href: '/examples/snow',
   },
 ]

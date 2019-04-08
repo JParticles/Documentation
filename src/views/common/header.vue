@@ -1,7 +1,7 @@
 <template>
   <div class="site-header">
-    <SmallScreen v-bind="options" v-if="isSmallScreen" />
-    <NormalScreen v-bind="options" />
+    <SmallScreen v-if="isSmallScreen" />
+    <NormalScreen />
   </div>
 </template>
 
@@ -16,27 +16,9 @@ export default {
   data() {
     return {
       isSmallScreen: false,
-      options: {
-        rootRoute: '',
-        navBars: [],
-        menus: [],
-      },
     }
   },
-  computed: {
-    rootRoute() {
-      return `/${this.$store.state.language.languageCode}`
-    },
-  },
-  watch: {
-    $route() {
-      this.setOptions()
-    },
-  },
   methods: {
-    setOptions() {
-      this.options.rootRoute = this.rootRoute
-    },
     addResizeEvent() {
       this.resizeHandler = () => {
         this.isSmallScreen = isSmallScreen()
@@ -48,7 +30,6 @@ export default {
     },
   },
   mounted() {
-    this.setOptions()
     this.addResizeEvent()
   },
   destroyed() {

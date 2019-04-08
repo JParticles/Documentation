@@ -31,8 +31,12 @@ export default {
   data() {
     return {
       currentYear: new Date().getFullYear(),
-      footerInfo: window.globalConfig.language.footer,
     }
+  },
+  computed: {
+    footerInfo() {
+      return this.$store.state.language.footer
+    },
   },
 }
 </script>
