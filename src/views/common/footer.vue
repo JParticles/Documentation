@@ -7,14 +7,14 @@
         &gt;&nbsp;
       </div>
       <div>
-        Licensed under the&nbsp;
+        Released under the&nbsp;
         <a
           href="http://www.opensource.org/licenses/mit-license.php"
           target="_blank"
         >
           MIT
         </a>
-        .
+        &nbsp;License.
       </div>
       <div>
         <a href="https://github.com/Barrior/JParticles" target="_blank">
