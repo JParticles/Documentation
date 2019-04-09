@@ -1,7 +1,7 @@
 <template>
   <div class="site-header">
     <SmallScreen v-if="isSmallScreen" />
-    <NormalScreen />
+    <NormalScreen v-else />
   </div>
 </template>
 
