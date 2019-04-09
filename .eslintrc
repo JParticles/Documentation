@@ -12,6 +12,9 @@
     "eslint:recommended",
     "@vue/prettier"
   ],
+  "globals": {
+    "JParticles": true
+  },
   "rules": {
     "no-console": 1,
     "no-var": 2,

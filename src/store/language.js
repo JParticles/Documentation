@@ -1,6 +1,5 @@
 import { navs, menus } from '@/fixtures/navigations'
 
-// eslint-disable-next-line
 const { extend, isPlainObject } = JParticles.utils
 
 function generateMenus(config) {
