@@ -65,9 +65,6 @@ export default {
   actions: {},
   mutations: {
     switchLanguage(state, langCode) {
-      console.log('state: ', state)
-      console.log('langCode: ', langCode)
-
       Object.assign(state, {
         routeHasLanguage: true,
         routeLanguage: langCode,
@@ -81,17 +78,6 @@ export default {
       })
 
       setDocumentLanguage(state.language)
-
-      // window.globalConfig.language = state.language = state.languages[langCode]
-      // updated window.globalConfig is needed on this function
-      // window.globalConfig.setDocumentLanguage()
-
-      // state = {
-      //   ...state,
-      //   rootRoute: getRootRoute(state),
-      //   menus: generateMenus(state),
-      //   navBars: generateNavBars(state),
-      // }
     },
   },
 }
