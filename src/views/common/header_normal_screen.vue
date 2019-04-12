@@ -5,12 +5,12 @@
     </div>
     <div class="right">
       <div class="nav-box">
-        <nav class="nav">
+        <nav class="nav" ref="nav">
           <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
             {{ nav.name }}
           </x-link>
         </nav>
-        <div class="sliding-block"></div>
+        <div class="slider" ref="slider"></div>
       </div>
       <div class="divider"></div>
       <Language />
@@ -29,9 +29,21 @@ export default {
     return {}
   },
   computed: mapState(['rootRoute', 'navBars']),
-  methods: {},
-  mounted() {
-    console.log('this.navBars: ', this.navBars)
+  watch: {
+    $route() {
+      this.$nextTick(() => {
+        this.setSliderPosition()
+      })
+    },
+  },
+  methods: {
+    setSliderPosition() {
+      const $active = this.$refs.nav.querySelector('.router-link-exact-active')
+      const $slider = this.$refs.slider
+      const width = getComputedStyle($active).width
+      console.log(width)
+      $slider.style.width = width
+    },
   },
 }
 </script>
@@ -63,12 +75,11 @@ export default {
     align-items: center;
     .nav-box {
       position: relative;
-      .sliding-block {
-        width: rem(28);
+      .slider {
         height: rem(2);
         background-color: $green;
         position: absolute;
-        top: 120%;
+        top: 100%;
         transition: 0.4s ease-out;
       }
     }
