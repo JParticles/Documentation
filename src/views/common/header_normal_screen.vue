@@ -101,7 +101,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: rem(90);
+  height: rem(100);
   border-bottom: 1px solid $gray-border;
   box-shadow: 0 rem(1) rem(2) 0 $shadow-color;
   position: relative;
@@ -124,10 +124,10 @@ export default {
     .nav-box {
       position: relative;
       .slider {
-        height: rem(2);
+        height: rem(3);
         background-color: $green;
         position: absolute;
-        top: 100%;
+        top: 98%;
         transition: 0.4s ease-out;
       }
     }
