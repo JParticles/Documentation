@@ -21,29 +21,77 @@
 <script>
 import Language from './language'
 import { mapState } from 'vuex'
+import { getWidth, getStyle } from '@/utils/dom'
 
 export default {
   name: 'SiteHeaderNormal',
   components: { Language },
   data() {
-    return {}
+    return {
+      activeElem: null,
+    }
   },
   computed: mapState(['rootRoute', 'navBars']),
   watch: {
     $route() {
       this.$nextTick(() => {
-        this.setSliderPosition()
+        this.init()
       })
     },
   },
   methods: {
-    setSliderPosition() {
-      const $active = this.$refs.nav.querySelector('.router-link-exact-active')
-      const $slider = this.$refs.slider
-      const width = getComputedStyle($active).width
-      console.log(width)
-      $slider.style.width = width
+    init() {
+      this.activeElem = this.$refs.nav.querySelector(
+        '.router-link-exact-active'
+      )
+      this.setSliderPosition(this.activeElem)
     },
+    removeResizeEvent() {
+      window.removeEventListener('resize', this.resizeHandler)
+    },
+    addResizeEvent() {
+      this.resizeHandler = () => {
+        this.setSliderPosition(this.activeElem)
+      }
+      window.addEventListener('resize', this.resizeHandler)
+    },
+    removeSlidingEvent() {
+      this.$refs.nav.removeEventListener('mouseover', this.mouseoverHandler)
+      this.$refs.nav.removeEventListener('mouseout', this.mouseoutHandler)
+    },
+    addSlidingEvent() {
+      this.mouseoverHandler = e => {
+        this.setSliderPosition(e.target)
+      }
+      this.mouseoutHandler = () => {
+        this.setSliderPosition(this.activeElem)
+      }
+      this.$refs.nav.addEventListener('mouseover', this.mouseoverHandler)
+      this.$refs.nav.addEventListener('mouseout', this.mouseoutHandler)
+    },
+    setActiveNav($activeElem) {
+      const $preElem = this.$refs.nav.querySelector('.router-link-exact-active')
+      $preElem.classList.remove('router-link-exact-active')
+      $activeElem.classList.add('router-link-exact-active')
+    },
+    setSliderPosition($activeElem) {
+      if ($activeElem) {
+        this.setActiveNav($activeElem)
+        const $slider = this.$refs.slider
+        const offsetLeft = $activeElem.offsetLeft
+        const pl = getStyle($activeElem, 'paddingLeft')
+        $slider.style.width = `${getWidth($activeElem)}px`
+        $slider.style.transform = `translateX(${offsetLeft + pl}px)`
+      }
+    },
+  },
+  mounted() {
+    this.addSlidingEvent()
+    this.addResizeEvent()
+  },
+  destroyed() {
+    this.removeSlidingEvent()
+    this.removeResizeEvent()
   },
 }
 </script>
