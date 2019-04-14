@@ -1,12 +1,12 @@
 <template>
   <figure class="languages-root">
-    <div class="current">
+    <div class="current" @mouseenter="onShowList">
       <div class="language">
         <span>{{ language.languageName }}</span>
         <img :src="language.languageFlag" alt="flag" />
       </div>
     </div>
-    <ul class="languages">
+    <ul class="languages" v-show="showList" @mouseleave="onHideList">
       <li
         class="language"
         v-for="language in languageList"
@@ -28,15 +28,38 @@ export default {
   data() {
     return {
       languageList: [],
+      showList: false,
     }
   },
   computed: {
     ...mapState(['languages', 'language']),
   },
   methods: {
+    onHideList() {
+      this.showList = false
+    },
+    onShowList() {
+      this.showList = true
+    },
     switchLanguage(language) {
       if (language.languageCode !== this.language.languageCode) {
-        this.$store.commit('switchLanguage', language.languageCode)
+        const { params, path } = this.$route
+        const langCode = language.languageCode
+
+        let langPath = `/${langCode}${path}`
+        if (params.lang) {
+          // '/cn/' or '/cn/changelog'
+          if (/^\/.+\//.test(path)) {
+            langPath = path.replace(/^\/.+?\/(.*)/, `/${langCode}/$1`)
+          } else {
+            // '/cn'
+            langPath = `/${langCode}`
+          }
+        }
+
+        this.$router.push(langPath)
+        this.$store.commit('switchLanguage', langCode)
+        this.onHideList()
         this.setLanguageList()
       }
     },
@@ -65,11 +88,6 @@ export default {
   position: relative;
   user-select: none;
   cursor: pointer;
-  &:hover {
-    .languages {
-      display: block;
-    }
-  }
   .language {
     display: flex;
     align-items: center;
@@ -84,7 +102,6 @@ export default {
     }
   }
   .languages {
-    display: none;
     margin-bottom: 0;
     padding-left: 0;
     border: 1px solid $gray-border;
