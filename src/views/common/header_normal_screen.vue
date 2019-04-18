@@ -56,8 +56,10 @@ export default {
       window.addEventListener('resize', this.resizeHandler)
     },
     removeSlidingEvent() {
-      this.$refs.nav.removeEventListener('mouseover', this.mouseoverHandler)
-      this.$refs.nav.removeEventListener('mouseout', this.mouseoutHandler)
+      if (this.$refs.nav) {
+        this.$refs.nav.removeEventListener('mouseover', this.mouseoverHandler)
+        this.$refs.nav.removeEventListener('mouseout', this.mouseoutHandler)
+      }
     },
     addSlidingEvent() {
       this.mouseoverHandler = e => {
