@@ -23,6 +23,7 @@ export default {
       this.resizeHandler = () => {
         this.isSmallScreen = isSmallScreen()
       }
+      this.resizeHandler()
       window.addEventListener('resize', this.resizeHandler)
     },
     removeResizeEvent() {

@@ -1,7 +1,7 @@
 @import "_variables";
 
-@mixin absolute-full {
-  position: absolute;
+@mixin absolute-full($position: absolute) {
+  position: $position;
   left: 0;
   right: 0;
   top: 0;
