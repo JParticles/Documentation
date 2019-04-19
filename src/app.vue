@@ -11,6 +11,7 @@
 <script>
 import Header from '@/views/common/header'
 import Footer from '@/views/common/footer'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -29,9 +30,11 @@ export default {
     },
   },
   computed: {
+    ...mapState(['isSmallScreen']),
     appClass() {
       return {
         'site-sticky-footer': this.stickyFooter,
+        'site-small-screen': this.isSmallScreen,
       }
     },
   },

@@ -1,4 +1,5 @@
 import { navs, menus } from '@/fixtures/navigations'
+import { isSmallScreen } from '@/utils/detect'
 
 const { extend, isPlainObject } = JParticles.utils
 
@@ -61,9 +62,13 @@ export default {
     rootRoute: getRootRoute(window.globalConfig),
     menus: generateMenus(window.globalConfig),
     navBars: generateNavBars(window.globalConfig),
+    isSmallScreen: isSmallScreen(),
   },
   actions: {},
   mutations: {
+    updateScreenState(state) {
+      state.isSmallScreen = isSmallScreen()
+    },
     switchLanguage(state, langCode) {
       Object.assign(state, {
         routeHasLanguage: true,

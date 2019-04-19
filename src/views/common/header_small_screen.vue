@@ -39,12 +39,15 @@ export default {
 
 <style scoped lang="scss">
 .site-header-mobile {
-  $beam-height: rem(60);
   .beam {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: $beam-height;
+    height: $site-header-height-mobile;
+    padding: 0 $site-side-space-mobile;
+    border-bottom: 1px solid $gray-border;
+    box-shadow: 0 rem(1) rem(2) 0 $shadow-color;
+    background-color: #fff;
     @include absolute-full(fixed);
     z-index: 999;
   }
@@ -57,7 +60,7 @@ export default {
     position: fixed;
     z-index: 999;
     left: 0;
-    top: rem($header-height-mobile);
+    top: $site-header-height-mobile;
     bottom: 0;
     overflow: auto;
     transform: translate(-$nav-width - 6, 0);

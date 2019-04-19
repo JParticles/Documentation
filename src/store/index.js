@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import languageStore from './language'
+import topStore from './top_store'
 
 Vue.use(Vuex)
 
@@ -10,9 +10,15 @@ if (process.env.NODE_ENV === 'development') {
   plugins.push(createLogger())
 }
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   plugins,
   modules: {},
-  ...languageStore,
+  ...topStore,
 })
+
+window.addEventListener('resize', () => {
+  store.commit('updateScreenState')
+})
+
+export default store
