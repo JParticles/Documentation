@@ -3,7 +3,7 @@
     <header class="beam">
       <div class="left">
         <x-icon name="menu" />
-        {{ language.header.smallScreen.menu }}
+        <span>{{ language.header.smallScreen.menu }}</span>
       </div>
       <div class="right">
         <Language />
@@ -50,6 +50,28 @@ export default {
     background-color: #fff;
     @include absolute-full(fixed);
     z-index: 999;
+    .left {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        color: $green;
+      }
+      ::v-deep .x-icon-root {
+        font-size: rem(16);
+        margin-right: rem(4);
+        path {
+          fill: currentColor;
+        }
+      }
+    }
+    .right {
+      ::v-deep .languages-root {
+        .language span {
+          font-size: rem(12);
+        }
+      }
+    }
   }
   .nav {
     $nav-width: rem(220);

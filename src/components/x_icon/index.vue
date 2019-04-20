@@ -1,5 +1,5 @@
 <template>
-  <div class="x-icon-wrapper">
+  <div class="x-icon-root">
     <div class="x-icon" v-html="icon"></div>
   </div>
 </template>
@@ -25,14 +25,14 @@ export default {
   },
   methods: {
     getIcon() {
-      return require(`@/svgicons/${this.name}.svg`)
+      return require(`@/svgicons/${this.name}.svg`).default
     },
   },
 }
 </script>
 
 <style scoped lang="scss">
-.x-icon-wrapper {
+.x-icon-root {
   overflow: hidden;
   display: inline-block;
   width: 1em;
@@ -40,7 +40,7 @@ export default {
   .x-icon {
     display: flex;
     align-items: center;
-    >>> svg {
+    ::v-deep svg {
       width: 100%;
       height: 100%;
       fill: currentColor;
