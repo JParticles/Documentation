@@ -1,15 +1,3 @@
-// 检查元素是否在某个元素里，与 jQuery.contains 等同
-export function contains(container, target) {
-  if (target) {
-    while ((target = target.parentNode)) {
-      if (container === target) {
-        return true
-      }
-    }
-  }
-  return false
-}
-
 // 获取元素到页面左边与顶部的距离，与 jQuery().offset() 结果等同
 export function offset(elem) {
   const offset = { left: 0, top: 0 }
