@@ -1,22 +1,22 @@
-.text-ellipsis {
+.site-text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.show {
+.site-show {
   display: block !important;
 }
 
-.hidden {
+.site-hidden {
   display: none !important;
 }
 
-.invisible {
+.site-invisible {
   visibility: hidden !important;
 }
 
-.pattern-transparent {
+.site-pattern-transparent {
   $gray-color: #eee;
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
@@ -28,7 +28,7 @@
   );
 }
 
-.dotted-line {
+.site-dotted-line {
   color: $root-text-color;
   text-decoration: none;
   border-bottom: 1px dotted #777;
@@ -38,14 +38,13 @@
   }
 }
 
-.icon-required {
+.site-icon-required {
+  display: inline-block;
+  line-height: 1;
   margin-left: rem(15);
   padding: rem(4) rem(8);
-  line-height: 1;
   background-color: $green;
   color: #fff;
   font-size: rem(12);
-  position: relative;
-  top: rem(-2);
   border-radius: rem(30);
 }

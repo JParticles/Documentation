@@ -1,7 +1,7 @@
 <template>
   <div class="site-header-mobile">
     <header class="beam">
-      <div class="left">
+      <div class="left" @click="onToggleMenu" ref="menuToggle">
         <x-icon name="menu" />
         <span>{{ language.header.smallScreen.menu }}</span>
       </div>
@@ -9,13 +9,16 @@
         <Language />
       </div>
     </header>
-    <nav class="nav">
+    <nav class="nav" :class="{ show }" ref="nav">
       <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
         {{ nav.name }}
       </x-link>
       <div class="divider"></div>
       <x-link v-for="menu in menus" :key="menu.name" :to="menu.href">
         {{ menu.name }}
+        <i class="site-icon-required" v-if="showRequiredIcon(menu)">
+          {{ language.examples.required }}
+        </i>
       </x-link>
     </nav>
   </div>
@@ -30,10 +33,43 @@ export default {
   components: { Language },
   data() {
     return {
-      activeElem: null,
+      show: false,
+      required: false,
+      quickStartPath: '/examples/quick_start',
     }
   },
   computed: mapState(['menus', 'navBars', 'language']),
+  watch: {
+    $route() {
+      this.show = false
+    },
+  },
+  methods: {
+    showRequiredIcon(menu) {
+      return menu.href.indexOf(this.quickStartPath) != -1
+      // return this.required && menu.href.indexOf(quickStartPath) != -1
+    },
+    removeDocEvent() {
+      document.removeEventListener('click', this.handler)
+    },
+    addDocEvent() {
+      this.handler = e => {
+        if (!this.$refs.menuToggle.contains(e.target)) {
+          this.show = this.$refs.nav.contains(e.target)
+        }
+      }
+      document.addEventListener('click', this.handler)
+    },
+    onToggleMenu() {
+      this.show = !this.show
+    },
+  },
+  mounted() {
+    this.addDocEvent()
+  },
+  destroyed() {
+    this.removeDocEvent()
+  },
 }
 </script>
 
@@ -76,6 +112,7 @@ export default {
   .nav {
     $nav-width: rem(220);
     width: $nav-width;
+    padding: rem(10) 0;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 rem(2) rem(3) 0 $shadow-color;
     transition: 0.4s ease-out;
@@ -85,9 +122,9 @@ export default {
     top: $site-header-height-mobile;
     bottom: 0;
     overflow: auto;
-    transform: translate(-$nav-width - 6, 0);
+    transform: translateX(-100%);
     &.show {
-      transform: translate(0, 0);
+      transform: translateX(0);
     }
     > a {
       display: block;
@@ -95,13 +132,13 @@ export default {
       line-height: rem(36);
       font-size: rem(14);
       transition: 0.4s ease-out;
-      &.active {
+      &.router-link-exact-active {
         color: $green;
       }
     }
     .divider {
       height: 1px;
-      margin: 0 rem(20);
+      margin: rem(5) rem(20);
       background-color: #dedede;
     }
   }
