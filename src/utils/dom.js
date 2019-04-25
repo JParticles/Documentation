@@ -1,12 +1,10 @@
 // 获取元素到页面左边与顶部的距离，与 jQuery().offset() 结果等同
 export function offset(elem) {
-  const offset = { left: 0, top: 0 }
-  while (elem) {
-    offset.left += elem.offsetLeft
-    offset.top += elem.offsetTop
-    elem = elem.offsetParent
+  const bounding = elem.getBoundingClientRect()
+  return {
+    left: window.pageXOffset + bounding.left,
+    top: window.pageYOffset + bounding.top,
   }
-  return offset
 }
 
 export function isWindow(elem) {
