@@ -74,25 +74,22 @@ export function isElementInViewport(elem, ahead = 1) {
   return elemTop + elemHeight > st && elemTop < st + ch
 }
 
-export function scrollTo(to, element = window, speed = 0.3) {
+export function scrollTo(elem = window, to, speed = 0.3) {
   // to 不能小于 0，不能大于最大滚动距离
-  to = Math.max(
-    0,
-    Math.min(getScrollHeight(element) - getClientHeight(element), to)
-  )
+  to = Math.max(0, Math.min(getScrollHeight(elem) - getClientHeight(elem), to))
 
-  clearInterval(element.TIMER_OF_SRCOLL_TO)
-  element.TIMER_OF_SRCOLL_TO = setInterval(function() {
-    let st = scrollTop(element)
+  clearInterval(elem.TIMER_OF_SRCOLLTO)
+  elem.TIMER_OF_SRCOLLTO = setInterval(function() {
+    let st = scrollTop(elem)
     let position = (to - st) * speed
 
     st += st > to ? Math.floor(position) : Math.ceil(position)
 
-    scrollTop(element, st)
+    scrollTop(elem, st)
 
     if (st < to + 1 && st > to - 1) {
-      clearInterval(element.TIMER_OF_SRCOLL_TO)
-      scrollTop(element, to)
+      clearInterval(elem.TIMER_OF_SRCOLLTO)
+      scrollTop(elem, to)
     }
   }, 30)
 }
