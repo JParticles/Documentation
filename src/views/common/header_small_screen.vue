@@ -110,7 +110,7 @@ export default {
     }
   }
   .nav {
-    $nav-width: rem(220);
+    $nav-width: rem(260);
     width: $nav-width;
     padding: rem(10) 0;
     background-color: rgba(255, 255, 255, 0.9);
@@ -128,18 +128,24 @@ export default {
     }
     > a {
       display: block;
-      padding: 0 rem(20);
+      padding: 0 $site-side-space-mobile;
       line-height: rem(36);
       font-size: rem(14);
       transition: 0.4s ease-out;
+      &:hover,
       &.router-link-exact-active {
         color: $green;
       }
     }
     .divider {
       height: 1px;
-      margin: rem(5) rem(20);
+      margin: rem(8) $site-side-space-mobile;
       background-color: #dedede;
+    }
+    ::v-deep {
+      .site-icon-required {
+        padding: 4px 8px;
+      }
     }
   }
 }
