@@ -5,10 +5,18 @@
 </template>
 
 <script>
+import { LS } from '@/fixtures/storage_keys'
+
 export default {
   name: 'QuickStart',
-  methods: {},
-  mounted() {},
+  methods: {
+    hideRequiredIcon() {
+      localStorage.setItem(LS.READ_QUICK_START, true)
+    },
+  },
+  mounted() {
+    this.hideRequiredIcon()
+  },
 }
 </script>
 

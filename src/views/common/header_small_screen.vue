@@ -10,7 +10,12 @@
       </div>
     </header>
     <nav class="nav" :class="{ show }" ref="nav">
-      <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
+      <x-link
+        v-for="(nav, i) in navBars"
+        :key="i"
+        :to="nav.href"
+        :class="{ 'router-link-exact-active': highlightNav(nav) }"
+      >
         {{ nav.name }}
       </x-link>
       <div class="divider"></div>
@@ -27,6 +32,14 @@
 <script>
 import Language from './language'
 import { mapState } from 'vuex'
+import { LS } from '@/fixtures/storage_keys'
+
+const quickStartPath = '/examples/quick_start'
+const examplesPath = '/examples'
+
+function readQuickStart() {
+  return !!localStorage.getItem(LS.READ_QUICK_START)
+}
 
 export default {
   name: 'SiteHeaderMobile',
@@ -34,28 +47,39 @@ export default {
   data() {
     return {
       show: false,
-      required: false,
-      quickStartPath: '/examples/quick_start',
     }
   },
-  computed: mapState(['menus', 'navBars', 'language']),
+  computed: {
+    ...mapState(['menus', 'navBars', 'language']),
+    isExamplesPath() {
+      return this.$route.path.indexOf(examplesPath) !== -1
+    },
+    read() {
+      return readQuickStart()
+    },
+  },
   watch: {
     $route() {
       this.show = false
     },
   },
   methods: {
+    highlightNav(nav) {
+      return this.isExamplesPath && nav.href.indexOf(examplesPath) !== -1
+    },
     showRequiredIcon(menu) {
-      return menu.href.indexOf(this.quickStartPath) != -1
-      // return this.required && menu.href.indexOf(quickStartPath) != -1
+      return !this.read && menu.href.indexOf(quickStartPath) !== -1
     },
     removeDocEvent() {
       document.removeEventListener('click', this.handler)
     },
     addDocEvent() {
       this.handler = e => {
-        if (!this.$refs.menuToggle.contains(e.target)) {
-          this.show = this.$refs.nav.contains(e.target)
+        if (
+          !this.$refs.menuToggle.contains(e.target) &&
+          !this.$refs.nav.contains(e.target)
+        ) {
+          this.show = false
         }
       }
       document.addEventListener('click', this.handler)
@@ -94,17 +118,10 @@ export default {
         color: $green;
       }
       ::v-deep .x-icon-root {
-        font-size: rem(16);
+        font-size: rem(14);
         margin-right: rem(4);
         path {
           fill: currentColor;
-        }
-      }
-    }
-    .right {
-      ::v-deep .languages-root {
-        .language span {
-          font-size: rem(12);
         }
       }
     }
@@ -112,7 +129,7 @@ export default {
   .nav {
     $nav-width: rem(260);
     width: $nav-width;
-    padding: rem(10) 0;
+    padding: rem(12) 0;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 rem(2) rem(3) 0 $shadow-color;
     transition: 0.4s ease-out;
@@ -129,8 +146,8 @@ export default {
     > a {
       display: block;
       padding: 0 $site-side-space-mobile;
-      line-height: rem(36);
-      font-size: rem(14);
+      line-height: rem(30);
+      font-size: rem(12);
       transition: 0.4s ease-out;
       &:hover,
       &.router-link-exact-active {
@@ -139,13 +156,8 @@ export default {
     }
     .divider {
       height: 1px;
-      margin: rem(8) $site-side-space-mobile;
+      margin: rem(6) $site-side-space-mobile;
       background-color: #dedede;
-    }
-    ::v-deep {
-      .site-icon-required {
-        padding: 4px 8px;
-      }
     }
   }
 }

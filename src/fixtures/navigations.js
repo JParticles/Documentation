@@ -3,7 +3,7 @@ export const navs = [
     href: '/',
   },
   {
-    href: '/examples/particle',
+    href: '/examples',
   },
   {
     href: '/download',

@@ -7,7 +7,7 @@ exported LS/SS schema:
 export const LS = {}
 export const SS = {}
 
-const localStorageKeys = ['read_quick_start']
+const localStorageKeys = ['READ_QUICK_START']
 
 const sessionStorageKeys = []
 

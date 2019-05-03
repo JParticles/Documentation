@@ -1,19 +1,21 @@
 <template>
-  <div class="site-header-normal site-container-width">
-    <div class="logo">
-      <x-link :to="rootRoute">JParticles</x-link>
-    </div>
-    <div class="right">
-      <div class="nav-box">
-        <nav class="nav" ref="nav">
-          <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
-            {{ nav.name }}
-          </x-link>
-        </nav>
-        <div class="slider" ref="slider"></div>
+  <div class="site-header-normal">
+    <div class="site-container-width">
+      <div class="logo">
+        <x-link :to="rootRoute">JParticles</x-link>
       </div>
-      <div class="divider"></div>
-      <Language />
+      <div class="right">
+        <div class="nav-box">
+          <nav class="nav" ref="nav">
+            <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
+              {{ nav.name }}
+            </x-link>
+          </nav>
+          <div class="slider" ref="slider"></div>
+        </div>
+        <div class="divider"></div>
+        <Language />
+      </div>
     </div>
   </div>
 </template>
@@ -100,14 +102,17 @@ export default {
 
 <style scoped lang="scss">
 .site-header-normal {
+  border-bottom: 1px solid $gray-border;
+  box-shadow: 0 rem(1) rem(2) 0 $shadow-color;
+}
+.site-container-width {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: rem(100);
-  border-bottom: 1px solid $gray-border;
-  box-shadow: 0 rem(1) rem(2) 0 $shadow-color;
   position: relative;
   z-index: 9;
+  font-size: rem(14);
   a {
     &:hover {
       color: $green;

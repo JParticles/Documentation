@@ -94,28 +94,25 @@ export default {
     justify-content: flex-end;
     white-space: nowrap;
     img {
-      width: rem(18);
-      margin-left: rem(10);
-    }
-    span {
-      font-size: rem(16);
+      width: 1.3em;
+      margin-left: 0.7em;
     }
   }
   .languages {
     margin-bottom: 0;
     padding-left: 0;
     border: 1px solid $gray-border;
-    border-radius: rem(10);
+    border-radius: rem(8);
     background-color: #fff;
     position: absolute;
-    top: rem(-13);
-    right: rem(-13);
+    top: rem(-11);
+    right: rem(-11);
     box-shadow: 0 rem(2) rem(8) 0 $shadow-color;
     animation: 0.3s fadeIn;
     overflow: hidden;
     .language {
-      min-width: rem(120);
-      padding: rem(12);
+      min-width: rem(100);
+      padding: rem(10);
       &:not(:last-of-type) {
         border-bottom: 1px solid $gray-border;
       }

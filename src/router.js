@@ -11,7 +11,7 @@ export default new Router({
     },
     {
       path: '/examples',
-      redirect: '/examples/intro',
+      redirect: '/examples/particle',
       component: () => import('./views/examples'),
       children: [
         {
@@ -19,14 +19,18 @@ export default new Router({
           component: () => import('./views/examples/intro'),
         },
         {
-          path: 'quick-start',
+          path: 'quick_start',
           component: () => import('./views/examples/quick_start'),
+        },
+        {
+          path: 'particle',
+          component: () => import('./views/examples/particle'),
         },
       ],
     },
     {
       path: '/download',
-      redirect: '/examples/quick-start',
+      redirect: '/examples/quick_start',
     },
     {
       path: '/changelog',
@@ -44,7 +48,7 @@ export default new Router({
     },
     {
       path: '/:lang/examples',
-      redirect: '/:lang/examples/intro',
+      redirect: '/:lang/examples/particle',
       component: () => import('./views/examples'),
       children: [
         {
@@ -52,14 +56,18 @@ export default new Router({
           component: () => import('./views/examples/intro'),
         },
         {
-          path: 'quick-start',
+          path: 'quick_start',
           component: () => import('./views/examples/quick_start'),
+        },
+        {
+          path: 'particle',
+          component: () => import('./views/examples/particle'),
         },
       ],
     },
     {
       path: '/:lang/download',
-      redirect: '/:lang/examples/quick-start',
+      redirect: '/:lang/examples/quick_start',
     },
     {
       path: '/:lang/changelog',

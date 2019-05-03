@@ -41,10 +41,11 @@
 .site-icon-required {
   display: inline-block;
   line-height: 1;
-  margin-left: rem(15);
+  margin-left: rem(10);
   padding: rem(4) rem(8);
   background-color: $green;
   color: #fff;
   font-size: rem(12);
   border-radius: rem(30);
+  transform: scale(0.9);
 }
