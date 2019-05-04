@@ -9,54 +9,30 @@
         <Language />
       </div>
     </header>
-    <nav class="nav" :class="{ show }" ref="nav">
-      <x-link
-        v-for="(nav, i) in navBars"
-        :key="i"
-        :to="nav.href"
-        :class="{ 'router-link-exact-active': highlightNav(nav) }"
-      >
-        {{ nav.name }}
-      </x-link>
+    <aside class="nav-wrapper" :class="{ show }" ref="navWrapper">
+      <Nav />
       <div class="divider"></div>
-      <x-link v-for="menu in menus" :key="menu.name" :to="menu.href">
-        {{ menu.name }}
-        <i class="site-icon-required" v-if="showRequiredIcon(menu)">
-          {{ language.examples.required }}
-        </i>
-      </x-link>
-    </nav>
+      <Menu />
+    </aside>
   </div>
 </template>
 
 <script>
 import Language from './language'
+import Nav from './nav'
+import Menu from './menu'
 import { mapState } from 'vuex'
-import { LS } from '@/fixtures/storage_keys'
-
-const quickStartPath = '/examples/quick_start'
-const examplesPath = '/examples'
-
-function readQuickStart() {
-  return !!localStorage.getItem(LS.READ_QUICK_START)
-}
 
 export default {
   name: 'SiteHeaderMobile',
-  components: { Language },
+  components: { Language, Nav, Menu },
   data() {
     return {
       show: false,
     }
   },
   computed: {
-    ...mapState(['menus', 'navBars', 'language']),
-    isExamplesPath() {
-      return this.$route.path.indexOf(examplesPath) !== -1
-    },
-    read() {
-      return readQuickStart()
-    },
+    ...mapState(['language']),
   },
   watch: {
     $route() {
@@ -64,12 +40,6 @@ export default {
     },
   },
   methods: {
-    highlightNav(nav) {
-      return this.isExamplesPath && nav.href.indexOf(examplesPath) !== -1
-    },
-    showRequiredIcon(menu) {
-      return !this.read && menu.href.indexOf(quickStartPath) !== -1
-    },
     removeDocEvent() {
       document.removeEventListener('click', this.handler)
     },
@@ -77,7 +47,7 @@ export default {
       this.handler = e => {
         if (
           !this.$refs.menuToggle.contains(e.target) &&
-          !this.$refs.nav.contains(e.target)
+          !this.$refs.navWrapper.contains(e.target)
         ) {
           this.show = false
         }
@@ -126,7 +96,7 @@ export default {
       }
     }
   }
-  .nav {
+  .nav-wrapper {
     $nav-width: rem(260);
     width: $nav-width;
     padding: rem(12) 0;
@@ -143,15 +113,17 @@ export default {
     &.show {
       transform: translateX(0);
     }
-    > a {
-      display: block;
-      padding: 0 $site-side-space-mobile;
-      line-height: rem(30);
-      font-size: rem(12);
-      transition: 0.4s ease-out;
-      &:hover,
-      &.router-link-exact-active {
-        color: $green;
+    ::v-deep {
+      a {
+        display: block;
+        padding: 0 $site-side-space-mobile;
+        line-height: rem(30);
+        font-size: rem(12);
+        transition: 0.4s ease-out;
+        &:hover,
+        &.router-link-exact-active {
+          color: $green;
+        }
       }
     }
     .divider {

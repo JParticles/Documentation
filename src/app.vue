@@ -43,10 +43,14 @@ export default {
       const prefix = 'site-body'
       const classList = document.body.classList
       const unwantedClass = []
+      let className
 
-      let className = this.$route.path.replace(/\//g, '-')
-      if (className === '-') {
+      if (this.$route.name === 'index') {
         className = '-index'
+      } else if (this.$route.name === 'langIndex') {
+        className = `-index-${this.$route.params.lang}`
+      } else {
+        className = this.$route.path.replace(/\//g, '-')
       }
 
       classList.forEach(item => {

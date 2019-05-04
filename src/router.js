@@ -7,6 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'index',
       component: () => import('./views/home'),
     },
     {
@@ -44,6 +45,7 @@ export default new Router({
     // language route
     {
       path: '/:lang',
+      name: 'langIndex',
       component: () => import('./views/home'),
     },
     {

@@ -15,3 +15,28 @@
   padding: 0 $site-side-space;
   margin: 0 auto;
 }
+
+// small screen
+.site-small-screen {
+  .site-container {
+    padding: $site-container-padding-top-mobile $site-side-space-mobile
+    $site-side-space-mobile;
+  }
+}
+
+// homepage styles
+body[class^='site-body-index'] {
+  > #app {
+    > .site-header {
+      position: relative;
+      z-index: 999;
+      > .site-header-mobile .beam {
+        background-color: transparent;
+      }
+    }
+    > .site-footer {
+      position: relative;
+      z-index: 900;
+    }
+  }
+}
