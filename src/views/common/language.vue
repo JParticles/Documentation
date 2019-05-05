@@ -111,8 +111,7 @@ export default {
     animation: 0.3s fadeIn;
     overflow: hidden;
     .language {
-      min-width: rem(100);
-      padding: rem(10);
+      padding: rem(10) rem(10) rem(10) rem(13);
       &:not(:last-of-type) {
         border-bottom: 1px solid $gray-border;
       }

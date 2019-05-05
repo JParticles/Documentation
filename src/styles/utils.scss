@@ -1,3 +1,9 @@
+.site-container-width {
+  max-width: $site-container-max-width;
+  padding: 0 $site-side-space;
+  margin: 0 auto;
+}
+
 .site-text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

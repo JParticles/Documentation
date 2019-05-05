@@ -5,12 +5,8 @@
         <x-link :to="rootRoute">JParticles</x-link>
       </div>
       <div class="right">
-        <div class="nav-box">
-          <nav class="nav" ref="nav">
-            <x-link v-for="(nav, i) in navBars" :key="i" :to="nav.href">
-              {{ nav.name }}
-            </x-link>
-          </nav>
+        <div class="nav-box" ref="navBox">
+          <Nav />
           <div class="slider" ref="slider"></div>
         </div>
         <div class="divider"></div>
@@ -22,18 +18,15 @@
 
 <script>
 import Language from './language'
+import Nav from './nav'
 import { mapState } from 'vuex'
 import { getWidth, getStyle } from '@/utils/dom'
+import throttle from '@/utils/throttle'
 
 export default {
   name: 'SiteHeaderNormal',
-  components: { Language },
-  data() {
-    return {
-      activeElem: null,
-    }
-  },
-  computed: mapState(['rootRoute', 'navBars']),
+  components: { Language, Nav },
+  computed: mapState(['rootRoute']),
   watch: {
     $route() {
       this.$nextTick(() => {
@@ -43,38 +36,36 @@ export default {
   },
   methods: {
     init() {
-      this.activeElem = this.$refs.nav.querySelector(
-        '.router-link-exact-active'
-      )
-      this.setSliderPosition(this.activeElem)
+      this.$nav = this.$refs.navBox.querySelector('.nav-root')
+      this.$activeElem = this.$nav.querySelector('.router-link-exact-active')
+      this.setSliderPosition(this.$activeElem)
     },
     removeResizeEvent() {
+      this.resizeHandler.cancel()
       window.removeEventListener('resize', this.resizeHandler)
     },
     addResizeEvent() {
-      this.resizeHandler = () => {
-        this.setSliderPosition(this.activeElem)
-      }
+      this.resizeHandler = throttle(() => {
+        this.setSliderPosition(this.$activeElem)
+      }, 300)
       window.addEventListener('resize', this.resizeHandler)
     },
     removeSlidingEvent() {
-      if (this.$refs.nav) {
-        this.$refs.nav.removeEventListener('mouseover', this.mouseoverHandler)
-        this.$refs.nav.removeEventListener('mouseout', this.mouseoutHandler)
-      }
+      this.$nav.removeEventListener('mouseover', this.mouseoverHandler)
+      this.$nav.removeEventListener('mouseout', this.mouseoutHandler)
     },
     addSlidingEvent() {
       this.mouseoverHandler = e => {
         this.setSliderPosition(e.target)
       }
       this.mouseoutHandler = () => {
-        this.setSliderPosition(this.activeElem)
+        this.setSliderPosition(this.$activeElem)
       }
-      this.$refs.nav.addEventListener('mouseover', this.mouseoverHandler)
-      this.$refs.nav.addEventListener('mouseout', this.mouseoutHandler)
+      this.$nav.addEventListener('mouseover', this.mouseoverHandler)
+      this.$nav.addEventListener('mouseout', this.mouseoutHandler)
     },
     setActiveNav($activeElem) {
-      const $preElem = this.$refs.nav.querySelector('.router-link-exact-active')
+      const $preElem = this.$nav.querySelector('.router-link-exact-active')
       $preElem.classList.remove('router-link-exact-active')
       $activeElem.classList.add('router-link-exact-active')
     },
@@ -90,8 +81,11 @@ export default {
     },
   },
   mounted() {
-    this.addSlidingEvent()
-    this.addResizeEvent()
+    this.$nextTick(() => {
+      this.init()
+      this.addSlidingEvent()
+      this.addResizeEvent()
+    })
   },
   destroyed() {
     this.removeSlidingEvent()
@@ -109,25 +103,33 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: rem(100);
-  position: relative;
-  z-index: 9;
+  height: $site-header-height;
   font-size: rem(14);
-  a {
-    &:hover {
-      color: $green;
-    }
-  }
   .logo {
     a {
       font-size: rem(26);
-      font-weight: 300;
+      font-weight: 900;
       color: $green;
     }
   }
   .right {
     display: flex;
     align-items: center;
+    ::v-deep {
+      .nav-root {
+        display: flex;
+        > a {
+          padding: rem(6) rem(12);
+          transition: 0.4s ease-out;
+          &.router-link-exact-active {
+            color: $green;
+          }
+          &:hover {
+            color: $green;
+          }
+        }
+      }
+    }
     .nav-box {
       position: relative;
       .slider {
@@ -136,17 +138,6 @@ export default {
         position: absolute;
         top: 98%;
         transition: 0.4s ease-out;
-      }
-    }
-    .nav {
-      display: flex;
-      > a {
-        font-size: rem(16);
-        padding: rem(6) rem(12);
-        transition: 0.4s ease-out;
-        &.router-link-exact-active {
-          color: $green;
-        }
       }
     }
     .divider {

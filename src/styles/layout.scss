@@ -10,15 +10,9 @@
   }
 }
 
-.site-container-width {
-  max-width: $site-container-max-width;
-  padding: 0 $site-side-space;
-  margin: 0 auto;
-}
-
 // small screen
 .site-small-screen {
-  .site-container {
+  > .site-container {
     padding: $site-container-padding-top-mobile $site-side-space-mobile
     $site-side-space-mobile;
   }
@@ -30,6 +24,13 @@ body[class^='site-body-index'] {
     > .site-header {
       position: relative;
       z-index: 999;
+      > .site-header-normal {
+        .logo {
+          a {
+            font-weight: 300;
+          }
+        }
+      }
       > .site-header-mobile .beam {
         background-color: transparent;
       }
