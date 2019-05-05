@@ -28,6 +28,11 @@ export default {
       return this.language.home
     },
   },
+  watch: {
+    isSmallScreen() {
+      this.createEffect()
+    },
+  },
   methods: {
     createEffect() {
       const settings = this.isSmallScreen
