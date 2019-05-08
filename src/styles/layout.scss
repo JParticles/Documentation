@@ -41,3 +41,25 @@ body[class^='site-body-index'] {
     }
   }
 }
+
+@media all and (max-width: $screen-md2) {
+  $site-side-space: rem(80);
+  .site-container-width {
+    padding: 0 $site-side-space;
+  }
+}
+
+@media all and (max-width: $screen-md) {
+  $site-side-space: rem(40);
+  .site-container-width {
+    padding: 0 $site-side-space;
+  }
+}
+
+@media all and (max-width: $screen-sm) {
+
+}
+
+@media all and (max-width: $screen-xs) {
+
+}
