@@ -37,19 +37,18 @@ export default {
     createEffect() {
       const settings = this.isSmallScreen
         ? {
-            opacity: 0.3,
             proximity: 50,
             num: 0.25,
             maxSpeed: 0.7,
           }
         : {
-            opacity: 0.5,
             proximity: 100,
           }
       new JParticles.particle(
         this.$refs.bg,
         Object.assign(
           {
+            opacity: 0.3,
             eventElem: document,
             range: 3000,
             parallax: true,
@@ -84,13 +83,13 @@ export default {
     transform: translateY(-50%);
   }
   .title {
-    font-size: rem(60);
+    font-size: rem(80);
     font-weight: 900;
   }
   .description {
-    margin-bottom: rem(50);
+    margin: rem(20) 0 rem(50);
     padding: 0 rem(50);
-    font-size: rem(18);
+    font-size: rem(20);
   }
   .see-more {
     display: inline-block;

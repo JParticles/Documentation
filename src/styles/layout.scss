@@ -72,4 +72,11 @@ body[class^='site-body-index'] {
       }
     }
   }
+  body[class^='site-body-index'] {
+    .home-root {
+      .title {
+        font-size: rem(60);
+      }
+    }
+  }
 }
