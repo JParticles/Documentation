@@ -65,16 +65,5 @@ export default {
       text-decoration: underline;
     }
   }
-  @include screen-xs {
-    padding: rem(10);
-    .container {
-      transform: scale(0.86);
-      > div {
-        width: 100%;
-        justify-content: center;
-        margin-left: 0 !important;
-      }
-    }
-  }
 }
 </style>

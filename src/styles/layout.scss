@@ -10,7 +10,7 @@
   }
 }
 
-// small screen
+// small screen (equal to $screen-sm)
 .site-small-screen {
   > .site-container {
     padding: $site-container-padding-top-mobile $site-side-space-mobile
@@ -61,5 +61,15 @@ body[class^='site-body-index'] {
 }
 
 @media all and (max-width: $screen-xs) {
-
+  .site-footer {
+    padding: rem(10);
+    .container {
+      transform: scale(0.86);
+      > div {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0 !important;
+      }
+    }
+  }
 }
