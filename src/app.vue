@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from '@/views/common/header'
-import Footer from '@/views/common/footer'
+import Header from '@/views/@common/header'
+import Footer from '@/views/@common/footer'
 import { mapState } from 'vuex'
 
 export default {
