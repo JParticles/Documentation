@@ -24,7 +24,7 @@ import Menu from './menu'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'SiteHeaderMobile',
+  name: 'SiteHeaderSmall',
   components: { Language, Nav, Menu },
   data() {
     return {

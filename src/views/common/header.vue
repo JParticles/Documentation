@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import NormalScreen from './header_normal_screen'
-import SmallScreen from './header_small_screen'
+import NormalScreen from './header_normal'
+import SmallScreen from './header_small'
 import { mapState } from 'vuex'
 
 export default {
