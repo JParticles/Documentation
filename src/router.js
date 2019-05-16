@@ -12,7 +12,7 @@ export default new Router({
     },
     {
       path: '/examples',
-      redirect: '/examples/particle',
+      redirect: '/examples/particles',
       component: () => import('./views/examples'),
       children: [
         {
@@ -24,8 +24,8 @@ export default new Router({
           component: () => import('./views/examples/quick_start'),
         },
         {
-          path: 'particle',
-          component: () => import('./views/examples/particle'),
+          path: 'particles',
+          component: () => import('./views/examples/particles'),
         },
       ],
     },
@@ -50,7 +50,7 @@ export default new Router({
     },
     {
       path: '/:lang/examples',
-      redirect: '/:lang/examples/particle',
+      redirect: '/:lang/examples/particles',
       component: () => import('./views/examples'),
       children: [
         {
@@ -62,8 +62,8 @@ export default new Router({
           component: () => import('./views/examples/quick_start'),
         },
         {
-          path: 'particle',
-          component: () => import('./views/examples/particle'),
+          path: 'particles',
+          component: () => import('./views/examples/particles'),
         },
       ],
     },

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Particle',
+  name: 'Particles',
   methods: {},
   mounted() {},
 }

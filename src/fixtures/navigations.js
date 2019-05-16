@@ -31,7 +31,7 @@ export const menus = [
     href: '/examples/quick_start',
   },
   {
-    href: '/examples/particle',
+    href: '/examples/particles',
   },
   {
     href: '/examples/wave',
