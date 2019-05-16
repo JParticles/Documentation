@@ -5,12 +5,15 @@
       <div class="title">JParticles</div>
       <div class="description">
         {{ homeData.description }}
-        <x-link class="see-more" to="/examples/intro">
+        <x-link class="see-more" :to="generatePath('/examples/intro')">
           {{ homeData.seeMore }}
         </x-link>
       </div>
       <div class="btn-box">
-        <x-link class="btn btn-success" to="/examples/quick_start">
+        <x-link
+          class="btn btn-success"
+          :to="generatePath('/examples/quick_start')"
+        >
           <span class="text">{{ homeData.quickStart }}</span>
         </x-link>
       </div>
@@ -20,6 +23,8 @@
 
 <script>
 import { mapState } from 'vuex'
+import { generateLangPath } from '@/utils/path'
+
 export default {
   name: 'Home',
   computed: {
@@ -34,6 +39,9 @@ export default {
     },
   },
   methods: {
+    generatePath(path) {
+      return generateLangPath(path)
+    },
     createEffect() {
       const settings = this.isSmallScreen
         ? {

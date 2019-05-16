@@ -5,14 +5,9 @@ const { extend, isPlainObject } = JParticles.utils
 
 function generateMenus(config) {
   return extend(true, [], menus).map((item, i) => {
-    if (!/^https?/i.test(item.href)) {
+    if (!/^https?/i.test(item.href) && config.routeHasLanguage) {
       // use language route instead of raw route
-      if (config.routeHasLanguage) {
-        item.href = item.href.replace(
-          /(\/)(.*)/i,
-          `$1${config.routeLanguage}/$2`
-        )
-      }
+      item.href = `/${config.routeLanguage}${item.href}`
     }
 
     // match display language
@@ -24,14 +19,9 @@ function generateMenus(config) {
 
 function generateNavBars(config) {
   return extend(true, [], navs).map((item, i) => {
-    if (!/^https?/i.test(item.href)) {
+    if (!/^https?/i.test(item.href) && config.routeHasLanguage) {
       // use language route instead of raw route
-      if (config.routeHasLanguage) {
-        item.href = item.href.replace(
-          /(\/)(.*)/i,
-          `$1${config.routeLanguage}/$2`
-        )
-      }
+      item.href = `/${config.routeLanguage}${item.href}`
     }
 
     // match display language

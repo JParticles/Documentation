@@ -17,6 +17,9 @@ const store = new Vuex.Store({
   ...topStore,
 })
 
+// register store to global for no-state tools use
+window.$store = store
+
 window.addEventListener('resize', () => {
   store.commit('updateScreenState')
 })
