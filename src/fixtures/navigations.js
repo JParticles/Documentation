@@ -34,7 +34,7 @@ export const menus = [
     href: '/examples/particles',
   },
   {
-    href: '/examples/wave',
+    href: '/examples/waves',
   },
   {
     href: '/examples/wave_loading',

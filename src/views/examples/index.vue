@@ -1,8 +1,8 @@
 <template>
   <section class="examples-root site-container-width">
-    <side class="side-menu-wrapper" v-if="!isSmallScreen">
+    <aside class="side-menu-wrapper" v-if="!isSmallScreen">
       <Menu />
-    </side>
+    </aside>
     <main class="main-content">
       <router-view />
     </main>

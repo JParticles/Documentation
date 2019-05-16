@@ -44,7 +44,7 @@ export default {
         : {
             proximity: 100,
           }
-      new JParticles.particle(
+      new JParticles.Particles(
         this.$refs.bg,
         Object.assign(
           {
