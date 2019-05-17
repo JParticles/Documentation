@@ -7,6 +7,7 @@ function generateMenus(config) {
   return extend(true, [], menus).map((item, i) => {
     if (!/^https?/i.test(item.href) && config.routeHasLanguage) {
       // use language route instead of raw route
+      item.rawHref = item.href
       item.href = `/${config.routeLanguage}${item.href}`
     }
 
@@ -21,6 +22,7 @@ function generateNavBars(config) {
   return extend(true, [], navs).map((item, i) => {
     if (!/^https?/i.test(item.href) && config.routeHasLanguage) {
       // use language route instead of raw route
+      item.rawHref = item.href
       item.href = `/${config.routeLanguage}${item.href}`
     }
 

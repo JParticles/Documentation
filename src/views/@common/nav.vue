@@ -5,6 +5,7 @@
       :key="i"
       :to="nav.href"
       :class="{ 'router-link-exact-active': highlightNav(nav) }"
+      :data-name="nav.rawHref"
     >
       {{ nav.name }}
     </x-link>

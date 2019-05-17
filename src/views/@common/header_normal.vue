@@ -37,7 +37,11 @@ export default {
   methods: {
     init() {
       this.$nav = this.$refs.navBox.querySelector('.nav-root')
-      this.$activeElem = this.$nav.querySelector('.router-link-exact-active')
+      if (/\/download/i.test(this.$route.redirectedFrom)) {
+        this.$activeElem = this.$nav.querySelector('[data-name="/examples"]')
+      } else {
+        this.$activeElem = this.$nav.querySelector('.router-link-exact-active')
+      }
       this.setSliderPosition(this.$activeElem)
     },
     removeResizeEvent() {
@@ -65,8 +69,10 @@ export default {
       this.$nav.addEventListener('mouseout', this.mouseoutHandler)
     },
     setActiveNav($activeElem) {
-      const $preElem = this.$nav.querySelector('.router-link-exact-active')
-      $preElem.classList.remove('router-link-exact-active')
+      const $elems = this.$nav.querySelectorAll('.router-link-exact-active')
+      Array.prototype.forEach.call($elems, $elem => {
+        $elem.classList.remove('router-link-exact-active')
+      })
       $activeElem.classList.add('router-link-exact-active')
     },
     setSliderPosition($activeElem) {
@@ -122,9 +128,6 @@ export default {
           padding: rem(6) rem(12);
           transition: 0.4s ease-out;
           &.router-link-exact-active {
-            color: $green;
-          }
-          &:hover {
             color: $green;
           }
         }
