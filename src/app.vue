@@ -1,10 +1,13 @@
 <template>
   <div id="app" :class="appClass">
-    <Header />
-    <div class="site-container">
-      <router-view />
-    </div>
-    <Footer />
+    <template v-if="!isNotFoundRoute">
+      <Header />
+      <div class="site-container">
+        <router-view />
+      </div>
+      <Footer />
+    </template>
+    <router-view v-else />
   </div>
 </template>
 
@@ -36,6 +39,9 @@ export default {
         'site-sticky-footer': this.stickyFooter,
         'site-small-screen': this.isSmallScreen,
       }
+    },
+    isNotFoundRoute() {
+      return this.$route.name === 404
     },
   },
   methods: {

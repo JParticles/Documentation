@@ -37,11 +37,6 @@ export default new Router({
       path: '/changelog',
       component: () => import('./views/changelog'),
     },
-    // 404 route
-    {
-      path: '/404',
-      component: () => import('./views/not_found'),
-    },
     // language route
     {
       path: '/:lang',
@@ -78,7 +73,8 @@ export default new Router({
     // 404 route
     {
       path: '*',
-      redirect: '/404',
+      name: 404,
+      component: () => import('./views/not_found'),
     },
   ],
 })
