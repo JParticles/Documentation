@@ -23,6 +23,7 @@ const config = {
   },
   devServer: {
     port: 8000,
+    disableHostCheck: true,
   },
   configureWebpack: {
     plugins: [new CopyWebpackPlugin([{ from: info.filePath }])],

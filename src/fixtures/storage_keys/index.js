@@ -1,15 +1,8 @@
-/*
-exported LS/SS schema:
-{
-  storage_key: 'storage_key'
-}
-*/
+import localStorageKeys from './ls_keys'
+import sessionStorageKeys from './ss_keys'
+
 export const LS = {}
 export const SS = {}
-
-const localStorageKeys = ['READ_QUICK_START']
-
-const sessionStorageKeys = []
 
 const maps = [
   { exportedObj: LS, keys: localStorageKeys },
@@ -21,3 +14,10 @@ maps.forEach(({ exportedObj, keys }) => {
     exportedObj[key] = key
   })
 })
+
+/*
+exported LS/SS schema:
+{
+  storage_key: 'storage_key'
+}
+*/
