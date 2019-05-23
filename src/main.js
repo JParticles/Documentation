@@ -5,7 +5,7 @@ import store from './store/index'
 import '@/styles/build.scss'
 import 'jparticles'
 import '@/utils/statistics'
-import './jparticles_polyfill'
+import '@/utils/jparticles_polyfill'
 
 import Icon from '@/components/x_icon'
 import Link from '@/components/x_link'

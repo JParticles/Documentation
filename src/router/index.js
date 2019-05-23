@@ -8,24 +8,24 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: () => import('./views/home'),
+      component: () => import('@/views/home'),
     },
     {
       path: '/examples',
       redirect: '/examples/particles',
-      component: () => import('./views/examples'),
+      component: () => import('@/views/examples'),
       children: [
         {
           path: 'intro',
-          component: () => import('./views/examples/intro'),
+          component: () => import('@/views/examples/intro'),
         },
         {
           path: 'quick_start',
-          component: () => import('./views/examples/quick_start'),
+          component: () => import('@/views/examples/quick_start'),
         },
         {
           path: 'particles',
-          component: () => import('./views/examples/particles'),
+          component: () => import('@/views/examples/particles'),
         },
       ],
     },
@@ -35,30 +35,30 @@ export default new Router({
     },
     {
       path: '/changelog',
-      component: () => import('./views/changelog'),
+      component: () => import('@/views/changelog'),
     },
     // language route
     {
       path: '/:lang',
       name: 'langIndex',
-      component: () => import('./views/home'),
+      component: () => import('@/views/home'),
     },
     {
       path: '/:lang/examples',
       redirect: '/:lang/examples/particles',
-      component: () => import('./views/examples'),
+      component: () => import('@/views/examples'),
       children: [
         {
           path: 'intro',
-          component: () => import('./views/examples/intro'),
+          component: () => import('@/views/examples/intro'),
         },
         {
           path: 'quick_start',
-          component: () => import('./views/examples/quick_start'),
+          component: () => import('@/views/examples/quick_start'),
         },
         {
           path: 'particles',
-          component: () => import('./views/examples/particles'),
+          component: () => import('@/views/examples/particles'),
         },
       ],
     },
@@ -68,13 +68,13 @@ export default new Router({
     },
     {
       path: '/:lang/changelog',
-      component: () => import('./views/changelog'),
+      component: () => import('@/views/changelog'),
     },
     // 404 route
     {
       path: '*',
       name: 404,
-      component: () => import('./views/not_found'),
+      component: () => import('@/views/not_found'),
     },
   ],
 })
