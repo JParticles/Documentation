@@ -1,4 +1,4 @@
-function statistics() {
+function analysis() {
   if (/localhost|127\.0\.0\.1/i.test(location.hostname)) {
     return
   }
@@ -36,5 +36,5 @@ function statistics() {
 }
 
 setTimeout(() => {
-  statistics()
+  analysis()
 }, 50)
