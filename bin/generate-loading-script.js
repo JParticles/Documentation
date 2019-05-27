@@ -3,7 +3,7 @@ const path = require('path')
 const { forEach } = require('lodash')
 const { md5 } = require('./md5')
 const langDir = path.resolve(__dirname, '../public/languages')
-const loadingFilePath = path.resolve(__dirname, '../public/loading.js')
+const loadingFilePath = path.resolve(__dirname, '../src/loading.js')
 const outputDir = path.resolve(__dirname, '../docs')
 
 const storage = {}
