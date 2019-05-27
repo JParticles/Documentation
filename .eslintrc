@@ -13,8 +13,7 @@
     "@vue/prettier"
   ],
   "globals": {
-    "JParticles": true,
-    "axios": true
+    "JParticles": true
   },
   "rules": {
     "no-console": 1,

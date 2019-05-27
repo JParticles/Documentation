@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "apisauce": "^1.0.2",
     "highlight.js": "^9.15.6",
     "jparticles": "^2.0.1",
     "marked": "^0.6.1",

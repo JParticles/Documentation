@@ -1,6 +1,6 @@
 ### 介绍
 
-- JParticles（JavaScript particles的缩写）是一款基于 Canvas 的不依赖于其他库的轻量级 JavaScript 粒子运动特效插件库。提供一些比较绚丽，实用的特效应用于WEB界面，希望能达到锦上添花的作用，给用户带来些许惊喜。
+- JParticles（JavaScript particles的缩写）是一款基于 Canvas 的不依赖于其他库的轻量级 JavaScript 粒子运动特效库。提供一些比较绚丽、实用的特效应用于 WEB 界面，希望能达到锦上添花的作用，给用户带来些许惊喜。
 
 - JParticles 的特效多数来源于他人分享，JParticles 像搬运工一样把它们汇集在一起，做一些细节或功能上的改进，在此，感谢原作者的创意或代码。
 

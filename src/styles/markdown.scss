@@ -1,5 +1,5 @@
 // markdown compoent syntax config
-$md-pre-font-family: $code-font-family;
+$md-pre-font-family: $font-family-code;
 
 // text color
 $md-white: #fff;
@@ -45,7 +45,6 @@ pre {
 .markdown-syntax {
     font-size: rem(14);
     word-wrap: break-word;
-    @extend .cf;
     > *:first-child {
         margin-top: 0 !important
     }

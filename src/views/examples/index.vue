@@ -1,9 +1,9 @@
 <template>
   <section class="examples-root site-container-width">
-    <aside class="side-menu-wrapper" v-if="!isSmallScreen">
+    <aside class="side-menu-wrapper" v-if="!isSmallScreen" @click="onMenuClick">
       <Menu />
     </aside>
-    <main class="main-content">
+    <main class="main-content markdown-syntax">
       <router-view />
     </main>
   </section>
@@ -12,6 +12,7 @@
 <script>
 import { mapState } from 'vuex'
 import Menu from '@/views/@common/menu'
+import { scrollTop } from '@/utils/dom'
 
 export default {
   name: 'Examples',
@@ -19,7 +20,11 @@ export default {
   computed: {
     ...mapState(['isSmallScreen']),
   },
-  methods: {},
+  methods: {
+    onMenuClick() {
+      scrollTop(window, 0)
+    },
+  },
   mounted() {},
 }
 </script>

@@ -2,11 +2,28 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const generateLoadingScript = require('./bin/generate-loading-script')
 const path = require('path')
+const webpack = require('webpack')
+const { toPairs, forEach } = require('lodash')
 
 const svgIconPath = path.resolve('./src/svgicons')
 const info = generateLoadingScript()
 
-process.env.VUE_APP_LOADING_SCRIPT_URL = `/${info.basename}`
+process.env.VUE_APP_LOADING_SCRIPT_URL = `/js/${info.basename}`
+
+const vendors = {
+  vue: 'vue|vue-router|vuex',
+  utils: 'marked|highlight.js|apisauce|axios',
+  jparticles: 'jparticles',
+}
+
+const cacheGroups = {}
+
+forEach(toPairs(vendors), ([key, value]) => {
+  cacheGroups[key] = {
+    test: new RegExp(`[\\/]node_modules[\\/](${value})[\\/]`),
+    name: key,
+  }
+})
 
 const config = {
   outputDir: 'docs',
@@ -26,7 +43,18 @@ const config = {
     disableHostCheck: true,
   },
   configureWebpack: {
-    plugins: [new CopyWebpackPlugin([{ from: info.filePath }])],
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        chunks: 'all',
+        maxInitialRequests: Infinity,
+        cacheGroups,
+      },
+    },
+    plugins: [
+      new webpack.HashedModuleIdsPlugin(),
+      new CopyWebpackPlugin([{ from: info.filePath, to: './js' }]),
+    ],
     module: {
       rules: [
         {
@@ -61,6 +89,7 @@ if (process.env.NODE_ENV === 'production') {
   config.configureWebpack.plugins.push(
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME', `!${info.basename}`],
+      cleanAfterEveryBuildPatterns: ['loading*.js'],
     })
   )
 }
