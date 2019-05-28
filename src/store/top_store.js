@@ -1,4 +1,4 @@
-import { navs, menus } from '@/fixtures/navigations'
+import { navs, menus } from '@/fixtures/navigators'
 import { isSmallScreen } from '@/utils/detect'
 
 const { extend, isPlainObject } = JParticles.utils
