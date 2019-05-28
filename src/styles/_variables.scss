@@ -108,7 +108,7 @@ $site-container-max-width: 2000px;
 
 $site-header-height-mobile: rem(60);
 $site-side-space-mobile: rem(20);
-$site-container-padding-top-mobile: rem(60 + 20);
+$site-container-padding-top-mobile: $site-header-height-mobile + $site-side-space-mobile;
 
 // screen size
 $screen-xs: 415px;    // vertical iPhone 6 plus
