@@ -65,6 +65,10 @@ export default {
         }
       })
 
+      if (this.isNotFoundRoute) {
+        classList.add(`${prefix}-404`)
+      }
+
       classList.remove(...unwantedClass)
       classList.add(`${prefix}${className}`)
     },
