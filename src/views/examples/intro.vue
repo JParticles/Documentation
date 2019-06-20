@@ -3,15 +3,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'Intro',
   props: {
     content: String,
-  },
-  computed: {
-    ...mapState(['language', 'themeColor']),
   },
   methods: {},
   mounted() {

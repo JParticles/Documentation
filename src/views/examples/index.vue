@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     createLoading() {
-      this.loading = true
       const $loading = this.$refs.loading
       const loading = (this.waveLoading = new JParticles.WaveLoading($loading, {
         font: 'normal 900 12px Arial',
@@ -111,13 +110,22 @@ export default {
       const lang = this.language.languageCode
       const docPath = `/languages/${lang}/pages/examples/${doc}.md`
 
+      // 保证 error 为 false，除非后面设置为 true
       this.error = false
+
+      // 当异步 component 传入同个组件和不同数据时，组件并不会被渲染
+      // 所以先触发一次更新，让异步 component 消失
+      this.loading = true
 
       // 如果都加载过了就使用已有文件
       if (components[doc] && docs[docPath]) {
-        this.component = components[doc]
-        this.content = docs[docPath]
-        this.loading = false
+        this.$nextTick(() => {
+          this.component = components[doc]
+          this.content = docs[docPath]
+
+          // 让异步 component 组件出现
+          this.loading = false
+        })
         return
       }
 
