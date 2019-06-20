@@ -40,9 +40,11 @@ pre {
   border: none !important;
   background-color: $lightgray-bg;
   code {
+    color: $site-color-root;
     font-family: $md-pre-font-family;
   }
-  .com {
+  .com,
+  .hljs-comment {
     color: $md-gray-comment;
   }
 }

@@ -1,4 +1,4 @@
-import 'highlight.js/styles/tomorrow.css'
+import 'highlight.js/styles/googlecode.css'
 import hljs from 'highlight.js/lib/highlight'
 
 // eslint-disable-next-line

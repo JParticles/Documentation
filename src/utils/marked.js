@@ -14,6 +14,9 @@ renderer.link = function(href, title, text) {
 const marked = (content, options = {}) =>
   Marked(content, {
     sanitize: true,
+    sanitizer(content) {
+      return content
+    },
     renderer: renderer,
     highlight(code, lang) {
       return hljs.highlightAuto(code, lang ? [lang] : null).value
