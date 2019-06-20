@@ -19,7 +19,8 @@ export const navs = [
     target: '_blank',
   },
   {
-    href: '/changelog',
+    href: 'https://github.com/Barrior/JParticles/releases',
+    target: '_blank',
   },
 ]
 

@@ -182,9 +182,9 @@ effect
             <td>true</td>
             <td>boolean</td>
             <td>
-				自适应窗口尺寸变化。<br>
-				如不需要自适应，请设置为 `false`，以提高性能。
-			</td>
+              自适应窗口尺寸变化。<br>
+              如不需要自适应，请设置为 `false`，以提高性能。
+            </td>
         </tr>
     </tbody>
 </table>
