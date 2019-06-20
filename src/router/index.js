@@ -28,10 +28,6 @@ export default new Router({
       path: '/download',
       redirect: '/examples/quick_start',
     },
-    {
-      path: '/changelog',
-      component: () => import('@/views/changelog'),
-    },
     // language routes
     {
       path: '/:lang',
@@ -52,10 +48,6 @@ export default new Router({
     {
       path: '/:lang/download',
       redirect: '/:lang/examples/quick_start',
-    },
-    {
-      path: '/:lang/changelog',
-      component: () => import('@/views/changelog'),
     },
     // 404 route
     {
