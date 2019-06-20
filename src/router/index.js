@@ -4,6 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',
@@ -13,19 +16,11 @@ export default new Router({
     {
       path: '/examples',
       redirect: '/examples/particles',
-      component: () => import('@/views/examples'),
+      component: () => import('@/views/@common/mounter'),
       children: [
         {
-          path: 'intro',
-          component: () => import('@/views/examples/intro'),
-        },
-        {
-          path: 'quick_start',
-          component: () => import('@/views/examples/quick_start'),
-        },
-        {
-          path: 'particles',
-          component: () => import('@/views/examples/particles'),
+          path: ':doc',
+          component: () => import('@/views/examples'),
         },
       ],
     },
@@ -37,7 +32,7 @@ export default new Router({
       path: '/changelog',
       component: () => import('@/views/changelog'),
     },
-    // language route
+    // language routes
     {
       path: '/:lang',
       name: 'langIndex',
@@ -46,19 +41,11 @@ export default new Router({
     {
       path: '/:lang/examples',
       redirect: '/:lang/examples/particles',
-      component: () => import('@/views/examples'),
+      component: () => import('@/views/@common/mounter'),
       children: [
         {
-          path: 'intro',
-          component: () => import('@/views/examples/intro'),
-        },
-        {
-          path: 'quick_start',
-          component: () => import('@/views/examples/quick_start'),
-        },
-        {
-          path: 'particles',
-          component: () => import('@/views/examples/particles'),
+          path: ':doc',
+          component: () => import('@/views/examples'),
         },
       ],
     },

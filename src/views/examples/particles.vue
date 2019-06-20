@@ -1,12 +1,13 @@
 <template>
-  <section class="particle-root">
-    <h3>Particle</h3>
-  </section>
+  <section class="particles-root" v-html="content"></section>
 </template>
 
 <script>
 export default {
   name: 'Particles',
+  props: {
+    content: String,
+  },
   methods: {},
   mounted() {},
 }

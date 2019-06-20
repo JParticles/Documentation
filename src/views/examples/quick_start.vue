@@ -1,12 +1,13 @@
 <template>
-  <section class="quick-start-root">
-    <h3>quick start</h3>
-  </section>
+  <section class="quick-start-root" v-html="content"></section>
 </template>
 
 <script>
 export default {
   name: 'QuickStart',
+  props: {
+    content: String,
+  },
   methods: {},
   mounted() {},
 }
