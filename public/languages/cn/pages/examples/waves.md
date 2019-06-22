@@ -1,33 +1,39 @@
-<div class="instance-1">
+<div class="instance i1">
     <div class="demo"></div>
-	<div class="ctrl">
-		<div class="btn btn-default open">开启</div>
-		<div class="btn btn-default pause">暂停</div>
-	</div>
+    <div class="ctrls">
+      <div class="btn btn-default open">开启</div>
+      <div class="btn btn-default pause">暂停</div>
+    </div>
 </div>
 
 查看源代码：
 
-	new JParticles.wave('#demo-1', {
-	    num: 3,
-	    // 不填充
-	    fill: false,
-	    // 绘制边框，即线条
-	    line: true,
-	    // 三条线依次的颜色
-	    lineColor: ['rgba(0, 190, 112, .5)', 'rgba(0, 190, 112, .7)', 'rgba(0, 190, 112, .9)'],
-	    // 三条线依次的宽度
-	    lineWidth: [.5, .7, .9],
-	    // 三条线依次距左的偏移值
-	    offsetLeft: [2, 1, 0],
-	    // 三条线都向上偏移容器高度的 0.75 倍
-	    offsetTop: .75,
-	    // 三条线依次的波峰高度
-	    crestHeight: [10, 14, 18],
-	    // 三条线都只有两个波峰（波纹）
-	    rippleNum: 2,
-	    speed: .1
-	});
+```javascript
+new JParticles.Waves('#demo-1', {
+    num: 3,
+    // 不填充
+    fill: false,
+    // 绘制边框，即线条
+    line: true,
+    // 三条线依次的颜色
+    lineColor: [
+      'rgba(0, 190, 112, .5)',
+      'rgba(0, 190, 112, .7)',
+      'rgba(0, 190, 112, .9)',
+    ],
+    // 三条线依次的宽度
+    lineWidth: [0.5, 0.7, 0.9],
+    // 三条线依次距左的偏移值
+    offsetLeft: [2, 1, 0],
+    // 三条线都向上偏移容器高度的 0.75 倍
+    offsetTop: 0.75,
+    // 三条线依次的波峰高度
+    crestHeight: [10, 14, 18],
+    // 三条线都只有两个波峰（波纹）
+    rippleNum: 2,
+    speed: 0.1,
+})
+```
 
 ### 语音搜索：
 

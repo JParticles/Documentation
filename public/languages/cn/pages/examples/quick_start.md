@@ -257,7 +257,7 @@ JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
         </tr>
         <tr>
             <td>swing</td>
-            <td>等于 easeInOutQuad </td>
+            <td>等于 `easeInOutQuad` </td>
         </tr>
         <tr>
             <td>easeInOutQuad</td>
