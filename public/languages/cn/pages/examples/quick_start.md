@@ -16,13 +16,13 @@
 <header>
     <meta charset="utf-8">
 
-    <!-- 方式一，一次性引入所有特效 -->
+    <!-- 方式一：一次性引入所有特效 -->
     <!-- <script src="jparticles.all.js"></script> -->
 
-    <!-- 方式二（推荐），按需加载方式，先引入基础框架 -->
+    <!-- 方式二（推荐）：按需加载方式，先引入基础框架 -->
     <script src="jparticles.js"></script>
     <!-- 再引入特定的特效，如下面的粒子特效 -->
-    <script src="particle.js"></script>
+    <script src="particles.js"></script>
 
 </header>
 <body>
@@ -40,10 +40,10 @@
 <html>
 <header>
     <meta charset="utf-8">
-    <!-- 推荐：根据需要加载，引入基础框架 -->
+    <!-- 引入基础框架 -->
     <script src="jparticles.js"></script>
     <!-- 引入粒子特效 -->
-    <script src="particle.js"></script>
+    <script src="particles.js"></script>
 </header>
 <body>
     <!-- 准备一个空的 DOM 元素，设置一定宽高，不然生成的 Canvas 默认宽高为：485，300 -->
@@ -51,7 +51,7 @@
 
     <script>
         // 使用 new JParticles.特效名 创建特效
-        new JParticles.particle('#demo');
+        new JParticles.Particles('#demo')
     </script>
 </body>
 </html>
@@ -71,7 +71,7 @@
 > `.pause()` 暂停粒子运动  
 > `.open()`  &nbsp;开启粒子运动
 
-<div class="instance-ctrl">
+<div class="instance-ctrls">
 	<div class="btn btn-success open">点我·开启</div>
 	<div class="btn btn-success pause">点我·暂停</div>
 </div>
@@ -79,17 +79,17 @@
 代码如下：
 
 ```javascript
-var effect = new JParticles.particle('#demo');
+const effect = new JParticles.Particles('#demo')
 
-document.getElementById('open').onclick = function () {
+document.getElementById('open').addEventListener(() => {
     // 开启运动
-    effect.open();
-};
+    effect.open()
+})
 
-document.getElementById('pause').onclick = function () {
+document.getElementById('pause').addEventListener(() => {
     // 暂停运动
-    effect.pause();
-};
+    effect.pause()
+})
 ```
 
 ### 6、事件
@@ -100,13 +100,13 @@ document.getElementById('pause').onclick = function () {
 
 ```javascript
 effect
-    .onDestroy(function () {
-        console.log('Canvas 被移除了 - 最先被调用');
-    }, function () {
-        console.log('Canvas 被移除了 - 第二被调用');
+    .onDestroy(() => {
+        console.log('Canvas 被移除了 - 最先被调用')
+    }, () => {
+        console.log('Canvas 被移除了 - 第二被调用')
     })
-    .onDestroy(function () {
-        console.log('Canvas 被移除了 - 第三被调用');
+    .onDestroy(() => {
+        console.log('Canvas 被移除了 - 第三被调用')
     })
 ```
 
@@ -114,9 +114,9 @@ effect
 
 ### 7、配置
 
-#### 1、每个实例对象都接受两个参数，一个selector，一个options。
+#### 1、每个实例对象都接受两个参数，一个 selector，一个 options。
 
-> `new JParticles.name(selector, options)`
+> `new JParticles.Name(selector, options)`
 
 <table class="table table-bordered-inner table-striped">
     <thead>
@@ -189,16 +189,16 @@ effect
     </tbody>
 </table>
 
-#### 3、通过暴露的全局接口 `JParticles.name.defaultConfig` 可方便地修改某个特效的默认选项，示例如下：
+#### 3、通过暴露的全局接口 `JParticles.Name.defaultConfig` 可方便地修改某个特效的默认选项，示例如下：
 
 ```javascript
-JParticles.particle.defaultConfig = {
+JParticles.Particles.defaultConfig = {
     opacity: 1,
     color: ['red', 'blue', 'green'],
     maxSpeed: 2,
     minSpeed: 1,
     // ...其他属性
-};
+}
 ```
 
 #### 4、通过暴露的全局接口 `JParticles.commonConfig` 可方便地修改所有特效的公共选项，当前公共选项默认值如下：
@@ -210,7 +210,7 @@ JParticles.commonConfig = {
     // 粒子颜色
     color: [],
     // 自适应窗口尺寸变化
-    resize: true
+    resize: true,
 }
 ```
 
@@ -219,28 +219,28 @@ JParticles.commonConfig = {
 #### 通过暴露的全局接口 `JParticles.easing` 可增加其他动画效果，以下为示例。
 
 > 注意：`JParticles.easing` 只允许增加，不允许修改和删除已有的动画函数。  
-> 增加新的动画请参考：[http://easings.net](http://easings.net)
+> 增加新的动画可以参考：[jquery.easing.js](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) 或 [http://robertpenner.com/easing/](http://robertpenner.com/easing/)
 
 ```javascript
 // JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
 JParticles.utils.extend(JParticles.easing, {
-    easeOutBounce: function (x, t, b, c, d) {
-        if ((t/=d) < (1/2.75)) {
-            return c*(7.5625*t*t) + b;
-        } else if (t < (2/2.75)) {
-            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-        } else if (t < (2.5/2.75)) {
-            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-        } else {
-            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-        }
+  easeOutBounce: function (x, t, b, c, d) {
+    if ((t /= d) < 1 / 2.75) {
+      return c * (7.5625 * t * t) + b
+    } else if (t < 2 / 2.75) {
+      return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b
+    } else if (t < 2.5 / 2.75) {
+      return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b
+    } else {
+      return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b
     }
-});
+  },
+})
 
 // 或者
 JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
-    return -c *(t/=d)*(t-2) + b;
-};
+  return -c * (t /= d) * (t - 2) + b
+}
 ```
 
 <table class="table table-bordered-inner table-striped">
@@ -270,4 +270,4 @@ JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
 
 1. 修改默认选项应放在 `new` 之前。
 1. 每个 `JParticles` 插件的默认选项及示例请查看左侧的菜单。
-1. 更丰富但可能描述不详的演示，还请克隆 [JParticles](https://github.com/Barrior/JParticles) 项目，去 `samples` 目录下看看。
+1. 更丰富但可能描述不详的参数或用法，可以到项目样本目录看看（[JParticles/samples](https://github.com/Barrior/JParticles/tree/master/samples)）。

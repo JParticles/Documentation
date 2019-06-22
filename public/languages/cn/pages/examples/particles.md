@@ -1,6 +1,6 @@
-<div class="instance-1">
-    <div class="demo"></div>
-	<div class="ctrl">
+<div class="instance i1">
+  <div class="demo"></div>
+	<div class="instance-ctrls">
 		<div class="btn btn-default open">开启</div>
 		<div class="btn btn-default pause">暂停</div>
 	</div>
@@ -8,16 +8,18 @@
 
 查看源代码：
 
-	new JParticles.particle('#demo-1', {
-	    // 两粒子圆心点之间的直线距离为 90
-	    proximity: 90,
-	    // 定位点半径 100 以内（包含）的所有粒子，圆心点之间小于等于 proximity 值，则连线
-	    range: 100
-	});
+```javascript
+new JParticles.Particles('#demo-1', {
+    // 两粒子圆心点之间的直线距离为 90
+    proximity: 90,
+    // 定位点半径 100 以内（包含）的所有粒子，圆心点之间小于等于 proximity 值，则连线
+    range: 100
+});
+```
 
-<div class="instance-2">
-    <div class="demo"></div>
-	<div class="ctrl">
+<div class="instance i2">
+  <div class="demo"></div>
+	<div class="instance-ctrls">
 		<div class="btn btn-default open">开启</div>
 		<div class="btn btn-default pause">暂停</div>
 	</div>
@@ -25,18 +27,20 @@
 
 查看源代码：
 
-	new JParticles.particle('#demo-2', {
-    	color: '#25bfff',
-		lineShape: 'cube',
-        range: 2000,
-        proximity: 100,
-		// 开启视差效果
-        parallax: true
-	});
+```javascript
+new JParticles.Particles('#demo-2', {
+    color: '#25bfff',
+    lineShape: 'cube',
+    range: 2000,
+    proximity: 100,
+    // 开启视差效果
+    parallax: true
+});
+```
 
-<div class="instance-3">
-    <div class="demo"></div>
-	<div class="ctrl">
+<div class="instance i3">
+  <div class="demo"></div>
+	<div class="instance-ctrls">
 		<div class="btn btn-default open">开启</div>
 		<div class="btn btn-default pause">暂停</div>
 	</div>
@@ -44,14 +48,16 @@
 
 查看源代码：
 
-	new JParticles.particle('#demo-3', {
-    	// range 等于 0，粒子之间不连线
-	    range: 0,
-	    num: 18,
-	    maxR: 20,
-		minR: 10,
-	    maxSpeed: 3
-	});
+```javascript
+new JParticles.Particles('#demo-3', {
+    // range 等于 0，粒子之间不连线
+    range: 0,
+    num: 18,
+    maxR: 20,
+    minR: 10,
+    maxSpeed: 3
+});
+```
 
 ### 默认参数及描述
 

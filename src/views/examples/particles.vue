@@ -8,8 +8,8 @@ export default {
   props: {
     content: String,
   },
-  methods: {},
   mounted() {},
+  methods: {},
 }
 </script>
 

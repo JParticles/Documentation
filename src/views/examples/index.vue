@@ -153,9 +153,57 @@ export default {
   height: 100%;
   padding-top: rem(60);
   padding-bottom: rem(60);
+
   .container,
   .main-content {
     height: 100%;
+  }
+
+  ::v-deep {
+    [class~='instance'] {
+      margin-bottom: rem(20);
+      position: relative;
+      overflow: hidden;
+      *::selection {
+        background: none;
+      }
+      &:not(:first-child) {
+        margin-top: rem(30);
+      }
+      &:hover {
+        .ctrls {
+          display: block;
+          animation: slideInLeft 0.4s cubic-bezier(0.11, 0.34, 0.38, 1.24);
+        }
+      }
+      .demo {
+        height: rem(440);
+        border: 1px solid $gray-border;
+      }
+      .ctrls {
+        display: none;
+        position: absolute;
+        z-index: 9;
+        left: rem(20);
+        top: rem(20);
+        .btn {
+          padding: rem(8) rem(12);
+          line-height: 1;
+          &:not(:last-child) {
+            margin-right: rem(10);
+          }
+        }
+      }
+    }
+    .instance-ctrls {
+      padding: rem(20) 0;
+      .btn {
+        padding: rem(8) rem(12);
+        &:not(:last-child) {
+          margin-right: rem(10);
+        }
+      }
+    }
   }
 }
 

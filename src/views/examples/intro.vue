@@ -8,10 +8,8 @@ export default {
   props: {
     content: String,
   },
+  mounted() {},
   methods: {},
-  mounted() {
-    console.log('in Intro Component')
-  },
 }
 </script>
 
