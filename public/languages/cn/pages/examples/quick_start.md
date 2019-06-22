@@ -68,8 +68,8 @@
 ### 5、进阶 · 方法（多加几分钟）
 
 > 每个实例化的对象都包含以下两个方法，为了减少重复劳动，后面的示例就省略不写了。  
-> `.pause()` 暂停粒子运动  
-> `.open()`  &nbsp;开启粒子运动
+> `pause()` 暂停粒子运动  
+> `open()` 开启粒子运动
 
 <div class="instance-ctrls">
 	<div class="btn btn-success open">点我·开启</div>
@@ -130,12 +130,12 @@ effect
         <tr>
             <td>selector</td>
             <td>string 或 element</td>
-            <td>必填，选择器字符串或原生 DOM 元素</td>
+            <td>必填，选择器字符串或原生 DOM 元素。</td>
         </tr>
         <tr>
             <td>options</td>
             <td>object</td>
-            <td>可选，特效的配置参数</td>
+            <td>可选，特效的配置参数。</td>
         </tr>
     </tbody>
 </table>
@@ -156,20 +156,20 @@ effect
             <td>opacity</td>
             <td>1</td>
             <td>number</td>
-            <td>画布全局透明度，取值范围：`[0-1]`</td>
+            <td>画布全局透明度，取值范围：`[0-1]`。</td>
         </tr>
         <tr>
             <td>color</td>
             <td>[]</td>
             <td>string 或 array</td>
-            <td class="module module-api">
-                <div>粒子颜色</div>
+            <td>
+                <div>粒子颜色。</div>
                 <ul>
                     <li>
                         空数组表示随机取色。
                     </li>
                     <li>
-                        如果提供特定颜色的数组，如：`['red', 'blue', 'green']`，则表示粒子颜色在这三种色值之间随机获取。
+                        如果提供特定颜色的数组，如：`['red', 'blue', 'green']`，则表示粒子颜色在这三种色值之间随机取值。
                     </li>
                     <li>
                         如果为 `string` 类型，如：`'red'`，则表示粒子都填充为红色。
@@ -182,8 +182,7 @@ effect
             <td>true</td>
             <td>boolean</td>
             <td>
-              自适应窗口尺寸变化。<br>
-              如不需要自适应，请设置为 `false`，以提高性能。
+              自适应窗口尺寸变化。如不需要自适应，应该设置为 `false`，以提高性能。
             </td>
         </tr>
     </tbody>
@@ -222,24 +221,24 @@ JParticles.commonConfig = {
 > 增加新的动画可以参考：[jquery.easing.js](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) 或 [http://robertpenner.com/easing/](http://robertpenner.com/easing/)
 
 ```javascript
-// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代。
+// JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代
 JParticles.utils.extend(JParticles.easing, {
-  easeOutBounce: function (x, t, b, c, d) {
-    if ((t /= d) < 1 / 2.75) {
-      return c * (7.5625 * t * t) + b
-    } else if (t < 2 / 2.75) {
-      return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b
-    } else if (t < 2.5 / 2.75) {
-      return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b
-    } else {
-      return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b
-    }
-  },
+    easeOutBounce: function (x, t, b, c, d) {
+        if ((t /= d) < 1 / 2.75) {
+            return c * (7.5625 * t * t) + b
+        } else if (t < 2 / 2.75) {
+            return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b
+        } else if (t < 2.5 / 2.75) {
+            return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b
+        } else {
+            return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b
+        }
+    },
 })
 
 // 或者
 JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
-  return -c * (t /= d) * (t - 2) + b
+    return -c * (t /= d) * (t - 2) + b
 }
 ```
 
@@ -253,15 +252,15 @@ JParticles.easing.easeOutQuad = function (x, t, b, c, d) {
     <tbody>
         <tr>
             <td>linear</td>
-            <td>匀速运动</td>
+            <td>匀速运动。</td>
         </tr>
         <tr>
             <td>swing</td>
-            <td>等于 `easeInOutQuad` </td>
+            <td>等于 `easeInOutQuad`。</td>
         </tr>
         <tr>
             <td>easeInOutQuad</td>
-            <td>先慢慢加速再慢慢减速</td>
+            <td>先慢慢加速再慢慢减速。</td>
         </tr>
     </tbody>
 </table>
