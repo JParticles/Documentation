@@ -3,29 +3,24 @@
 </template>
 
 <script>
-import { forEach } from '../../utils'
-
 export default {
   name: 'QuickStart',
   props: {
     content: String,
   },
   mounted() {
-    const $instance = document.querySelector('.instance .demo')
-    const effect = new JParticles.Particles($instance, {
-      distance: 60,
-      num: 30,
-    })
-
-    const $ctrls = document.querySelectorAll('.instance-ctrls')
-    forEach($ctrls, $ctrl => {
-      $ctrl.querySelector('.open').addEventListener('click', () => {
-        effect.open()
-      })
-      $ctrl.querySelector('.pause').addEventListener('click', () => {
-        effect.pause()
-      })
-    })
+    this.$createEffect(
+      {
+        selector: '.instance',
+        ctrls: '.instance-ctrls',
+      },
+      $demo => {
+        return new JParticles.Particles($demo, {
+          distance: 60,
+          num: 30,
+        })
+      }
+    )
   },
   methods: {},
 }

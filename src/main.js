@@ -16,6 +16,9 @@ import '@/utils/jparticles_polyfill'
 Vue.component('x-icon', require('@/components/x_icon').default)
 Vue.component('x-link', require('@/components/x_link').default)
 
+// global plugins
+Vue.use(require('@/plugins/create_effect').default)
+
 Vue.config.productionTip = false
 
 new Vue({
