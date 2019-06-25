@@ -51,5 +51,9 @@ export default {
 
       instances.push($instance)
     }
+
+    Vue.prototype.$createEffect.clear = () => {
+      instances.length = 0
+    }
   },
 }

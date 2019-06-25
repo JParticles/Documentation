@@ -51,6 +51,7 @@ export default {
   },
   watch: {
     $route() {
+      this.$createEffect.clear()
       this.loadFiles()
     },
   },
@@ -251,6 +252,17 @@ export default {
     height: 100px;
     border: 1px solid $site-light-gray;
     border-radius: 50%;
+  }
+}
+</style>
+
+<style lang="scss">
+.site-small-screen {
+  .examples-root {
+    padding: 0;
+    .main-content {
+      padding-left: 0;
+    }
   }
 }
 </style>
