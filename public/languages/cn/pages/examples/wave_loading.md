@@ -50,7 +50,7 @@ document.querySelector('.done').addEventListener('click', () => {
 
 <div class="instance i2">
     <div class="container">
-        <div class="frame text-center-vertical"></div>
+        <div class="img-frame text-center-vertical"></div>
     </div>
     <div class="mask"></div>
     <div class="demo">点击·加载</div>

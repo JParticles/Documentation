@@ -35,19 +35,22 @@ export default {
       }
 
       const $demo = $instance.querySelector('.demo')
-      const $open = $ctrls.querySelector('.open')
-      const $pause = $ctrls.querySelector('.pause')
       const effect = ($instance.effect = handler($demo))
 
-      $open.addEventListener('click', () => {
-        $instance.clickToPause = false
-        effect.open()
-      })
+      if ($ctrls) {
+        const $open = $ctrls.querySelector('.open')
+        const $pause = $ctrls.querySelector('.pause')
 
-      $pause.addEventListener('click', () => {
-        $instance.clickToPause = true
-        effect.pause()
-      })
+        $open.addEventListener('click', () => {
+          $instance.clickToPause = false
+          effect.open()
+        })
+
+        $pause.addEventListener('click', () => {
+          $instance.clickToPause = true
+          effect.pause()
+        })
+      }
 
       instances.push($instance)
     }

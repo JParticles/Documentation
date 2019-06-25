@@ -85,12 +85,12 @@ element.addEventListener('mousedown', function () {
     }, 100)
 
     // 还原
-    const mouseupHandler = () => {
+    const handleMouseup = () => {
         clearInterval(this.timer)
         effect.setOptions(settings)
-        document.removeEventListener('mouseup', mouseupHandler)
+        document.removeEventListener('mouseup', handleMouseup)
     }
-    document.addEventListener('mouseup', mouseupHandler)
+    document.addEventListener('mouseup', handleMouseup)
 })
 ```
 

@@ -11,8 +11,21 @@ renderer.link = function(href, title, text) {
   `
 }
 
-const marked = (content, options = {}) =>
-  Marked(content, {
+const pReg1 = /^<div/i
+const pReg2 = /^<table/i
+
+renderer.paragraph = function(text) {
+  if (pReg1.test(text)) {
+    return text
+  }
+  if (pReg2.test(text)) {
+    return `<div class="site-table-scroll">${text}</div>`
+  }
+  return '<p>' + text + '</p>\n'
+}
+
+const marked = (content, options = {}) => {
+  return Marked(content, {
     sanitize: true,
     sanitizer(content) {
       return content
@@ -23,5 +36,6 @@ const marked = (content, options = {}) =>
     },
     ...options,
   })
+}
 
 export default marked

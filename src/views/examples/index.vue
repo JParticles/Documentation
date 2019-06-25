@@ -264,5 +264,11 @@ export default {
       padding-left: 0;
     }
   }
+  .site-table-scroll {
+    overflow: auto;
+    table {
+      white-space: nowrap;
+    }
+  }
 }
 </style>
