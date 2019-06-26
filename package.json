@@ -34,7 +34,8 @@
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "svgo-loader": "^2.2.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "xxhashjs": "^0.2.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

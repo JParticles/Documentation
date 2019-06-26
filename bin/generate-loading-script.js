@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { forEach } = require('lodash')
-const { md5 } = require('./md5')
+const XXH = require('xxhashjs')
 const langDir = path.resolve(__dirname, '../public/languages')
 const loadingFilePath = path.resolve(__dirname, '../src/loading.js')
 const outputDir = path.resolve(__dirname, '../docs')
@@ -34,7 +34,7 @@ function generateLoadingScript() {
     ${storage.fileContent}
   })()`
 
-  const hash = md5(wrappedContent)
+  const hash = XXH.h32(wrappedContent, 0xabcd).toString(16)
   const basename = `loading.${hash}.js`
   const filePath = path.resolve(outputDir, `./${basename}`)
 
