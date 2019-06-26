@@ -3,7 +3,9 @@ import hljs from './hljs'
 
 const renderer = new Marked.Renderer()
 
+const outerLinkReg = /^(https?|\/\/)/i
 renderer.link = function(href, title, text) {
+  href = outerLinkReg.test(href) ? href : `#${href}`
   return `
     <a href="${href}" ${title ? `title="${title}"` : ''} target="_blank">
       ${text}
@@ -11,9 +13,14 @@ renderer.link = function(href, title, text) {
   `
 }
 
+let headerIndex = 0
+renderer.heading = function(text, level) {
+  headerIndex++
+  return `<h${level} id="H${headerIndex}">${text}</h${level}>\n`
+}
+
 const pReg1 = /^<div/i
 const pReg2 = /^<table/i
-
 renderer.paragraph = function(text) {
   if (pReg1.test(text)) {
     return text
@@ -25,6 +32,8 @@ renderer.paragraph = function(text) {
 }
 
 const marked = (content, options = {}) => {
+  // reset headerIndex for every parse
+  headerIndex = 0
   return Marked(content, {
     sanitize: true,
     sanitizer(content) {

@@ -1,7 +1,7 @@
 <template>
   <section class="examples-root site-container-width">
-    <div class="container">
-      <aside class="side-menu-wrapper" v-if="!isSmallScreen">
+    <div class="container" ref="container">
+      <aside class="side-menu-wrapper" ref="sideMenu" v-if="!isSmallScreen">
         <Menu />
       </aside>
       <main class="main-content">
@@ -26,6 +26,7 @@ import Menu from '@/views/@common/menu'
 import API from '@/services'
 import marked from '@/utils/marked'
 import NoData from '@/views/@common/no_data'
+import { scrollTop, offset } from '@/utils/dom'
 
 const components = {}
 const docs = {}
@@ -48,6 +49,10 @@ export default {
   },
   mounted() {
     this.loadFiles()
+    this.addSideMenuEvent()
+  },
+  destroyed() {
+    this.removeSideMenuEvent()
   },
   watch: {
     $route() {
@@ -56,6 +61,23 @@ export default {
     },
   },
   methods: {
+    addSideMenuEvent() {
+      this.handleSideMenu = () => {
+        const $container = this.$refs.container
+        const $sideMenu = this.$refs.sideMenu
+        if ($sideMenu) {
+          const action =
+            scrollTop(window) > offset($container).top ? 'add' : 'remove'
+          $sideMenu.classList[action]('fixed')
+        }
+      }
+      window.addEventListener('scroll', this.handleSideMenu)
+      window.addEventListener('resize', this.handleSideMenu)
+    },
+    removeSideMenuEvent() {
+      window.removeEventListener('scroll', this.handleSideMenu)
+      window.removeEventListener('resize', this.handleSideMenu)
+    },
     createLoading() {
       const $loading = this.$refs.loading
       const loading = (this.waveLoading = new JParticles.WaveLoading($loading, {
@@ -229,7 +251,7 @@ export default {
       border-left: rem(5) solid transparent;
       font-size: rem(14);
       &:hover,
-      &.router-link-exact-active {
+      &.router-link-active {
         background-color: $site-light-gray-x1;
         color: $site-color-primary;
         border-color: $site-color-primary;

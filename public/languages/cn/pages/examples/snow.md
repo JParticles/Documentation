@@ -28,7 +28,7 @@ new JParticles.Snow('#demo')
 	        <td>color</td>
 	        <td>#fff</td>
 	        <td>string 或 array</td>
-	        <td>雪花的颜色。</td>
+	        <td>雪花的颜色。规则参考：[`color`](/examples/quick_start#H9)</td>
 	    </tr>
 	    <tr>
 	        <td>maxR</td>

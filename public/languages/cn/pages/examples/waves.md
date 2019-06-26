@@ -152,7 +152,7 @@ new JParticles.Waves('#demo-3', {
 	        <td>string 或 array</td>
 	        <td>
 	            填充的背景色。  
-				      使用方法与 [`color`](#/examples/quick_start#7.2) 规则相同。  
+				      使用方法与 [`color`](/examples/quick_start#H9) 规则相同。  
 				      其他雷同属性同理。
 	        </td>
 	    </tr>
