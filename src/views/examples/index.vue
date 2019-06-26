@@ -61,6 +61,15 @@ export default {
     },
   },
   methods: {
+    handleHash() {
+      this.$nextTick(() => {
+        const hash = this.$route.hash.toUpperCase()
+        const $position = hash && document.querySelector(hash)
+        if ($position) {
+          scrollTop(window, offset($position).top - 10)
+        }
+      })
+    },
     addSideMenuEvent() {
       this.handleSideMenu = () => {
         const $container = this.$refs.container
@@ -104,6 +113,7 @@ export default {
         .onFinished(() => {
           setTimeout(() => {
             this.loading = false
+            this.handleHash()
           }, 50)
         })
     },
@@ -148,6 +158,7 @@ export default {
 
           // 让异步 component 组件出现
           this.loading = false
+          this.handleHash()
         })
         return
       }

@@ -203,7 +203,7 @@ document.querySelector('#demo-2').parentNode.appendChild(img)
               加载过程的动画。默认支持两种：  
               `linear:` 匀速。  
               `swing:` 先慢慢加速再慢慢减速。    
-              更多请阅读 [Easing](#/examples/quick_start#8) 函数。 
+              更多请阅读 [Easing](/examples/quick_start#H12) 函数。 
           </td>
 	    </tr>
     </tbody>
