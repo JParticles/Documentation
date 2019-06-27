@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { forEach } = require('lodash')
 const XXH = require('xxhashjs')
+const babel = require('@babel/core')
 const langDir = path.resolve(__dirname, '../public/languages')
 const loadingFilePath = path.resolve(__dirname, '../src/loading.js')
 const outputDir = path.resolve(__dirname, '../docs')
@@ -29,10 +30,18 @@ function getLoadingFileContent() {
 function generateLoadingScript() {
   getLanguageList()
   getLoadingFileContent()
-  const wrappedContent = `;(function() {
+  let wrappedContent = `;(function() {
     const languages = ${JSON.stringify(storage.languageList)} \n
     ${storage.fileContent}
   })()`
+
+  // babel parse
+  wrappedContent = babel.transformSync(wrappedContent, {
+    minified: true,
+    comments: false,
+    configFile: false,
+    presets: [['@babel/preset-env']],
+  }).code
 
   const hash = XXH.h32(wrappedContent, 0xabcd).toString(16)
   const basename = `loading.${hash}.js`
