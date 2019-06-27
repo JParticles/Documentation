@@ -7,6 +7,7 @@ const langDir = path.resolve(__dirname, '../public/languages')
 const loadingFilePath = path.resolve(__dirname, '../src/loading.js')
 const outputDir = path.resolve(__dirname, '../docs')
 
+const isProdEnv = process.env.NODE_ENV === 'production'
 const storage = {}
 
 function getLanguageList() {
@@ -37,8 +38,8 @@ function generateLoadingScript() {
 
   // babel parse
   wrappedContent = babel.transformSync(wrappedContent, {
-    minified: true,
-    comments: false,
+    minified: isProdEnv,
+    comments: !isProdEnv,
     configFile: false,
     presets: [['@babel/preset-env']],
   }).code
