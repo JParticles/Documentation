@@ -151,3 +151,28 @@ export default {
   }
 }
 </style>
+
+<style lang="scss">
+body[class^='site-body-index'] {
+  > #app {
+    > .site-header {
+      position: relative;
+      z-index: 999;
+      > .site-header-normal {
+        .logo {
+          a {
+            font-weight: 300;
+          }
+        }
+      }
+      > .site-header-mobile .beam {
+        background-color: transparent;
+      }
+    }
+    > .site-footer {
+      position: relative;
+      z-index: 900;
+    }
+  }
+}
+</style>
