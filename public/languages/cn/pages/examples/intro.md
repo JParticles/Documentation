@@ -7,7 +7,7 @@
 
 ### 理念
 
-- API 设计理念信仰 `"The Write Less, Do More"` 和 `"Keep It Simple And Stupid"` ，希望插件使用起来非常的简单便捷，五分钟上手，立竿见影，因为工具是帮助人们更快捷的实现想要的功能，而不是占用人们太多的时间去学习，简而言之：既要强大，易扩展，又要简单！
+- API 设计理念信仰 `"The Write Less, Do More"` 和 `"Keep It Simple And Stupid"` ，希望插件使用起来非常的简单便捷，五分钟上手，立竿见影，因为工具是帮助人们更快捷的实现想要的功能，而不是占用人们更多的时间去了解学习和理解，简而言之：既要强大，易扩展，又要简单！
 
 - 希望代码封装得简洁，并且高效。 感谢市面上缤纷的开源项目或其他，因为 JParticles 无疑克隆（借鉴/参考/站在巨人的肩膀之上）了你们优秀的代码或思想。
 
@@ -25,7 +25,7 @@
 
 ### 交流
 
-如果您遇到问题，或者好的建议，欢迎提交到 [issues](https://github.com/Barrior/JParticles/issues) （建议），或者 [QQ群](http://shang.qq.com/wpa/qunwpa?idkey=f548e3f94e0040a2ac5adfe4fec6915ef67c8c1b6ba5784ff6d5049c6135a759) 交流；万分感谢，帮助 JParticles 改进。
+如果您遇到问题，或者好的建议，欢迎提交到 [issues](https://github.com/Barrior/JParticles/issues) （建议）或 [QQ群](http://shang.qq.com/wpa/qunwpa?idkey=f548e3f94e0040a2ac5adfe4fec6915ef67c8c1b6ba5784ff6d5049c6135a759) 交流；万分感谢，帮助 JParticles 改进。
 
 
 ### 协议
