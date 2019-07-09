@@ -14,6 +14,7 @@ const vendors = {
   vue: 'vue|vue-router|vuex',
   utils: 'marked|highlight.js|apisauce|axios',
   jparticles: 'jparticles',
+  gitalk: 'gitalk',
 }
 
 const cacheGroups = {}

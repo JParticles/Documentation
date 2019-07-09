@@ -15,6 +15,11 @@
           <div class="loading-inner" ref="loading"></div>
         </div>
         <NoData v-show="error" />
+        <div
+          class="gt-container"
+          ref="gtContainer"
+          v-show="!loading && !error"
+        ></div>
       </main>
     </div>
   </section>
@@ -27,9 +32,16 @@ import API from '@/services'
 import marked from '@/utils/marked'
 import NoData from '@/views/@common/no_data'
 import { scrollTop, offset } from '@/utils/dom'
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
 
 const components = {}
 const docs = {}
+
+const i18nMapper = {
+  cn: 'zh-CN',
+  en: 'en',
+}
 
 export default {
   name: 'Examples',
@@ -45,7 +57,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['isSmallScreen', 'themeColor', 'language']),
+    ...mapState([
+      'isSmallScreen',
+      'themeColor',
+      'language',
+      'routeHasLanguage',
+    ]),
   },
   mounted() {
     this.loadFiles()
@@ -61,14 +78,47 @@ export default {
     },
   },
   methods: {
-    handleHash() {
-      this.$nextTick(() => {
-        const hash = this.$route.hash.toUpperCase()
-        const $position = hash && document.querySelector(hash)
-        if ($position) {
-          scrollTop(window, offset($position).top - 10)
-        }
+    addComment() {
+      this.$refs.gtContainer.innerHTML = ''
+
+      let id = this.$route.path
+      if (this.routeHasLanguage) {
+        id = id.replace(/^\/.+?(?=\/)/, '')
+      }
+
+      let title = document.title
+      if (this.isSmallScreen) {
+        title = document
+          .querySelector(
+            '.site-header-mobile .menu-root .router-link-exact-active'
+          )
+          .textContent.trim()
+      } else {
+        title = this.$refs.sideMenu
+          .querySelector('.router-link-exact-active')
+          .textContent.trim()
+      }
+
+      const gitalk = new Gitalk({
+        clientID: '9f3916d7bff4d5a6db8f',
+        clientSecret: '2110776cc08e198102cc6a92871f76084b56cb5d',
+        repo: 'JParticles',
+        owner: 'Barrior',
+        admin: ['Barrior'],
+        id,
+        title,
+        language: i18nMapper[this.language.languageCode],
+        distractionFreeMode: false,
       })
+
+      gitalk.render(this.$refs.gtContainer)
+    },
+    handleHash() {
+      const hash = this.$route.hash.toUpperCase()
+      const $position = hash && document.querySelector(hash)
+      if ($position) {
+        scrollTop(window, offset($position).top - 10)
+      }
     },
     addSideMenuEvent() {
       this.handleSideMenu = () => {
@@ -86,6 +136,13 @@ export default {
     removeSideMenuEvent() {
       window.removeEventListener('scroll', this.handleSideMenu)
       window.removeEventListener('resize', this.handleSideMenu)
+    },
+    loadingDone() {
+      if (this.error) return
+      this.$nextTick(() => {
+        this.handleHash()
+        this.addComment()
+      })
     },
     createLoading() {
       const $loading = this.$refs.loading
@@ -113,7 +170,7 @@ export default {
         .onFinished(() => {
           setTimeout(() => {
             this.loading = false
-            this.handleHash()
+            this.loadingDone()
           }, 50)
         })
     },
@@ -158,7 +215,7 @@ export default {
 
           // 让异步 component 组件出现
           this.loading = false
-          this.handleHash()
+          this.loadingDone()
         })
         return
       }
@@ -286,6 +343,10 @@ export default {
     border: 1px solid $site-light-gray;
     border-radius: 50%;
   }
+}
+
+.gt-container {
+  margin-top: rem(30);
 }
 </style>
 
