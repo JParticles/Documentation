@@ -122,10 +122,10 @@ new JParticles.Particles('#demo-3', {
 	        <td>0.2</td>
 	        <td>number</td>
 	        <td>
-	            The range for the fixed point. the
-	            定位点的范围，范围越大连线越多，等于 `0` 时，不连线，相关值无效。  
-				      `(0, 1)` 显示为容器宽度相应倍数的值，`0 & [1, +∞)` 显示具体值。  
-	            (定位点：即鼠标移动到画布时的鼠标点，一开始默认生成一点)。
+	            Connection range of the fixed point.  
+	            The larger the range, the more connection, when it equals to 0, paricles are not connected and its relevant options are invalid.  
+	            `(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` is display as the specific number.  
+	            (Fixed point: the mouse point on canvas, randomly generate a point at the beginning)
 	        </td>
 	    </tr>
 	    <tr>
@@ -147,9 +147,9 @@ new JParticles.Particles('#demo-3', {
 	    <tr>
 	        <td>eventElem</td>
 	        <td>null</td>
-	        <td>null 或 element</td>
+	        <td>null or element</td>
 	        <td>
-	          Element that triggers a move event to change the position point.  
+	          Element that triggers a move event to change the coords of the fixed point.  
 	          `Null` means the `Canvas` or assigns a DOM element, such as the `document`.
 	        </td>
 	    </tr>
@@ -157,22 +157,23 @@ new JParticles.Particles('#demo-3', {
 	        <td>parallax</td>
 	        <td>false</td>
 	        <td>boolean</td>
-	        <td>If true, turn on parallax effect. The parallax effect and the particles moving are support gyroscope feature on mobile devices.</td>
+	        <td>If `true`, turn on parallax effect. The parallax effect and the particles moving are support gyroscope feature on mobile devices.</td>
 	    </tr>
 	    <tr>
 	        <td>parallaxLayer</td>
 	        <td>[1, 2, 3]</td>
 	        <td>array</td>
 	        <td>
-	            定义粒子在视差图层里的层数及每层的层级大小，类似 `CSS` 里的 `z-index`。取值范围: `[0, +∞)`，值越小视差效果越强烈，`0` 则不动。  
-              定义四层粒子示例：`[1, 3, 5, 10]`。
+	          Define the number of layers in the parallax layer and the size of each layer, similar to z-index in CSS.  
+            Value range: `[0, +∞)`, the smaller the value, the strength the effect, it is not moving at all when it equals to 0.  
+            Example of defining four layers of particles: `[1, 3, 5, 10]`.
 	        </td>
 	    </tr>
 	    <tr>
 	        <td>parallaxStrength</td>
 	        <td>5</td>
 	        <td>number</td>
-	        <td>视差强度，值越小视差效果越强烈 `(0, +∞)`。</td>
+	        <td>The smaller the value, the strength the effect. `(0, +∞)`</td>
 	    </tr>
     </tbody>
 </table>
