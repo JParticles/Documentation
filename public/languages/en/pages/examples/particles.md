@@ -12,9 +12,9 @@ View Source:
 new JParticles.Particles('#demo-1', {
     // The straight line distance between the two particle centers is 90
     proximity: 90,
-    // All points are within the range of 100(including) for the positioning point radius,
+    // All points are within the range of 100(including) for the fixed point radius,
     // the distance between the center points is less than 
-    // or equal to the `proximity` value, then the connection
+    // or equal to the `proximity` value, then connection
     range: 100,
 })
 ```
