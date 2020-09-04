@@ -13,7 +13,7 @@
     "gitalk": "^1.5.0",
     "highlight.js": "^9.15.6",
     "jparticles": "^2.0.1",
-    "marked": "^0.6.1",
+    "marked": "^0.7.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
