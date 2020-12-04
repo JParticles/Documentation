@@ -11,7 +11,7 @@
   "dependencies": {
     "apisauce": "^1.0.2",
     "gitalk": "^1.5.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.4.1",
     "jparticles": "^2.0.1",
     "marked": "^0.6.1",
     "vue": "^2.6.6",
