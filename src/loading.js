@@ -2,7 +2,7 @@
 for (const key in languages) {
   // eslint-disable-next-line
   const lang = languages[key]
-  lang.languageFlag = `/languages/${lang.languageCode}/images/flag.png`
+  lang.languageFlag = `/i18n/${lang.languageCode}/images/flag.png`
 }
 
 const globalConfig = (window.globalConfig = {
@@ -46,10 +46,11 @@ const $body = document.getElementsByTagName('body')[0]
 const $layer = document.getElementById('loading-layer')
 const $container = document.getElementById('loading-container')
 const progressText = globalConfig.language.progressText
-const loading = new window.JParticles.waveLoading($container, {
+const loading = new window.JParticles.WaveLoading($container, {
   font: 'normal 900 13px Arial',
   color: globalConfig.themeColor,
   fillColor: globalConfig.themeColor,
+  formatter: progressText + '%d%',
   duration: 5000,
   resize: false,
 })
@@ -62,7 +63,6 @@ loading
         color: '#fff',
       })
     }
-    return progressText + Math.ceil(progress) + '%'
   })
   .onFinished(() => {
     $body.classList.remove('overflow-hidden')

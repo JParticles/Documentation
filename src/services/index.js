@@ -9,7 +9,7 @@ const API = () => {
   transforms(api)
 
   return {
-    $instance: api,
+    getDocs: path => api.get(path),
   }
 }
 

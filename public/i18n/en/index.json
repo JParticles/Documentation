@@ -1,0 +1,48 @@
+{
+  "languageName": "English",
+  "languageCode": "en",
+  "languageCodeOnHtml": "en",
+  "progressText": "Loading...",
+  "title": "JParticles - succinct, efficient and lightweight Canvas library for building some cool particle effects.",
+  "header": {
+    "smallScreen": {
+      "menu": "Menu"
+    },
+    "common": [
+      "Home",
+      "Examples & API",
+      "Download",
+      "GitHub",
+      {
+        "name": "Changelog",
+        "title": "The way ahead is long, I see no ending, yet high and low I will search with my will unbending."
+      }
+    ]
+  },
+  "footer": {
+    "support": "Support Author(Star on GitHub)"
+  },
+  "home": {
+    "description": "A concise, lightweight, and efficient Canvas library for building some cool particle effects.",
+    "seeMore": {
+      "text": "see more",
+      "href": "https://github.com/Barrior/JParticles/blob/master/README_en.md"
+    },
+    "quickStart": "Quick Start"
+  },
+  "noData": "Data Not Found",
+  "notFound": {
+    "toHomePage": "Home Page",
+    "toPrevPage": "Previous Page"
+  },
+  "examples": {
+    "required": "Required",
+    "menu": [
+      "Quick Start",
+      "Particles Motion",
+      "Waves Motion",
+      "Wave Loading",
+      "Snow"
+    ]
+  }
+}

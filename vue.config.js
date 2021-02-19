@@ -5,7 +5,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { toPairs, forEach } = require('lodash')
 
-const svgIconPath = path.resolve('./src/svgicons')
+const svgIconPath = path.resolve('./src/assets/icons')
 const info = generateLoadingScript()
 
 process.env.VUE_APP_LOADING_SCRIPT_URL = `/js/${info.basename}`
@@ -35,7 +35,7 @@ const config = {
     sourceMap: process.env.NODE_ENV !== 'production',
     loaderOptions: {
       sass: {
-        data: `@import "@/styles/_mixins.scss";`,
+        data: `@import "@/assets/styles/_mixins.scss";`,
       },
     },
   },

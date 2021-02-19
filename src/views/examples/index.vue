@@ -14,7 +14,7 @@
         <div class="loading-wrapper" v-show="loading && !error">
           <div class="loading-inner" ref="loading"></div>
         </div>
-        <NoData v-show="error" />
+        <Empty v-show="error" />
         <div
           class="gt-container"
           ref="gtContainer"
@@ -27,13 +27,14 @@
 
 <script>
 import { mapState } from 'vuex'
-import Menu from '@/views/@common/menu'
+import Menu from '@/views/components/Menu'
 import API from '@/services'
 import marked from '@/utils/marked'
-import NoData from '@/views/@common/no_data'
+import Empty from '@/views/components/Empty'
 import { scrollTop, offset } from '@/utils/dom'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
+import {WaveLoading} from 'jparticles'
 
 const components = {}
 const docs = {}
@@ -47,7 +48,7 @@ export default {
   name: 'Examples',
   components: {
     Menu,
-    NoData,
+    Empty,
   },
   data() {
     return {
@@ -73,7 +74,7 @@ export default {
   },
   watch: {
     $route() {
-      this.$createEffect.clear()
+      this.$bindEffectHandlebar.clear()
       this.loadFiles()
     },
   },
@@ -146,7 +147,7 @@ export default {
     },
     createLoading() {
       const $loading = this.$refs.loading
-      const loading = (this.waveLoading = new JParticles.WaveLoading($loading, {
+      const loading = (this.waveLoading = new WaveLoading($loading, {
         font: 'normal 900 12px Arial',
         smallFont: 'normal 900 12px Arial',
         smallFontOffsetTop: 0,
@@ -189,7 +190,7 @@ export default {
       if (docs[docPath]) {
         return docs[docPath]
       }
-      const { ok, data } = await API.$instance.get(docPath)
+      const { ok, data } = await API.getDocs(docPath)
       if (ok) {
         docs[docPath] = marked(data)
         return docs[docPath]
@@ -198,7 +199,7 @@ export default {
     async loadFiles() {
       const { doc } = this.$route.params
       const lang = this.language.languageCode
-      const docPath = `/languages/${lang}/pages/examples/${doc}.md`
+      const docPath = `/i18n/${lang}/pages/examples/${doc}.md`
 
       // 保证 error 为 false，除非后面设置为 true
       this.error = false
