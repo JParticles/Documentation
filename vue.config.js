@@ -1,6 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const generateLoadingScript = require('./bin/generate-loading-script')
+const generateLoadingScript = require('./generate-loading-script')
 const path = require('path')
 const webpack = require('webpack')
 const { toPairs, forEach } = require('lodash')

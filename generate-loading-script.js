@@ -4,9 +4,9 @@ const { forEach } = require('lodash')
 const XXH = require('xxhashjs')
 const babel = require('@babel/core')
 
-const langDir = path.resolve(__dirname, '../public/i18n')
-const loadingFilePath = path.resolve(__dirname, '../src/loading.js')
-const outputDir = path.resolve(__dirname, '../docs')
+const langDir = path.resolve(__dirname, './public/i18n')
+const loadingFilePath = path.resolve(__dirname, './src/loading.js')
+const outputDir = path.resolve(__dirname, './docs')
 
 const isProdEnv = process.env.NODE_ENV === 'production'
 const storage = {}
