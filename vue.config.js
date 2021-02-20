@@ -12,7 +12,8 @@ process.env.VUE_APP_LOADING_SCRIPT_URL = `/js/${info.basename}`
 
 const vendors = {
   vue: 'vue|vue-router|vuex',
-  utils: 'marked|highlight.js|apisauce|axios',
+  utils: 'marked|highlight.js',
+  apisauce: 'apisauce|axios',
   jparticles: 'jparticles',
   gitalk: 'gitalk',
 }
