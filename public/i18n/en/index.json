@@ -20,7 +20,7 @@
     ]
   },
   "footer": {
-    "support": "Support Author(Star on GitHub)"
+    "support": ""
   },
   "home": {
     "description": "A concise, lightweight, and efficient Canvas library for building some cool particle effects.",
@@ -30,7 +30,7 @@
     },
     "quickStart": "Quick Start"
   },
-  "noData": "Data Not Found",
+  "noData": "Not Found",
   "notFound": {
     "toHomePage": "Home Page",
     "toPrevPage": "Previous Page"
@@ -39,9 +39,9 @@
     "required": "Required",
     "menu": [
       "Quick Start",
-      "Particles Motion",
-      "Waves Motion",
-      "Wave Loading",
+      "Particle",
+      "Wave",
+      "WaveLoading",
       "Snow"
     ]
   }

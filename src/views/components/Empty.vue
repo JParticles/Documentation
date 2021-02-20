@@ -29,7 +29,7 @@ export default {
 
 .no-data-wrapper {
   ::v-deep {
-    .x-icon-root {
+    .x-icon-wrap {
       font-size: rem(100);
     }
   }

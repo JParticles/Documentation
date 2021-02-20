@@ -1,13 +1,10 @@
-// eslint-disable-next-line
 for (const key in languages) {
-  // eslint-disable-next-line
   const lang = languages[key]
   lang.languageFlag = `/i18n/${lang.languageCode}/images/flag.png`
 }
 
 const globalConfig = (window.globalConfig = {
   themeColor: '#00be70',
-  // eslint-disable-next-line
   languages,
   language: {},
   routeHasLanguage: false,
