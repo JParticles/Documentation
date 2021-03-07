@@ -39,10 +39,10 @@
     "required": "必读",
     "menu": [
       "5分钟上手JParticles",
-      "粒子运动",
-      "波浪运动",
-      "波纹进度条",
-      "雪花飘落"
+      "粒子运动（Particle）",
+      "波纹运动（Wave）",
+      "波纹进度条（WaveLoading）",
+      "雪花飘落（Snow）"
     ]
   }
 }
