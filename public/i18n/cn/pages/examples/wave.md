@@ -9,7 +9,7 @@
 源代码：
 
 ```javascript
-new JParticles.Wave('#demo-1', {
+new JParticles.Wave('#demo', {
     num: 3,
     // 不填充
     fill: false,
@@ -39,10 +39,10 @@ new JParticles.Wave('#demo-1', {
 
 <div class="instance i2">
     <div class="demo"></div>
-	  <div class="btn btn-default button-voice">按住模拟语音搜索</div>
+	<div class="btn btn-default button-voice">按住模拟语音搜索</div>
 </div>
 
-查看源代码：
+源代码：
 
 ```javascript
 const settings = {
@@ -51,7 +51,7 @@ const settings = {
 }
 
 // JParticles.utils.extend 等同于 jQuery.extend，你也可以使用 Object.assign 替代
-const effect = new JParticles.Wave('#demo-2', JParticles.utils.extend({
+const effect = new JParticles.Wave('#demo', JParticles.utils.extend({
     num: 3,
     lineColor: ['#e53d27', '#42e527', '#27C9E5'],
     lineWidth: [0.7, 0.9, 1],
@@ -107,7 +107,7 @@ element.addEventListener('mousedown', function () {
 源代码：
 
 ```javascript
-new JParticles.Wave('#demo-3', {
+new JParticles.Wave('#demo', {
     num: 1,
     // 不绘制边框
     line: false,
@@ -120,6 +120,54 @@ new JParticles.Wave('#demo-3', {
     rippleNum: 3,
     speed: 0.07,
 })
+```
+
+### 遮罩
+
+<div class="instance i4">
+    <div class="demo"></div>
+    <div class="handlebar">
+      <div class="btn btn-default open">开启</div>
+      <div class="btn btn-default pause">暂停</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+
+```
+
+### 幽灵遮罩
+
+<div class="instance i5">
+    <div class="demo"></div>
+    <div class="handlebar">
+      <div class="btn btn-default open">开启</div>
+      <div class="btn btn-default pause">暂停</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+
+```
+
+### 模拟加载
+
+<div class="instance i6">
+    <div class="demo"></div>
+    <div class="handlebar">
+      <div class="btn btn-default open">开启</div>
+      <div class="btn btn-default pause">暂停</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+
 ```
 
 ### 默认参数及描述

@@ -24,6 +24,8 @@ export default {
       this.$bindEffectHandlebar('.instance.i1', $demo => {
         return new Wave($demo, {
           num: 3,
+          fill: [false, true],
+          line: [true, false, false],
           lineColor: [
             'rgba(0, 190, 112, .5)',
             'rgba(0, 190, 112, .7)',
@@ -33,7 +35,7 @@ export default {
           offsetLeft: [2, 1, 0],
           offsetTop: 0.75,
           crestHeight: [10, 14, 18],
-          rippleNum: this.isSmallScreen ? 1 : 2,
+          crestCount: this.isSmallScreen ? 1 : 2,
           speed: 0.1,
         })
       })
@@ -53,7 +55,7 @@ export default {
               lineColor: ['#e53d27', '#42e527', '#27C9E5'],
               lineWidth: [0.7, 0.9, 1],
               offsetTop: 0.65,
-              rippleNum: this.isSmallScreen ? 1 : 2,
+              crestCount: this.isSmallScreen ? 1 : 2,
             },
             settings
           )
@@ -108,7 +110,7 @@ export default {
           fillColor: '#27C9E5',
           offsetTop: 0.75,
           crestHeight: 8,
-          rippleNum: 3,
+          crestCount: 3,
           speed: 0.07,
         })
       })

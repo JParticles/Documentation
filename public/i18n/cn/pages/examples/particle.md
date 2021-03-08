@@ -9,13 +9,15 @@
 源代码：
 
 ```javascript
-new JParticles.Particle('#demo-1', {
-    // 两粒子圆心点之间的直线距离为 90
+new JParticles.Particle('#demo', {
+    // 两粒子圆心点之间的直线距离
     proximity: 90,
     // 定位点半径 100 以内（包含）的所有粒子，圆心点之间小于等于 proximity 值，则连线
     range: 100,
 })
 ```
+
+### 视差（移动端支持陀螺仪）
 
 <div class="instance i2">
   <div class="demo"></div>
@@ -28,7 +30,7 @@ new JParticles.Particle('#demo-1', {
 源代码：
 
 ```javascript
-new JParticles.Particle('#demo-2', {
+new JParticles.Particle('#demo', {
     color: '#25bfff',
     lineShape: 'cube',
     range: 2000,
@@ -37,6 +39,8 @@ new JParticles.Particle('#demo-2', {
     parallax: true,
 })
 ```
+
+### 星空
 
 <div class="instance i3">
   <div class="demo"></div>
@@ -49,13 +53,12 @@ new JParticles.Particle('#demo-2', {
 源代码：
 
 ```javascript
-new JParticles.Particle('#demo-3', {
-  // range 等于 0，粒子之间不连线
-  range: 0,
-  num: 18,
-  maxR: 20,
-  minR: 10,
-  maxSpeed: 3,
+new JParticles.Particle('#demo', {
+    // range 等于 0，粒子之间不连线
+    range: 0,
+    num: 0.1,
+    maxSpeed: 0.03,
+    maxR: 1.2,
 })
 ```
 
@@ -78,7 +81,6 @@ new JParticles.Particle('#demo-3', {
 	        <td>
 	            粒子个数。
 	            `(0, 1)` 显示为容器宽度相应倍数的个数，`0 & [1, +∞)` 显示具体个数。
-	            传入 `0` 是没有意义的，其他雷同参数同理。
 	        </td>
 	    </tr>
 	    <tr>
@@ -112,7 +114,7 @@ new JParticles.Particle('#demo-3', {
 	        <td>
 	            多近两粒子间连线。
 	            在 `range` 范围内的两点圆心点之间的距离小于或等于 `proximity`，则两点之间连线。
-				      `(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
+				`(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
 	        </td>
 	    </tr>
 	    <tr>
@@ -121,7 +123,7 @@ new JParticles.Particle('#demo-3', {
 	        <td>number</td>
 	        <td>
 	            定位点的连线范围，范围越大连线越多，等于 `0` 时，不连线，相关值无效。
-				      `(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
+				`(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
 	            (定位点：即鼠标移动到画布时的鼠标点，一开始随机生成一点)。
 	        </td>
 	    </tr>
@@ -139,7 +141,7 @@ new JParticles.Particle('#demo-3', {
               连线的形状，目前支持以下两种：
               `spider:` 散开的蜘蛛状。
               `cube:` 合拢的立方体状。
-			    </td>
+			</td>
 	    </tr>
 	    <tr>
 	        <td>eventElem</td>
@@ -151,7 +153,7 @@ new JParticles.Particle('#demo-3', {
 	        <td>parallax</td>
 	        <td>false</td>
 	        <td>boolean</td>
-	        <td>视差效果，视差效果和粒子移动在移动端都支持陀螺仪特性。</td>
+	        <td>视差效果，移动端支持陀螺仪。</td>
 	    </tr>
 	    <tr>
 	        <td>parallaxLayer</td>
@@ -160,7 +162,7 @@ new JParticles.Particle('#demo-3', {
 	        <td>
 	            定义粒子在视差图层里的层数及每层的层级大小，类似 `CSS` 里的 `z-index`。
 	            取值范围: `[0, +∞)`，值越小视差效果越强烈，`0` 则不动。
-              定义四层粒子示例：`[1, 3, 5, 10]`。
+                定义四层粒子示例：`[1, 3, 5, 10]`。
 	        </td>
 	    </tr>
 	    <tr>

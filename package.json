@@ -13,7 +13,7 @@
     "apisauce": "^1.0.2",
     "gitalk": "^1.5.0",
     "highlight.js": "^9.15.6",
-    "jparticles": "^3.0.0-beta.0",
+    "jparticles": "^3.0.0-beta.1",
     "marked": "^0.6.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",

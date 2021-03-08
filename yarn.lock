@@ -4252,10 +4252,10 @@ javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
 
-jparticles@^3.0.0-beta.0:
-  version "3.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/jparticles/-/jparticles-3.0.0-beta.0.tgz#0da5bf415d921e547bb3d9164678a8f566f5abe4"
-  integrity sha512-Ut8GU2yRCCIq7oepO8t9W/IvJzKjCtOcveE9CzpO06HPy852k30sh2LzCL9WrFSKfOdV3AufndpB3Ur4Q0svZg==
+jparticles@^3.0.0-beta.1:
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/jparticles/-/jparticles-3.0.0-beta.1.tgz#9b93e380bb0ad3ea941fe96c9bd1fb6674cd12e8"
+  integrity sha512-Qji5ExzIXqFFzJ/JbzQX6yk/1o7UXoA+F0GKHcYUK1V7Nnw8ZIzJDkykXaHXJ3kdoEl/S6Uqrwxkmnb84SiKxA==
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
