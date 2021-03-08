@@ -1,4 +1,5 @@
-const { isPlainObject } = JParticles.utils
+import { utils } from 'jparticles'
+const { isPlainObject } = utils
 
 export default api => {
   api.addResponseTransform(response => {

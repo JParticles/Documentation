@@ -4,7 +4,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { Wave } from 'jparticles'
+import { Wave, utils } from 'jparticles'
 
 export default {
   name: 'Wave',
@@ -47,7 +47,7 @@ export default {
 
         const effect = new Wave(
           $demo,
-          JParticles.utils.extend(
+          utils.merge(
             {
               num: 3,
               lineColor: ['#e53d27', '#42e527', '#27C9E5'],
@@ -66,7 +66,7 @@ export default {
           this.timer = setInterval(() => {
             const crestHeight = [10, 14, 18].map(item => {
               // 获取随机波动值
-              item += JParticles.utils.limitRandom(20, -20)
+              item += utils.randomInRange(20, -20)
 
               // 处理 (0, 1) 之间的值为整数
               if (item > 0 && item < 1) {

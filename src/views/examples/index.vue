@@ -220,16 +220,16 @@ export default {
 
       this.createLoading()
 
-      // try {
-      const [component, content] = await Promise.all([
-        this.loadComponent(doc),
-        this.loadDoc(docPath),
-      ])
-      this.component = component
-      this.content = content
-      // } catch (e) {
-      //   this.error = true
-      // }
+      try {
+        const [component, content] = await Promise.all([
+          this.loadComponent(doc),
+          this.loadDoc(docPath),
+        ])
+        this.component = component
+        this.content = content
+      } catch (e) {
+        this.error = true
+      }
 
       this.removeLoading()
     },
