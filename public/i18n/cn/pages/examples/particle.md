@@ -138,9 +138,9 @@ new JParticles.Particle('#demo', {
 	        <td>spider</td>
 	        <td>string</td>
 	        <td>
-              连线的形状，目前支持以下两种：
-              `spider:` 散开的蜘蛛状。
-              `cube:` 合拢的立方体状。
+              连线的形状，目前支持两种：
+              `spider` 散开的蜘蛛状，
+              `cube` 合拢的立方体状。
 			</td>
 	    </tr>
 	    <tr>
