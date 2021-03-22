@@ -141,7 +141,7 @@ export default {
       if (this.error) return
       this.$nextTick(() => {
         this.handleHash()
-        this.addComment()
+        // this.addComment()
       })
     },
     createLoading() {
