@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import topStore from './top_store'
+import topStore from './top-store'
 
 Vue.use(Vuex)
 

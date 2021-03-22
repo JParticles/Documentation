@@ -1,9 +1,10 @@
 {
+  "private": true,
   "name": "Documentation",
   "description": "The documentation site of the JParticles.",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
-    "start": "yarn install && npm run dev",
+    "start": "yarn install && yarn dev",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
@@ -12,7 +13,7 @@
     "apisauce": "^1.0.2",
     "gitalk": "^1.5.0",
     "highlight.js": "^9.15.6",
-    "jparticles": "^2.0.1",
+    "jparticles": "^3.0.0-beta.2",
     "marked": "^0.6.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
@@ -29,9 +30,8 @@
     "copy-webpack-plugin": "^5.0.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "fibers": "^3.1.1",
     "lint-staged": "^8.1.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.20",
     "raw-loader": "^2.0.0",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",

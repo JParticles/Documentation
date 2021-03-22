@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Header from '@/views/@common/header'
-import Footer from '@/views/@common/footer'
+import Header from '@/views/components/Header'
+import Footer from '@/views/components/Footer'
 import { mapState } from 'vuex'
 
 export default {
@@ -29,7 +29,7 @@ export default {
   },
   watch: {
     $route() {
-      this.setBodyClass()
+      this.setUniqueClassForRoot()
     },
   },
   computed: {
@@ -43,33 +43,40 @@ export default {
     isNotFoundRoute() {
       return this.$route.name === 404
     },
+    isHomePage() {
+      return ['index', 'langIndex'].includes(this.$route.name)
+    },
   },
   methods: {
-    setBodyClass() {
-      const prefix = 'site-body'
-      const classList = document.body.classList
-      const unwantedClass = []
+    /**
+     * 根据路由唯一性，设置根级元素样式类名
+     */
+    setUniqueClassForRoot() {
+      const prefix = 'site-html__'
+      const classList = document.documentElement.classList
+      const pageRemainingClass = []
       let className
 
-      if (this.$route.name === 'index') {
-        className = '-index'
-      } else if (this.$route.name === 'langIndex') {
-        className = `-index-${this.$route.params.lang}`
+      if (this.isHomePage) {
+        className = 'index'
       } else {
-        className = this.$route.path.replace(/\//g, '-')
+        className = this.$route.path
+          .substring(1)
+          .replace(/\/$/, '')
+          .replace(/\//g, '-')
       }
 
       classList.forEach(item => {
         if (item.indexOf(prefix) > -1) {
-          unwantedClass.push(item)
+          pageRemainingClass.push(item)
         }
       })
 
       if (this.isNotFoundRoute) {
-        classList.add(`${prefix}-404`)
+        classList.add(`${prefix}404`)
       }
 
-      classList.remove(...unwantedClass)
+      classList.remove(...pageRemainingClass)
       classList.add(`${prefix}${className}`)
     },
   },

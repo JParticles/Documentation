@@ -14,12 +14,12 @@
         <div class="loading-wrapper" v-show="loading && !error">
           <div class="loading-inner" ref="loading"></div>
         </div>
-        <NoData v-show="error" />
+        <Empty v-show="error" />
         <div
           class="gt-container"
           ref="gtContainer"
           v-show="!loading && !error"
-        ></div>
+        />
       </main>
     </div>
   </section>
@@ -27,13 +27,15 @@
 
 <script>
 import { mapState } from 'vuex'
-import Menu from '@/views/@common/menu'
+import Menu from '@/views/components/Menu'
 import API from '@/services'
 import marked from '@/utils/marked'
-import NoData from '@/views/@common/no_data'
+import Empty from '@/views/components/Empty'
 import { scrollTop, offset } from '@/utils/dom'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
+import { WaveLoading } from 'jparticles'
+import { startCaseWithoutBlank } from '@/utils/misc'
 
 const components = {}
 const docs = {}
@@ -47,7 +49,7 @@ export default {
   name: 'Examples',
   components: {
     Menu,
-    NoData,
+    Empty,
   },
   data() {
     return {
@@ -73,7 +75,7 @@ export default {
   },
   watch: {
     $route() {
-      this.$createEffect.clear()
+      this.$bindEffectHandlebar.clear()
       this.loadFiles()
     },
   },
@@ -89,13 +91,11 @@ export default {
       let title = document.title
       if (this.isSmallScreen) {
         title = document
-          .querySelector(
-            '.site-header-mobile .menu-root .router-link-exact-active'
-          )
+          .querySelector('.site-header-mobile .menu-root .router-link-active')
           .textContent.trim()
       } else {
         title = this.$refs.sideMenu
-          .querySelector('.router-link-exact-active')
+          .querySelector('.router-link-active')
           .textContent.trim()
       }
 
@@ -146,10 +146,9 @@ export default {
     },
     createLoading() {
       const $loading = this.$refs.loading
-      const loading = (this.waveLoading = new JParticles.WaveLoading($loading, {
+      const loading = (this.waveLoading = new WaveLoading($loading, {
         font: 'normal 900 12px Arial',
-        smallFont: 'normal 900 12px Arial',
-        smallFontOffsetTop: 0,
+        textFormatter: this.language.progressText + '%d%',
         fillColor: this.themeColor,
         duration: 2000,
         resize: false,
@@ -159,12 +158,8 @@ export default {
         .onProgress(progress => {
           if (progress >= 60) {
             loading.setOptions({
-              color: '#fff',
+              textColor: '#fff',
             })
-          }
-          return {
-            text: Math.ceil(progress),
-            smallText: '%',
           }
         })
         .onFinished(() => {
@@ -181,7 +176,8 @@ export default {
       if (components[path]) {
         return components[path]
       }
-      const component = await import(`./${path}`)
+      const filename = startCaseWithoutBlank(path)
+      const component = await import(`./${filename}`)
       components[path] = component.default
       return components[path]
     },
@@ -189,16 +185,19 @@ export default {
       if (docs[docPath]) {
         return docs[docPath]
       }
-      const { ok, data } = await API.$instance.get(docPath)
+
+      const { ok, data } = await API.getDocs(docPath)
       if (ok) {
         docs[docPath] = marked(data)
         return docs[docPath]
       }
+
+      throw Error('File loading error.')
     },
     async loadFiles() {
       const { doc } = this.$route.params
       const lang = this.language.languageCode
-      const docPath = `/languages/${lang}/pages/examples/${doc}.md`
+      const docPath = `/i18n/${lang}/pages/examples/${doc}.md`
 
       // 保证 error 为 false，除非后面设置为 true
       this.error = false
@@ -262,7 +261,7 @@ export default {
         margin-top: rem(30);
       }
       &:hover {
-        .ctrls {
+        .handlebar {
           display: block;
           animation: slideInLeft 0.4s cubic-bezier(0.11, 0.34, 0.38, 1.24);
         }
@@ -271,7 +270,7 @@ export default {
         height: rem(440);
         border: 1px solid $gray-border;
       }
-      .ctrls {
+      .handlebar {
         display: none;
         position: absolute;
         z-index: 9;
@@ -286,7 +285,7 @@ export default {
         }
       }
     }
-    .instance-ctrls {
+    .instance-handlebar {
       padding: rem(20) 0;
       .btn {
         padding: rem(8) rem(12);

@@ -1,0 +1,7 @@
+@function rem($num) {
+  @return ($num / 12) * 1rem;
+}
+
+@function globalImages($path) {
+  @return url("~@/assets/images/#{$path}");
+}

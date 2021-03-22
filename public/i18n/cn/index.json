@@ -1,0 +1,49 @@
+{
+  "languageName": "中文简体",
+  "languageCode": "cn",
+  "languageCodeOnHtml": "zh-cn",
+  "progressText": "加载中...",
+  "title": "JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效库。",
+  "header": {
+    "smallScreen": {
+      "menu": "菜单"
+    },
+    "common": [
+      "首页",
+      "实例及API",
+      "下载",
+      "GitHub",
+      {
+        "name": "更新日志",
+        "title": "路漫漫其修远兮吾将上下而求索"
+      }
+    ]
+  },
+  "footer": {
+    "support": "开源不易，支持作者（Star on GitHub）"
+  },
+  "home": {
+    "description": "一个简洁，高效，轻量级的 Canvas 粒子运动特效库。",
+    "seeMore": {
+      "text": "了解更多",
+      "href": "https://github.com/Barrior/JParticles/blob/master/README.md"
+    },
+    "quickStart": "立即使用"
+  },
+  "noData": "哦豁，文档不见了~",
+  "notFound": {
+    "toHomePage": "返回首页",
+    "toPrevPage": "返回上一页"
+  },
+  "examples": {
+    "required": "必读",
+    "menu": [
+      "5分钟上手JParticles",
+      "粒子运动（Particle）",
+      "波纹运动（Wave）",
+      "波纹进度条（WaveLoading）",
+      "雪花飘落（Snow）",
+      "线条动画（Line）"
+    ]
+  }
+}

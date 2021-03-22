@@ -1,18 +1,19 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const generateLoadingScript = require('./bin/generate-loading-script')
+const generateLoadingScript = require('./generate-loading-script')
 const path = require('path')
 const webpack = require('webpack')
 const { toPairs, forEach } = require('lodash')
 
-const svgIconPath = path.resolve('./src/svgicons')
+const svgIconPath = path.resolve('./src/assets/icons')
 const info = generateLoadingScript()
 
 process.env.VUE_APP_LOADING_SCRIPT_URL = `/js/${info.basename}`
 
 const vendors = {
   vue: 'vue|vue-router|vuex',
-  utils: 'marked|highlight.js|apisauce|axios',
+  utils: 'marked|highlight.js',
+  apisauce: 'apisauce|axios',
   jparticles: 'jparticles',
   gitalk: 'gitalk',
 }
@@ -35,7 +36,7 @@ const config = {
     sourceMap: process.env.NODE_ENV !== 'production',
     loaderOptions: {
       sass: {
-        data: `@import "@/styles/_mixins.scss";`,
+        data: `@import "@/assets/styles/_mixins.scss";`,
       },
     },
   },
