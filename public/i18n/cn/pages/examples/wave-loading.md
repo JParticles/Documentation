@@ -176,7 +176,7 @@ new JParticles.WaveLoading('#demo', {
 	        <td>textFormatter</td>
 	        <td>loading...%d%</td>
 	        <td>string</td>
-	        <td>进度文本模板，`%d` 将被替换成取整的进度值。</td>
+	        <td>进度文本模板，`%d` 将被替换成取整的进度值，空字符串则不显示文本。</td>
 	    </tr>
 	    <tr>
 	        <td>duration</td>

@@ -177,7 +177,7 @@ new JParticles.WaveLoading('#demo', {
 	        <td>textFormatter</td>
 	        <td>loading...%d%</td>
 	        <td>string</td>
-	        <td>Progress text template, `%d` will be replaced with rounded progress value.</td>
+	        <td>Progress text template, `%d` will be replaced with rounded progress value, empty string will not display text.</td>
 	    </tr>
 	    <tr>
 	        <td>duration</td>
