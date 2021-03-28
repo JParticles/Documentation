@@ -89,6 +89,8 @@ document.querySelector('#demo').parentNode.appendChild(iframe)
 
 ### 遮罩（自定义Logo）
 
+适用于纯文字的 Logo，像 GitHub 的文字 Logo 就很适合。
+
 <div class="instance i3">
     <div class="demo"></div>
     <div class="handlebar">
@@ -110,11 +112,15 @@ new JParticles.WaveLoading('#demo', {
 	// 取消边框圆角
 	borderRadius: '',
 	// 设置遮罩图片，实现遮罩效果（如果希望防止图片闪烁，可提前加载完图片后再创建特效）
-	mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo-text.svg',
+	mask: 'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
 })
 ```
 
 ### 幽灵遮罩
+
+> 幽灵遮罩（Ghost Mask）：灰度化遮罩图片作为背景，再裁剪出原始彩色图案。
+
+适用于彩色的图像 Logo，像 Chrome 的 Logo 使用该效果就很适合。
 
 <div class="instance i4">
     <div class="demo"></div>
@@ -140,7 +146,7 @@ new JParticles.WaveLoading('#demo', {
 	duration: 10000,
 	// 设置遮罩图片
 	mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
-	// 设置模式为幽灵：灰度化遮罩图片作为背景，再裁剪出原始彩色图案
+	// 设置模式为幽灵
 	maskMode: 'ghost',
 })
 ```
@@ -177,6 +183,12 @@ new JParticles.WaveLoading('#demo', {
 	        <td>loading...%d%</td>
 	        <td>string</td>
 	        <td>进度文本模板，`%d` 将被替换成取整的进度值，空字符串则不显示文本。</td>
+	    </tr>
+	    <tr>
+	        <td>borderRadius</td>
+	        <td>50%</td>
+	        <td>string</td>
+	        <td>画布外边框圆角，[CSS 属性值](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)。</td>
 	    </tr>
 	    <tr>
 	        <td>duration</td>

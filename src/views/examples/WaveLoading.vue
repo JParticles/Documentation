@@ -131,7 +131,7 @@ export default {
           borderRadius: '',
           // 设置遮罩图片，实现遮罩效果（如果希望防止图片闪烁，可提前加载完图片后再创建特效）
           mask:
-            'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo-text.svg',
+            'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
         })
       }
 
@@ -237,11 +237,11 @@ export default {
       justify-content: center;
       align-items: center;
       border: 1px solid $gray-border;
-      padding: rem(80);
+      padding: rem(100);
       .demo {
         max-width: 80%;
-        width: rem(625);
-        height: rem(165);
+        width: rem(600);
+        height: rem(150);
         border: none;
       }
     }
