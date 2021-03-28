@@ -121,6 +121,8 @@ new JParticles.Wave('#demo', {
 
 ### Mask(for custom Logo)
 
+It is suitable for pure text logos, such as GitHub's text logo is very suitable.
+
 <div class="instance i4">
     <div class="demo"></div>
     <div class="handlebar">
@@ -143,11 +145,15 @@ new JParticles.Wave('#demo', {
     speed: 0.2,
     // Set the mask image to achieve the mask effect.
 	// if you want to prevent the image from flickering, you can create special effects after loading the image in advance.
-    mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo-text.svg',
+    mask: 'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
 })
 ```
 
 ### Ghost Mask
+
+> The gray-scale mask picture is used as the background, and then the original color pattern is cut out.
+
+It is suitable for color image logo, such as Chrome's text logo is very suitable.
 
 <div class="instance i5">
     <div class="demo"></div>
@@ -172,7 +178,7 @@ new JParticles.Wave('#demo', {
     speed: 0.2,
 	// Set the mask image
     mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
-    // Set the mode to ghost: the gray-scale mask image is used as the background, and then the original color pattern is cropped
+    // Set the mode to ghost
     maskMode: 'ghost',
 })
 ```

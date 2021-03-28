@@ -121,6 +121,8 @@ new JParticles.Wave('#demo', {
 
 ### 遮罩（自定义Logo）
 
+适用于纯文字的 Logo，像 GitHub 的文字 Logo 就很适合。
+
 <div class="instance i4">
     <div class="demo"></div>
     <div class="handlebar">
@@ -142,11 +144,15 @@ new JParticles.Wave('#demo', {
     crestCount: 3,
     speed: 0.2,
     // 设置遮罩图片，实现遮罩效果（如果希望防止图片闪烁，可提前加载完图片后再创建特效）
-    mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo-text.svg',
+    mask: 'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
 })
 ```
 
 ### 幽灵遮罩
+
+> 幽灵遮罩（Ghost Mask）：灰度化遮罩图片作为背景，再裁剪出原始彩色图案。
+
+适用于彩色的图像 Logo，像 Chrome 的 Logo 使用该效果就很适合。
 
 <div class="instance i5">
     <div class="demo"></div>
@@ -171,7 +177,7 @@ new JParticles.Wave('#demo', {
     speed: 0.2,
     // 设置遮罩图片
     mask: 'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
-    // 设置模式为幽灵：灰度化遮罩图片作为背景，再裁剪出原始彩色图案
+    // 设置模式为幽灵
     maskMode: 'ghost',
 })
 ```

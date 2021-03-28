@@ -33,7 +33,6 @@ import marked from '@/utils/marked'
 import Empty from '@/views/components/Empty'
 import { scrollTop, offset } from '@/utils/dom'
 import 'gitalk/dist/gitalk.css'
-import Gitalk from 'gitalk'
 import { WaveLoading } from 'jparticles'
 import { startCaseWithoutBlank } from '@/utils/misc'
 
@@ -80,7 +79,15 @@ export default {
     },
   },
   methods: {
-    addComment() {
+    async addComment() {
+      if (!this.Gitalk) {
+        try {
+          this.Gitalk = await import('gitalk')
+        } catch (e) {
+          return
+        }
+      }
+
       this.$refs.gtContainer.innerHTML = ''
 
       let id = this.$route.path
@@ -99,7 +106,7 @@ export default {
           .textContent.trim()
       }
 
-      const gitalk = new Gitalk({
+      const gitalk = new this.Gitalk({
         clientID: '9f3916d7bff4d5a6db8f',
         clientSecret: '2110776cc08e198102cc6a92871f76084b56cb5d',
         repo: 'JParticles',
