@@ -7,4 +7,4 @@ You can clone this repository to your computer then go to the root directory of 
 
 ### Translation
 
-You are welcome to translate this site to other languages in accordance with the `public/languages/cn` directory structure.
+You are welcome to translate this site to other languages in accordance with the `public/i18n/cn` directory structure.
