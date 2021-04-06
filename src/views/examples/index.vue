@@ -82,7 +82,7 @@ export default {
     async addComment() {
       if (!this.Gitalk) {
         try {
-          this.Gitalk = await import('gitalk')
+          this.Gitalk = (await import('gitalk')).default
         } catch (e) {
           return
         }
@@ -148,7 +148,7 @@ export default {
       if (this.error) return
       this.$nextTick(() => {
         this.handleHash()
-        // this.addComment()
+        this.addComment()
       })
     },
     createLoading() {
