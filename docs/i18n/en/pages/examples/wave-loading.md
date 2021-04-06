@@ -1,3 +1,5 @@
+`WaveLoading` is an encapsulation of `Wave`, providing the function of virtual progress loading.
+
 <div class="instance i1">
     <div class="demo"></div>
     <div class="handlebar">
@@ -121,7 +123,7 @@ new JParticles.WaveLoading('#demo', {
 
 > The gray-scale mask picture is used as the background, and then the original color pattern is cut out.
 
-It is suitable for color image logo, such as Chrome's text logo is very suitable.
+It is suitable for color image logo, such as Chrome's logo is very suitable.
 
 <div class="instance i4">
     <div class="demo"></div>

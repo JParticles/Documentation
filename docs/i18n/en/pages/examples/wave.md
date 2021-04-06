@@ -153,7 +153,7 @@ new JParticles.Wave('#demo', {
 
 > The gray-scale mask picture is used as the background, and then the original color pattern is cut out.
 
-It is suitable for color image logo, such as Chrome's text logo is very suitable.
+It is suitable for color image logo, such as Chrome's logo is very suitable.
 
 <div class="instance i5">
     <div class="demo"></div>

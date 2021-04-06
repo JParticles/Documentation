@@ -1,3 +1,5 @@
+`WaveLoading` 是对 `Wave` 的封装，提供虚拟进度加载的功能。
+
 <div class="instance i1">
     <div class="demo"></div>
     <div class="handlebar">
