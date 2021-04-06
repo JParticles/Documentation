@@ -1,3 +1,5 @@
+`WaveLoading` is an encapsulation of `Wave`, providing the function of virtual progress loading.
+
 <div class="instance i1">
     <div class="demo"></div>
     <div class="handlebar">
