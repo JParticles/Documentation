@@ -321,8 +321,8 @@ document.querySelector('.button-show').addEventListener('click', () => {
 	    <tr>
 	        <td>mask</td>
 	        <td>none</td>
-	        <td>string</td>
-	        <td>The mask image can be in `URL` address or `Base64` format.</td>
+	        <td class="text-left">string or CanvasImageSource</td>
+	        <td>The mask image can be in `URL` address, `Base64` format, [CanvasImageSource](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage#parameters)<sup>v3.1</sup>。</td>
 	    </tr>
 	    <tr>
 	        <td>maskMode</td>

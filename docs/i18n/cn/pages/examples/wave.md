@@ -310,8 +310,8 @@ document.querySelector('.button-show').addEventListener('click', () => {
 	    <tr>
 	        <td>mask</td>
 	        <td>无</td>
-	        <td>string</td>
-	        <td>遮罩图片，可为 `URL` 地址或 `Base64` 格式。</td>
+	        <td class="text-left">string 或 CanvasImageSource</td>
+	        <td>遮罩图片，可为 `URL` 地址、 `Base64` 格式、 [Canvas 图像源](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage#%E5%8F%82%E6%95%B0)<sup>v3.1</sup>。</td>
 	    </tr>
 	    <tr>
 	        <td>maskMode</td>

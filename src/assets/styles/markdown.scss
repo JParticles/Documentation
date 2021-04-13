@@ -251,6 +251,13 @@ pre {
       border: 0;
     }
   }
+
+  sup {
+    padding: 0 0.2em;
+    background-color: $md-lightgray-bg;
+    border-radius: rem(2);
+    color: $md-red;
+  }
 }
 
 // custom markdown syntax
