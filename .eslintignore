@@ -1,2 +1,5 @@
 /docs
 webstorm.config.js
+*.min.js
+*.html
+*.md
