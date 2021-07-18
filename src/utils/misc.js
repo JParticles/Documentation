@@ -18,3 +18,8 @@ export function startCaseWithoutBlank(str) {
 
   return arr.join('')
 }
+
+export function getImageSitePath(name) {
+  const res = require(`@/assets/images/${name}`)
+  return location.origin + res
+}

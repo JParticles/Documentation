@@ -12,6 +12,33 @@
 new JParticles.Snow('#demo')
 ```
 
+### 自定义形状
+
+<div class="instance i2">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default open">开启</div>
+        <div class="btn btn-default pause">暂停</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+new JParticles.Snow('#demo', {
+  maxR: 10,
+  minR: 10,
+  maxSpeed: 0.3,
+  minSpeed: 0.1,
+  swing: false,
+  // 配置形状
+  shape: [
+    'triangle', 'star', 'star:4:0.5',
+    'https://raw.githubusercontent.com/Barrior/assets/main/gift.png'
+  ],
+})
+```
+
 ### 参数及描述
 
 <table class="table table-bordered-inner table-striped">
@@ -59,6 +86,17 @@ new JParticles.Snow('#demo')
 	        <td>0.1</td>
 	        <td>number</td>
 	        <td>雪花飘落最小运动速度。</td>
+	    </tr>
+	    <tr>
+	        <td>shape</td>
+	        <td>circle</td>
+	        <td>string 或 []</td>
+	        <td>
+            雪花的形状，可以选以下几种。
+            1、内置的形状：`circle` `triangle` `star`
+            2、`star` 可以
+            3、支持 HTTP、Base64、CanvasImageSource 图像
+          </td>
 	    </tr>
 	    <tr>
 	        <td>swing</td>

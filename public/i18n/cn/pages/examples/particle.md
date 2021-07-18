@@ -55,9 +55,33 @@ new JParticles.Particle('#demo', {
 ```javascript
 new JParticles.Particle('#demo', {
     // range 等于 0，粒子之间不连线
-    range: 0,
-    num: 0.1,
-    minSpeed: 0.01,
+  range: 0,
+  num: 0.1,
+  minSpeed: 0.01,
+	maxSpeed: 0.05,
+	minR: 0.2,
+	maxR: 1.2,
+})
+```
+
+### 自定义形状
+
+<div class="instance i4">
+  <div class="demo"></div>
+	<div class="handlebar">
+		<div class="btn btn-default open">开启</div>
+		<div class="btn btn-default pause">暂停</div>
+	</div>
+</div>
+
+源代码：
+
+```javascript
+new JParticles.Particle('#demo', {
+    // range 等于 0，粒子之间不连线
+  range: 0,
+  num: 0.1,
+  minSpeed: 0.01,
 	maxSpeed: 0.05,
 	minR: 0.2,
 	maxR: 1.2,

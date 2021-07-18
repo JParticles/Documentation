@@ -5,6 +5,7 @@
 <script>
 import { mapState } from 'vuex'
 import { Particle } from 'jparticles'
+import { getImageSitePath } from '@/utils/misc'
 
 export default {
   name: 'Particle',
@@ -18,6 +19,7 @@ export default {
     this.i1()
     this.i2()
     this.i3()
+    this.i4()
   },
   methods: {
     i1() {
@@ -55,6 +57,26 @@ export default {
           maxSpeed: 0.05,
           minR: 0.2,
           maxR: 1.2,
+        })
+      })
+    },
+    i4() {
+      this.$bindEffectHandlebar('.instance.i4', $demo => {
+        return new Particle($demo, {
+          range: 0,
+          // color: ['red'],
+          num: 100,
+          maxR: 30,
+          minR: 30,
+          shape: [
+            'circle',
+            'triangle',
+            'star',
+            'star:4:0.5',
+            'star:30:0.5',
+            getImageSitePath('bubble-colorful.png'),
+            // getImageSitePath('bubble.png'),
+          ],
         })
       })
     },
