@@ -58,9 +58,37 @@ new JParticles.Particle('#demo', {
     range: 0,
     num: 0.1,
     minSpeed: 0.01,
-	maxSpeed: 0.05,
-	minR: 0.2,
-	maxR: 1.2,
+    maxSpeed: 0.05,
+    minR: 0.2,
+    maxR: 1.2,
+})
+```
+
+### 自定义形状
+
+<div class="instance i4">
+  <div class="demo"></div>
+	<div class="handlebar">
+		<div class="btn btn-default open">开启</div>
+		<div class="btn btn-default pause">暂停</div>
+	</div>
+</div>
+
+源代码：
+
+```javascript
+new JParticles.Particle('#demo', {
+    num: 100,
+    maxR: 30,
+    minR: 30,
+    range: 0,
+    color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
+    // 配置形状
+    shape: [
+      'triangle', 'star', 'star:4:0.5', 'star:30:0.9',
+      'https://raw.githubusercontent.com/Barrior/assets/main/bubble-colorful.png',
+      'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
+    ],
 })
 ```
 
@@ -107,13 +135,24 @@ new JParticles.Particle('#demo', {
 	        <td>粒子最小运动速度 `(0, +∞)`。</td>
 	    </tr>
 	    <tr>
+	        <td>shape<sup>v3.2.0</sup></td>
+	        <td>circle</td>
+	        <td>string 或 []</td>
+	        <td>
+            粒子的形状，可以选以下几种。<br>
+            1、内置的形状：`circle`、`triangle`、`star`。<br>
+            2、以 `star` 前缀表示的形状，语法：`star:[边数]:[凹值]`, 例如：`star:5:0.5`，表示五角星。<br>
+            3、支持 HTTP、Base64、[CanvasImageSource](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage#%E5%8F%82%E6%95%B0) 图像。
+          </td>
+	    </tr>
+	    <tr>
 	        <td>proximity</td>
 	        <td>0.2</td>
 	        <td>number</td>
 	        <td>
 	            两粒子间连线的距离。<br>
 	            在 `range` 范围内的两点圆心点之间的距离小于或等于 `proximity`，则两点之间连线。<br>
-				`(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
+				      `(0, 1)` 表示为容器宽度相应倍数的值，`0 & [1, +∞)` 表示具体值。
 	        </td>
 	    </tr>
 	    <tr>
