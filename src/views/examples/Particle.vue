@@ -64,18 +64,17 @@ export default {
       this.$bindEffectHandlebar('.instance.i4', $demo => {
         return new Particle($demo, {
           range: 0,
-          // color: ['red'],
+          color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
           num: 100,
           maxR: 30,
           minR: 30,
           shape: [
-            'circle',
             'triangle',
             'star',
             'star:4:0.5',
-            'star:30:0.5',
+            'star:30:0.9',
             getImageSitePath('bubble-colorful.png'),
-            // getImageSitePath('bubble.png'),
+            getImageSitePath('bubble.png'),
           ],
         })
       })

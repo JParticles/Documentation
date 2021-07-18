@@ -88,14 +88,14 @@ new JParticles.Snow('#demo', {
 	        <td>雪花飘落最小运动速度。</td>
 	    </tr>
 	    <tr>
-	        <td>shape</td>
+	        <td>shape<sup>v3.2.0</sup></td>
 	        <td>circle</td>
 	        <td>string 或 []</td>
 	        <td>
-            雪花的形状，可以选以下几种。
-            1、内置的形状：`circle` `triangle` `star`
-            2、`star` 可以
-            3、支持 HTTP、Base64、CanvasImageSource 图像
+            雪花的形状，可以选以下几种。<br>
+            1、内置的形状：`circle`、`triangle`、`star`。<br>
+            2、以 `star` 前缀表示的形状，语法：`star:[边数]:[凹值]`, 例如：`star:5:0.5`，表示五角星。<br>
+            3、支持 HTTP、Base64、[CanvasImageSource](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage#%E5%8F%82%E6%95%B0) 图像。
           </td>
 	    </tr>
 	    <tr>
