@@ -5,6 +5,7 @@
 <script>
 import { mapState } from 'vuex'
 import { WaveLoading, easing } from 'jparticles'
+import { getImageSitePath } from '@/utils/misc'
 
 Object.assign(easing, {
   easeOutBounce: function(x, t, b, c, d) {
@@ -130,8 +131,7 @@ export default {
           // 取消边框圆角
           borderRadius: '',
           // 设置遮罩图片，实现遮罩效果（如果希望防止图片闪烁，可提前加载完图片后再创建特效）
-          mask:
-            'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
+          mask: getImageSitePath('github-logo-text.svg'),
         })
       }
 
@@ -162,8 +162,7 @@ export default {
           speed: 0.2,
           // 加载时长设置为 10s
           duration: 10000,
-          mask:
-            'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
+          mask: getImageSitePath('chrome-logo.svg'),
           maskMode: 'ghost',
         })
       }

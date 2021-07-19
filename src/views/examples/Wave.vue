@@ -5,6 +5,7 @@
 <script>
 import { mapState } from 'vuex'
 import { Wave, utils } from 'jparticles'
+import { getImageSitePath } from '@/utils/misc'
 
 export default {
   name: 'Wave',
@@ -129,8 +130,7 @@ export default {
           crestCount: 3,
           speed: 0.2,
           // 设置遮罩图片，实现遮罩效果（如果希望防止图片闪烁，可提前加载完图片后再创建特效）
-          mask:
-            'https://raw.githubusercontent.com/Barrior/assets/main/github-logo-text.svg',
+          mask: getImageSitePath('github-logo-text.svg'),
         })
       })
     },
@@ -146,8 +146,7 @@ export default {
           fill: true,
           line: false,
           speed: 0.2,
-          mask:
-            'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
+          mask: getImageSitePath('chrome-logo.svg'),
           maskMode: 'ghost',
         })
       })
@@ -163,8 +162,7 @@ export default {
         crestHeight: 5,
         crestCount: 2,
         speed: 0.2,
-        mask:
-          'https://raw.githubusercontent.com/Barrior/assets/main/chrome-logo.svg',
+        mask: getImageSitePath('chrome-logo.svg'),
         maskMode: 'ghost',
       })
 
