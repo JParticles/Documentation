@@ -150,7 +150,8 @@ new JParticles.Wave('#demo', {
 
 ### 幽灵遮罩
 
-> 幽灵遮罩（Ghost Mask）：灰度化遮罩图片作为背景，再裁剪出原始彩色图案。
+> 幽灵遮罩（Ghost Mask）：灰度化遮罩图片作为背景，再裁剪出原始彩色图案。<br>
+> ⚠️ 不支持 Safari，兼容的性能不好且成本不小。
 
 适用于彩色的图像 Logo，像 Chrome 的 Logo 使用该效果就很适合。
 
