@@ -26,16 +26,16 @@ new JParticles.Snow('#demo')
 
 ```javascript
 new JParticles.Snow('#demo', {
-  maxR: 10,
-  minR: 10,
-  maxSpeed: 0.3,
-  minSpeed: 0.1,
-  swing: false,
-  // 配置形状
-  shape: [
-    'triangle', 'star', 'star:4:0.5',
-    'https://raw.githubusercontent.com/Barrior/assets/main/gift.png'
-  ],
+    maxR: 10,
+    minR: 10,
+    maxSpeed: 0.3,
+    minSpeed: 0.1,
+    swing: false,
+    // 配置形状
+    shape: [
+        'triangle', 'star', 'star:4:0.5',
+        'https://raw.githubusercontent.com/Barrior/assets/main/gift.png'
+    ],
 })
 ```
 
@@ -90,7 +90,7 @@ new JParticles.Snow('#demo', {
 	    <tr>
 	        <td>shape<sup>v3.2.0</sup></td>
 	        <td>circle</td>
-	        <td>string 或 []</td>
+	        <td class="text-left">string 或 CanvasImageSource 或 array</td>
 	        <td>
             雪花的形状，可以选以下几种。<br>
             1、内置的形状：`circle`、`triangle`、`star`。<br>

@@ -12,6 +12,32 @@ Source:
 new JParticles.Snow('#demo')
 ```
 
+### Custom Shapes
+
+<div class="instance i2">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default open">open</div>
+        <div class="btn btn-default pause">pause</div>
+    </div>
+</div>
+
+Source:
+
+```javascript
+new JParticles.Snow('#demo', {
+  maxR: 10,
+  minR: 10,
+  maxSpeed: 0.3,
+  minSpeed: 0.1,
+  swing: false,
+  // custom shapes
+  shape: [
+    'triangle', 'star', 'star:4:0.5',
+    'https://raw.githubusercontent.com/Barrior/assets/main/gift.png'
+  ],
+})
+```
 ### Parameters
 
 <table class="table table-bordered-inner table-striped">
@@ -59,6 +85,17 @@ new JParticles.Snow('#demo')
 	        <td>0.1</td>
 	        <td>number</td>
 	        <td>The minimum speed of the snow.</td>
+	    </tr>
+	    <tr>
+	        <td>shape<sup>v3.2.0</sup></td>
+	        <td>circle</td>
+	        <td class="text-left">string or CanvasImageSource or array</td>
+	        <td>
+            The shape of the snowflake can be selected from the following.<br>
+            1. Built-in shapes：`circle`, `triangle`, `star`.<br>
+            2. The shape represented by the prefix `star`, syntax: `star:[sides]:[concave value]`, for example: `star:5:0.5`, which means a five-pointed star.<br>
+            3. Support HTTP, Base64, [CanvasImageSource](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage#%E5%8F%82%E6%95%B0) images.
+          </td>
 	    </tr>
 	    <tr>
 	        <td>swing</td>

@@ -85,9 +85,9 @@ new JParticles.Particle('#demo', {
     color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
     // 配置形状
     shape: [
-      'triangle', 'star', 'star:4:0.5', 'star:30:0.9',
-      'https://raw.githubusercontent.com/Barrior/assets/main/bubble-colorful.png',
-      'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
+        'triangle', 'star', 'star:4:0.5', 'star:30:0.9',
+        'https://raw.githubusercontent.com/Barrior/assets/main/bubble-colorful.png',
+        'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
     ],
 })
 ```
@@ -137,7 +137,7 @@ new JParticles.Particle('#demo', {
 	    <tr>
 	        <td>shape<sup>v3.2.0</sup></td>
 	        <td>circle</td>
-	        <td>string 或 []</td>
+	        <td class="text-left">string 或 CanvasImageSource 或 array</td>
 	        <td>
             粒子的形状，可以选以下几种。<br>
             1、内置的形状：`circle`、`triangle`、`star`。<br>
