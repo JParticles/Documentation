@@ -13,7 +13,7 @@ new JParticles.Particle('#demo', {
     // The straight line distance between the two particle centers
     proximity: 90,
     // All points are within the range of 100(including) for the fixed point radius,
-    // the distance between the center points is less than 
+    // the distance between the center points is less than
     // or equal to the `proximity` value, then connection
     range: 100,
 })
@@ -60,9 +60,37 @@ new JParticles.Particle('#demo', {
     range: 0,
     num: 0.1,
     minSpeed: 0.01,
-	maxSpeed: 0.05,
-	minR: 0.2,
-	maxR: 1.2,
+    maxSpeed: 0.05,
+    minR: 0.2,
+    maxR: 1.2,
+})
+```
+
+### Custom Shapes
+
+<div class="instance i4">
+  <div class="demo"></div>
+	<div class="handlebar">
+		<div class="btn btn-default open">open</div>
+		<div class="btn btn-default pause">pause</div>
+	</div>
+</div>
+
+Source:
+
+```javascript
+new JParticles.Particle('#demo', {
+    num: 100,
+    maxR: 30,
+    minR: 30,
+    range: 0,
+    color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
+    // custom shapes
+    shape: [
+        'triangle', 'star', 'star:4:0.5', 'star:30:0.9',
+        'https://raw.githubusercontent.com/Barrior/assets/main/bubble-colorful.png',
+        'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
+    ],
 })
 ```
 
@@ -83,8 +111,8 @@ new JParticles.Particle('#demo', {
 	        <td>0.12</td>
 	        <td>number</td>
 	        <td>
-	            Number of particles.  
-	            `(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, +∞)` is display as the specific number.  
+	            Number of particles.
+	            `(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, +∞)` is display as the specific number.
 	        </td>
 	    </tr>
 	    <tr>
@@ -112,13 +140,24 @@ new JParticles.Particle('#demo', {
 	        <td>The minimum speed of particles. `(0, +∞)`</td>
 	    </tr>
 	    <tr>
+	        <td>shape<sup>v3.2.0</sup></td>
+	        <td>circle</td>
+	        <td class="text-left">string or CanvasImageSource or array</td>
+	        <td>
+            The shape of the particles can be selected from the following.<br>
+            1. Built-in shapes：`circle`, `triangle`, `star`.<br>
+            2. The shape represented by the prefix `star`, syntax: `star:[sides]:[concave value]`, for example: `star:5:0.5`, which means a five-pointed star.<br>
+            3. Support HTTP, Base64, [CanvasImageSource](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage#%E5%8F%82%E6%95%B0) images.
+          </td>
+	    </tr>
+	    <tr>
 	        <td>proximity</td>
 	        <td>0.2</td>
 	        <td>number</td>
 	        <td>
 	            How close two dots need to be.<br>
 	            If the distance of two dots are less than or equal to `proximity` value and conform the `range` condition then the two dots are connected.<br>
-				`(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` is display as the specific number.
+				      `(0, 1)` is display as the number of corresponding multiples of the container width, `0 & [1, + ∞)` is display as the specific number.
 	        </td>
 	    </tr>
 	    <tr>
@@ -153,7 +192,7 @@ new JParticles.Particle('#demo', {
 	        <td>null</td>
 	        <td>null or element</td>
 	        <td>
-	          Element that triggers a move event to change the coords of the fixed point.  
+	          Element that triggers a move event to change the coords of the fixed point.
 	          `Null` means the `Canvas` or assigns a DOM element, such as the `document`.
 	        </td>
 	    </tr>

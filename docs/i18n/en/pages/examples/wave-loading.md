@@ -121,7 +121,8 @@ new JParticles.WaveLoading('#demo', {
 
 ### Ghost Mask
 
-> The gray-scale mask picture is used as the background, and then the original color pattern is cut out.
+> The gray-scale mask picture is used as the background, and then the original color pattern is cut out.<br>
+> ⚠️ Safari is not supported, the compatibility is not good and the cost is not small.
 
 It is suitable for color image logo, such as Chrome's logo is very suitable.
 

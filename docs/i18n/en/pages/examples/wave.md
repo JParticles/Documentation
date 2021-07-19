@@ -151,7 +151,8 @@ new JParticles.Wave('#demo', {
 
 ### Ghost Mask
 
-> The gray-scale mask picture is used as the background, and then the original color pattern is cut out.
+> The gray-scale mask picture is used as the background, and then the original color pattern is cut out.<br>
+> ⚠️ Safari is not supported, the compatibility is not good and the cost is not small.
 
 It is suitable for color image logo, such as Chrome's logo is very suitable.
 
@@ -299,7 +300,7 @@ document.querySelector('.button-show').addEventListener('click', () => {
 	        <td>[]</td>
 	        <td>number or array</td>
 	        <td>
-				The height of the crest, `(0, 1)` indicates the multiple of the container height, 
+				The height of the crest, `(0, 1)` indicates the multiple of the container height,
 				`0 & [1, +∞)` indicates the specific value.
 			</td>
 	    </tr>
@@ -308,7 +309,7 @@ document.querySelector('.button-show').addEventListener('click', () => {
 	        <td>[]</td>
 	        <td>number or array</td>
 	        <td>
-				The number of ripples, that is, the number of sine cycles. 
+				The number of ripples, that is, the number of sine cycles.
 				Random `[1, 0.2 * canvas width)` by default.
 			</td>
 	    </tr>
