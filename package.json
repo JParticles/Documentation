@@ -7,7 +7,7 @@
     "start": "yarn install && yarn dev",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "apisauce": "^1.0.2",
@@ -44,7 +44,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "vue-cli-service lint --fix",
+      "yarn lint",
       "git add"
     ]
   },
