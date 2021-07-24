@@ -14,6 +14,7 @@ export default {
   mounted() {
     this.i1()
     this.i2()
+    this.i3()
   },
   methods: {
     i1() {
@@ -36,6 +37,27 @@ export default {
             getImageSitePath('gift.png'),
           ],
         })
+      })
+    },
+    i3() {
+      this.$bindEffectHandlebar('.instance.i3', $demo => {
+        const fallAgain = document.querySelector('.fall-again')
+        const effect = new Snow($demo, {
+          num: 2,
+          maxR: 10,
+          minR: 10,
+          maxSpeed: 0.3,
+          minSpeed: 0.3,
+          swing: false,
+          shape: getImageSitePath('gift.png'),
+          duration: 3000,
+        })
+
+        fallAgain.addEventListener('click', () => {
+          effect.fallAgain()
+        })
+
+        return effect
       })
     },
   },
