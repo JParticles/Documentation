@@ -39,6 +39,36 @@ new JParticles.Snow('#demo', {
 })
 ```
 
+### 微信聊天撒花动画
+
+<div class="instance i3">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default fall-again">再次演示</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+const effect = new JParticles.Snow('#demo', {
+    num: 2,
+    maxR: 10,
+    minR: 10,
+    maxSpeed: 0.3,
+    minSpeed: 0.3,
+    swing: false,
+    shape: 'https://raw.githubusercontent.com/Barrior/assets/main/gift.png',
+    // 随机创建雪花的持续时间
+    duration: 3000,
+})
+
+// 再次演示
+document.querySelector('.fall-again').addEventListener('click', () => {
+  effect.fallAgain()
+})
+```
+
 ### 参数及描述
 
 <table class="table table-bordered-inner table-striped">
@@ -99,6 +129,12 @@ new JParticles.Snow('#demo', {
           </td>
 	    </tr>
 	    <tr>
+	        <td>duration<sup>v3.4.0</sup></td>
+	        <td>-</td>
+	        <td>number</td>
+	        <td>随机创建雪花的持续时间，单位毫秒。</td>
+	    </tr>
+	    <tr>
 	        <td>swing</td>
 	        <td>true</td>
 	        <td>boolean</td>
@@ -115,6 +151,44 @@ new JParticles.Snow('#demo', {
 	        <td>0.06</td>
 	        <td>number</td>
 	        <td>变换方向的概率（达到时间间隔后），取值范围 `[0, 1]`。</td>
+	    </tr>
+    </tbody>
+</table>
+
+### 方法及描述
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">名称</th>
+	        <th width="100">参数类型</th>
+	        <th width="450">描述</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>fallAgain()<sup>v3.4.0</sup></td>
+	        <td>-</td>
+	        <td>雪花再次降落，当有设置 `duration` 参数时有效。</td>
+	    </tr>
+    </tbody>
+</table>
+
+### 事件及描述
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">名称</th>
+	        <th width="110">参数类型</th>
+	        <th width="450">描述</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>onFinished()<sup>v3.4.0</sup></td>
+	        <td>function</td>
+	        <td>雪花全部降落后触发的事件，当有设置 `duration` 参数时有效。</td>
 	    </tr>
     </tbody>
 </table>
