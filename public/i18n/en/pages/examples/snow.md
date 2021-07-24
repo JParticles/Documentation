@@ -38,6 +38,37 @@ new JParticles.Snow('#demo', {
   ],
 })
 ```
+
+### Animation of WeChat chat page
+
+<div class="instance i3">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default fall-again">Fall Again</div>
+    </div>
+</div>
+
+Source:
+
+```javascript
+const effect = new JParticles.Snow('#demo', {
+    num: 2,
+    maxR: 10,
+    minR: 10,
+    maxSpeed: 0.3,
+    minSpeed: 0.3,
+    swing: false,
+    shape: 'https://raw.githubusercontent.com/Barrior/assets/main/gift.png',
+    // Duration of random creation of snowflakes
+    duration: 3000,
+})
+
+// fall again
+document.querySelector('.fall-again').addEventListener('click', () => {
+  effect.fallAgain()
+})
+```
+
 ### Parameters
 
 <table class="table table-bordered-inner table-striped">
@@ -98,6 +129,12 @@ new JParticles.Snow('#demo', {
           </td>
 	    </tr>
 	    <tr>
+	        <td>duration<sup>v3.4.0</sup></td>
+	        <td>-</td>
+	        <td>number</td>
+	        <td>The duration of randomly creating snowflakes, in milliseconds.</td>
+	    </tr>
+	    <tr>
 	        <td>swing</td>
 	        <td>true</td>
 	        <td>boolean</td>
@@ -114,6 +151,44 @@ new JParticles.Snow('#demo', {
 	        <td>0.06</td>
 	        <td>number</td>
 	        <td>The probability of changing direction (after reaching the time interval), the value range is `[0, 1]`.</td>
+	    </tr>
+    </tbody>
+</table>
+
+### Methods
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">Name</th>
+	        <th width="100">Arguments Type</th>
+	        <th width="450">Description</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>fallAgain()<sup>v3.4.0</sup></td>
+	        <td>-</td>
+	        <td>The snowflakes fall again, which is valid when the `duration` parameter is set.</td>
+	    </tr>
+    </tbody>
+</table>
+
+### Events
+
+<table class="table table-bordered-inner table-striped">
+    <thead>
+	    <tr>
+	        <th width="100">Name</th>
+	        <th width="110">Arguments Type</th>
+	        <th width="400">Description</th>
+	    </tr>
+    </thead>
+    <tbody>
+	    <tr>
+	        <td>onFinished()<sup>v3.4.0</sup></td>
+	        <td>function</td>
+	        <td>An event triggered after all snowflakes have landed, valid when the `duration` parameter is set.</td>
 	    </tr>
     </tbody>
 </table>
