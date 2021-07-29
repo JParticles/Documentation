@@ -3,7 +3,7 @@
   "languageCode": "en",
   "languageCodeOnHtml": "en",
   "progressText": "loading...",
-  "title": "JParticles - concise, lightweight, and efficient Canvas library for building some cool particle effects.",
+  "title": "JParticles - A lightweight, efficient and easy-to-use Canvas library for building some cool particle effects.",
   "header": {
     "smallScreen": {
       "menu": "Menu"
@@ -23,7 +23,7 @@
     "support": ""
   },
   "home": {
-    "description": "A concise, lightweight, and efficient Canvas library for building some cool particle effects.",
+    "description": "A lightweight, efficient and easy-to-use Canvas library for building some cool particle effects.",
     "seeMore": {
       "text": "see more",
       "href": "https://github.com/Barrior/JParticles/blob/master/README_en.md"

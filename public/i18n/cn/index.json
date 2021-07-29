@@ -3,7 +3,7 @@
   "languageCode": "cn",
   "languageCodeOnHtml": "zh-cn",
   "progressText": "加载中...",
-  "title": "JParticles - 简洁，高效，轻量级的 Canvas 粒子运动特效库。",
+  "title": "JParticles - 轻量、高效、易于使用的 Canvas 粒子运动特效库",
   "header": {
     "smallScreen": {
       "menu": "菜单"
@@ -23,7 +23,7 @@
     "support": "开源不易，支持作者（Star on GitHub）"
   },
   "home": {
-    "description": "一个简洁，高效，轻量级的 Canvas 粒子运动特效库。",
+    "description": "一个轻量、高效、易于使用的 Canvas 粒子运动特效库",
     "seeMore": {
       "text": "了解更多",
       "href": "https://github.com/Barrior/JParticles/blob/master/README.md"
