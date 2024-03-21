@@ -39,9 +39,37 @@ new JParticles.Snow('#demo', {
 })
 ```
 
-### Animation of WeChat chat page
+### Spin Animation
 
 <div class="instance i3">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default open">open</div>
+        <div class="btn btn-default pause">pause</div>
+    </div>
+</div>
+
+Source:
+
+```javascript
+new JParticles.Snow('#demo', {
+  maxR: 20,
+  minR: 10,
+  maxSpeed: 0.3,
+  minSpeed: 0.1,
+  shape: [
+    'star',
+    'https://raw.githubusercontent.com/Barrior/assets/main/gift.png',
+    'https://raw.githubusercontent.com/Barrior/assets/main/smiling-face.gif',
+  ],
+  // open spin animation
+  spin: true,
+})
+```
+
+### Animation of WeChat chat page
+
+<div class="instance i4">
     <div class="demo"></div>
     <div class="handlebar">
         <div class="btn btn-default fall-again">Fall Again</div>
@@ -151,6 +179,24 @@ document.querySelector('.fall-again').addEventListener('click', () => {
 	        <td>0.06</td>
 	        <td>number</td>
 	        <td>The probability of changing direction (after reaching the time interval), the value range is `[0, 1]`.</td>
+	    </tr>
+	    <tr>
+	        <td>spin<sup>v3.5.0</sup></td>
+	        <td>false</td>
+	        <td>boolean</td>
+	        <td>Whether the particle spins.</td>
+	    </tr>
+	    <tr>
+	        <td>spinMaxSpeed<sup>v3.5.0</sup></td>
+	        <td>5</td>
+	        <td>number</td>
+	        <td>The maximum speed of particle spin. `(0, 360)`</td>
+	    </tr>
+	    <tr>
+	        <td>spinMixSpeed<sup>v3.5.0</sup></td>
+	        <td>1</td>
+	        <td>number</td>
+	        <td>The minimum speed of particle spin. `(0, 360)`</td>
 	    </tr>
     </tbody>
 </table>
