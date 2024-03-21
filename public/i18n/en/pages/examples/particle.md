@@ -87,10 +87,41 @@ new JParticles.Particle('#demo', {
     color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
     // custom shapes
     shape: [
-        'triangle', 'star', 'star:4:0.5', 'star:30:0.9',
-        'https://raw.githubusercontent.com/Barrior/assets/main/bubble-colorful.png',
+        'triangle', 'star', 'star:4:0.1', 'star:4:0.5', 'star:4:0.8', 'star:30:0.9',
+        'https://raw.githubusercontent.com/Barrior/assets/main/smiling-face.gif',
         'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
     ],
+})
+```
+
+### Spin Animation
+
+<div class="instance i5">
+  <div class="demo"></div>
+	<div class="handlebar">
+		<div class="btn btn-default open">open</div>
+		<div class="btn btn-default pause">pause</div>
+	</div>
+</div>
+
+Source:
+
+```javascript
+new JParticles.Particle('#demo', {
+    num: 50,
+    maxR: 30,
+    minR: 30,
+    range: 0,
+    color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
+    shape: [
+        'triangle', 'star', 'star:4:0.1', 'star:4:0.5', 'star:4:0.8', 'star:30:0.9',
+        'https://raw.githubusercontent.com/Barrior/assets/main/smiling-face.gif',
+        'https://raw.githubusercontent.com/Barrior/assets/main/bubble.png'
+    ],
+    // open spin animation
+    spin: true,
+    spinMaxSpeed: 10,
+    spinMinSpeed: 1,
 })
 ```
 
@@ -217,6 +248,24 @@ new JParticles.Particle('#demo', {
 	        <td>5</td>
 	        <td>number</td>
 	        <td>The smaller the value, the strength the effect. `(0, +∞)`</td>
+	    </tr>
+	    <tr>
+	        <td>spin<sup>v3.5.0</sup></td>
+	        <td>false</td>
+	        <td>boolean</td>
+	        <td>Whether the particle spins.</td>
+	    </tr>
+	    <tr>
+	        <td>spinMaxSpeed<sup>v3.5.0</sup></td>
+	        <td>5</td>
+	        <td>number</td>
+	        <td>The maximum speed of particle spin. `(0, 360)`</td>
+	    </tr>
+	    <tr>
+	        <td>spinMixSpeed<sup>v3.5.0</sup></td>
+	        <td>1</td>
+	        <td>number</td>
+	        <td>The minimum speed of particle spin. `(0, 360)`</td>
 	    </tr>
     </tbody>
 </table>
