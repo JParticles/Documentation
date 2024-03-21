@@ -15,6 +15,7 @@ export default {
     this.i1()
     this.i2()
     this.i3()
+    this.i4()
   },
   methods: {
     i1() {
@@ -41,6 +42,24 @@ export default {
     },
     i3() {
       this.$bindEffectHandlebar('.instance.i3', $demo => {
+        const effect = new Snow($demo, {
+          num: 2,
+          maxR: 20,
+          minR: 10,
+          maxSpeed: 0.3,
+          minSpeed: 0.1,
+          shape: [
+            'star',
+            getImageSitePath('gift.png'),
+            getImageSitePath('smiling-face.gif'),
+          ],
+          spin: true,
+        })
+        return effect
+      })
+    },
+    i4() {
+      this.$bindEffectHandlebar('.instance.i4', $demo => {
         const fallAgain = document.querySelector('.fall-again')
         const effect = new Snow($demo, {
           num: 2,

@@ -20,6 +20,7 @@ export default {
     this.i2()
     this.i3()
     this.i4()
+    this.i5()
   },
   methods: {
     i1() {
@@ -65,17 +66,43 @@ export default {
         return new Particle($demo, {
           range: 0,
           color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
-          num: 100,
+          num: 50,
           maxR: 30,
           minR: 30,
           shape: [
             'triangle',
             'star',
+            'star:4:0.1',
             'star:4:0.5',
+            'star:4:0.8',
             'star:30:0.9',
-            getImageSitePath('bubble-colorful.png'),
             getImageSitePath('bubble.png'),
+            getImageSitePath('smiling-face.gif'),
           ],
+        })
+      })
+    },
+    i5() {
+      this.$bindEffectHandlebar('.instance.i5', $demo => {
+        return new Particle($demo, {
+          range: 0,
+          color: ['#fff888', '#f9cd76', '#f7b26e', '#d5d02c'],
+          num: 50,
+          maxR: 30,
+          minR: 30,
+          shape: [
+            'triangle',
+            'star',
+            'star:4:0.1',
+            'star:4:0.5',
+            'star:4:0.8',
+            'star:30:0.9',
+            getImageSitePath('bubble.png'),
+            getImageSitePath('smiling-face.gif'),
+          ],
+          spin: true,
+          spinMaxSpeed: 10,
+          spinMinSpeed: 1,
         })
       })
     },

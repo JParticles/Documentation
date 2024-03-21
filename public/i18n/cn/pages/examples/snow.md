@@ -39,9 +39,37 @@ new JParticles.Snow('#demo', {
 })
 ```
 
-### 微信聊天撒花动画
+### 自旋
 
 <div class="instance i3">
+    <div class="demo"></div>
+    <div class="handlebar">
+        <div class="btn btn-default open">开启</div>
+        <div class="btn btn-default pause">暂停</div>
+    </div>
+</div>
+
+源代码：
+
+```javascript
+new JParticles.Snow('#demo', {
+    maxR: 20,
+    minR: 10,
+    maxSpeed: 0.3,
+    minSpeed: 0.1,
+    shape: [
+        'star',
+        'https://raw.githubusercontent.com/Barrior/assets/main/gift.png',
+        'https://raw.githubusercontent.com/Barrior/assets/main/smiling-face.gif',
+    ],
+    // 开启自旋
+    spin: true,
+})
+```
+
+### 微信聊天撒花动画
+
+<div class="instance i4">
     <div class="demo"></div>
     <div class="handlebar">
         <div class="btn btn-default fall-again">再次演示</div>
@@ -151,6 +179,24 @@ document.querySelector('.fall-again').addEventListener('click', () => {
 	        <td>0.06</td>
 	        <td>number</td>
 	        <td>变换方向的概率（达到时间间隔后），取值范围 `[0, 1]`。</td>
+	    </tr>
+	    <tr>
+	        <td>spin<sup>v3.5.0</sup></td>
+	        <td>false</td>
+	        <td>boolean</td>
+	        <td>粒子是否自旋</td>
+	    </tr>
+	    <tr>
+	        <td>spinMaxSpeed<sup>v3.5.0</sup></td>
+	        <td>5</td>
+	        <td>number</td>
+	        <td>粒子自旋最大运动速度，`(0, 360)`。</td>
+	    </tr>
+	    <tr>
+	        <td>spinMixSpeed<sup>v3.5.0</sup></td>
+	        <td>1</td>
+	        <td>number</td>
+	        <td>粒子自旋最小运动速度，`(0, 360)`。</td>
 	    </tr>
     </tbody>
 </table>
